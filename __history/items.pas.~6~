@@ -1,0 +1,20 @@
+unit items;
+
+interface
+
+type
+
+TItem = class(TObject)
+
+private
+
+public
+create Create(fStock, fStockName, fSupplierID, fImageFile, fCategory: String; fQuantity: Integer; fUnitCost : Real);
+end;
+
+implementation
+
+{ TItem }
+
+
+end.

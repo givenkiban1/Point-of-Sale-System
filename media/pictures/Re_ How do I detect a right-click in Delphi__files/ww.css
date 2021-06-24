@@ -1,0 +1,54 @@
+BODY, P, A, TD { font-family: verdana, Helvetica, sans-serif; color: #000000; font-size: 12px }
+A { color: #003399 }
+A.nav { font-weight: bold }
+A.navbo { Color: #808080; font-size: 9pt}
+A.ariboldtoverda { color: #ffffff; font-weight: bold }
+H1 { color: #FEFEFF; background-color: #0050b0; height: 20px; font-size: 13px; font-weight: bold; text-align: center }
+PRE { font-family: "courier new", courier, monospace; color: #000000; font-size: 12px; margin: 0px }
+.rela td { font: 10px Verdana, Arial, Helvetica, sans-serif }
+.asv { float: right; height: 260px; width: 130px }
+.btn { font-family: Verdana, Arial, Helvetica; font-size: 8pt;  height: 25px; width: 100px; background-color: #E8E8E8;
+  margin: 0px 0px 0px 10px; border-width: 2px; color: #505050 }
+.by { vertical-align: middle; font-family: verdana, arial, sans-serif; font-size: 12px;
+	background-color: #0050b0; color: #FFFFFF; height: 22px }
+.darkredbold { Color: #CC0000; FONT-WEIGHT: bold }
+.comts { color: #009900; font-style: italic }
+.preg {
+	color: #000000;
+	background-color: #F0F0FF;
+	width: 600px;
+	padding: 8px;
+	border: 1px solid #d8d8d8;
+	margin: 8px 0px
+}
+.posted { padding-left: 30px; margin-bottom: 30px }
+hr { color: #90B0E0; height: 1px; width: 100% }
+b { color: #0060f0 }
+li a { font-weight: bold }
+.navbo2 {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-top-color: #A0A0B0;
+	border-right-color: #A0A0B0;
+	border-bottom-color: #A0A0B0;
+	border-left-color: #A0A0B0;
+	background-color: #E0E0FF;
+	padding: 2px;
+	text-align: center;
+}
+.navbo3 { color: #6666A0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
+.re { border-top: 1px none #90B0E0; border-right: 1px none #90B0E0; border-bottom: 1px solid #90B0E0;
+	border-left: 1px none #90B0E0; width: 350px }
+#navleft { position: absolute; top: 4px; left: 0px }
+#cont { position: absolute; left: 142px; top: 0px }
+.bliteblue { color: #0060f0; font-weight: bold }
+code { font: 14px "Courier New", Courier, mono; color: #505050 }
+.boardinp { background: #e8e8e8; border: 1px solid #b0d0e8; width: 400px }
+li { margin-bottom: 8px }
+.keyw { font-weight: bold; color: #0000A0 }

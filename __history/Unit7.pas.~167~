@@ -1,0 +1,200 @@
+unit Unit7;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, pngimage,db_management, ComCtrls;
+
+type
+  TForm7 = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    edtPassword: TEdit;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Panel2: TPanel;
+    Button2: TButton;
+    Button3: TButton;
+    Label8: TLabel;
+    ComboBox1: TComboBox;
+    imgBtnTogglePassword: TImage;
+    Label9: TLabel;
+    edtWage: TEdit;
+    Label7: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure togglePassword;
+    procedure imgBtnTogglePasswordClick(Sender: TObject);
+    procedure clearAll;
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    empID : String;
+  end;
+
+var
+  Form7: TForm7;
+  passwordShowing : Boolean;
+  POSQuery : TPOSQuery;
+  arrEdits : array[1..5] of TEdit;
+
+implementation
+uses unit6;
+{$R *.dfm}
+
+procedure TForm7.Button2Click(Sender: TObject);
+var
+  fName, surname, gender, email, said,
+  password: String; AccStat, Admin: Boolean;
+  resp : string;
+  hwage : Real;
+begin
+//
+fName:= Edit1.Text;
+surname:=Edit2.Text;
+gender:=ComboBox1.Items[ComboBox1.ItemIndex];
+email:=Edit4.Text;
+said:=Edit5.Text;
+password:=edtPassword.Text;
+AccStat:= CheckBox1.Checked;
+Admin:= CheckBox2.Checked;
+hwage := StrToFloat(edtWage.Text);
+
+//check that data is correct- Validation
+
+POSQuery := TPOSQuery.create;
+
+if Panel2.Caption <> 'UPDATE EMPLOYEE' then
+    begin
+        resp:= POSQuery.createEmployee(fName,surname,gender,email,said,password,AccStat, Admin,hwage);
+
+        if resp<>'' then
+          ShowMessage('Employee Account Has been created. The Employee ID is '+resp)
+        else
+        ShowMessage('Error while creating Employee Account. If error persists, please contact admin.');
+        //also have a profile for vendors, like from vendors page, manager can view all products supplied
+    end
+    else
+    begin
+        resp:= POSQuery.updateEmployee(empID,fName,surname,gender,email,said,password,AccStat, Admin,hwage, Null);
+        ShowMessage(resp);
+    end;
+clearAll;
+unit6.Form6.Enabled:=true;
+Form7.hide;
+end;
+
+procedure TForm7.Button3Click(Sender: TObject);
+begin
+clearAll;
+end;
+
+procedure TForm7.clearAll;
+var i:integer;
+    obj : TObject;
+begin
+
+for i := 0 to Form7.ComponentCount-1 do
+  begin
+    obj := (Form7.Components[i] as TObject);
+    if  (obj is TEdit) then
+        //ShowMessage( (obj as TEdit).Text )
+        (obj as TEdit).Text:=''
+    else
+    if  (obj is TComboBox) then
+        //ShowMessage( (obj as TComboBox).Text )
+        (obj as TComboBox).ItemIndex:=0
+    else
+    if (obj is TCheckBox) then
+        //ShowMessage( (obj as TCheckBox).Caption )
+        (obj as TCheckBox).Checked:=false;
+  end;
+
+passwordShowing:=false;
+
+togglePassword;
+
+i:=1;
+arrEdits[i].setFocus;
+Label11.Hide;
+DateTimePicker1.Hide;
+unit6.Form6.Enabled:=true;
+Form7.hide;
+end;
+
+procedure TForm7.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+clearAll;
+end;
+
+procedure TForm7.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+end;
+
+procedure TForm7.FormCreate(Sender: TObject);
+begin
+(Sender as TForm).Position:=poScreenCenter;
+(Sender as TForm).DefaultMonitor := dmMainForm;
+passwordShowing := False;
+togglePassword;
+POSQuery:=TPOSQuery.create;
+arrEdits[1]:=Edit1;
+arrEdits[2]:=Edit2;
+arrEdits[3]:=Edit4;
+arrEdits[4]:=Edit5;
+arrEdits[5]:=edtPassword;
+Label11.Hide;
+DateTimePicker1.Hide;
+//DateTimePicker1.MaxDate := Now;
+end;
+
+procedure TForm7.imgBtnTogglePasswordClick(Sender: TObject);
+begin
+togglePassword;
+end;
+
+procedure TForm7.togglePassword;
+begin
+if passwordShowing = True then
+    begin
+      passwordShowing := False;
+      edtPassword.PasswordChar := chr(0);
+      imgBtnTogglePassword.Picture.LoadFromFile('media\icons\lock-128.png');
+    end
+else
+    begin
+      passwordShowing := True;
+      edtPassword.PasswordChar := '•';
+      imgBtnTogglePassword.Picture.LoadFromFile('media\icons\unlocked-128.png');
+    end;
+end;
+
+end.
+
+{ code that might be useful
+for i := 1 to length(arrEdits) do
+  arrEdits[i].clear;
+
+ComboBox1.ItemIndex:=0;
+CheckBox1.Checked:=false;
+CheckBox2.Checked:=false;
+}
+
+

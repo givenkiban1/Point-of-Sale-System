@@ -1,0 +1,357 @@
+object Form23: TForm23
+  Left = 0
+  Top = 0
+  ClientHeight = 591
+  ClientWidth = 1040
+  Color = clBlack
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnShow = FormShow
+  DesignSize = (
+    1040
+    591)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 834
+    Top = 577
+    Width = 134
+    Height = 13
+    Anchors = []
+    Caption = 'Developed by GinTEC -2018'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object TabbedNotebook1: TTabbedNotebook
+    Left = 24
+    Top = 56
+    Width = 993
+    Height = 519
+    PageIndex = 1
+    TabFont.Charset = DEFAULT_CHARSET
+    TabFont.Color = clBtnText
+    TabFont.Height = -11
+    TabFont.Name = 'Tahoma'
+    TabFont.Style = []
+    TabOrder = 0
+    object TTabPage
+      Left = 4
+      Top = 24
+      Caption = 'EMPLOYEE WAGES'
+      object Panel2: TPanel
+        Left = 0
+        Top = 0
+        Width = 985
+        Height = 491
+        Align = alClient
+        Color = clRed
+        ParentBackground = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 632
+          Top = 152
+          Width = 31
+          Height = 13
+          Caption = 'Label1'
+        end
+        object Panel4: TPanel
+          Left = 1
+          Top = 1
+          Width = 983
+          Height = 41
+          Align = alTop
+          BevelOuter = bvNone
+          Caption = 'EMPLOYEE WAGES'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -48
+          Font.Name = 'Takion'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object Button1: TButton
+          Left = 632
+          Top = 72
+          Width = 209
+          Height = 57
+          Hint = 'You have paid all employees already'
+          Caption = 'PAY EMPLOYEE'
+          TabOrder = 1
+          OnClick = Button1Click
+        end
+        object DBGrid1: TDBGrid
+          Left = 19
+          Top = 72
+          Width = 575
+          Height = 401
+          DataSource = DataSource1
+          TabOrder = 2
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'RecordNo'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'EmployeeID'
+              Width = 100
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DateOfDay'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'ClockInTime'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'ClockOutTime'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Paid'
+              Visible = True
+            end>
+        end
+      end
+    end
+    object TTabPage
+      Left = 4
+      Top = 24
+      Caption = 'TAXES'
+      object Panel3: TPanel
+        Left = 0
+        Top = 0
+        Width = 985
+        Height = 491
+        Align = alClient
+        Color = clLime
+        ParentBackground = False
+        TabOrder = 0
+        object Label3: TLabel
+          Left = 672
+          Top = 112
+          Width = 31
+          Height = 13
+          Caption = 'Label3'
+        end
+        object Panel5: TPanel
+          Left = 1
+          Top = 1
+          Width = 983
+          Height = 41
+          Align = alTop
+          BevelOuter = bvNone
+          Caption = 'TAXES'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -48
+          Font.Name = 'Takion'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object DBGrid2: TDBGrid
+          Left = 56
+          Top = 64
+          Width = 585
+          Height = 377
+          DataSource = DataSource2
+          TabOrder = 1
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
+        object Button2: TButton
+          Left = 728
+          Top = 167
+          Width = 129
+          Height = 65
+          Hint = 'You have paid all Taxes due already'
+          Caption = 'MAKE SINGLE PAYMENT'
+          TabOrder = 2
+          OnClick = Button2Click
+        end
+        object Button3: TButton
+          Left = 728
+          Top = 254
+          Width = 129
+          Height = 65
+          Hint = 'You have paid all Taxes due already'
+          Caption = 'PAY OFF ALL '
+          TabOrder = 3
+        end
+      end
+    end
+    object TTabPage
+      Left = 4
+      Top = 24
+      Caption = 'ORDERS'
+      object Panel6: TPanel
+        Left = 0
+        Top = 0
+        Width = 985
+        Height = 491
+        Align = alClient
+        TabOrder = 0
+        object Panel7: TPanel
+          Left = 1
+          Top = 1
+          Width = 983
+          Height = 41
+          Align = alTop
+          BevelOuter = bvNone
+          Caption = 'STOCK ORDERS'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -48
+          Font.Name = 'Takion'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object DBGrid3: TDBGrid
+          Left = 56
+          Top = 64
+          Width = 425
+          Height = 377
+          TabOrder = 1
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1040
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'MAKE PAYMENTS'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clSilver
+    Font.Height = -48
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    TabOrder = 1
+    object Image1: TImage
+      Left = 0
+      Top = -1
+      Width = 49
+      Height = 42
+      Cursor = crHandPoint
+      Center = True
+      Picture.Data = {
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000260000
+        002608030000009FE3199C0000000467414D410000B18F0BFC61050000003650
+        4C544500000077828C77828C77828C77828C77828C77828C77828C77828C7782
+        8C77828C77828C77828C77828C77828C77828C77828C000000DC443D35000000
+        1074524E53004080A0C0F03090E010D050602070B016A2AB0E00000009704859
+        7300000B1200000B1201D2DD7EFC00000001624B47440088051D480000014B49
+        44415478DA8D94D99284200C4583A2A303DAF3FF5F39DDA8206E4D141594B2E0
+        C16239DE40089780DFF24C9A2F1785F4A6893B602A617B5FD34504313E16BEB2
+        F815372C9F396A4CB42B643E540417DA69BE60BC37E144AA0FA93245F126932E
+        C6A9992A851F344919E8459E18529F19AE2DA7B9E5568C65006303F75612C375
+        16AB140B531B27FB0D7B91B57B24069C5F50A2D388911728752EA495276D36D4
+        8C88510EEFC5A5DCA15D2650A588BB94BF4F134C4C04EAC499BF530045D10E04
+        457BF9404152C39BC0DF19334861D40F315BDBF31FA6C0080982EC7C505AB9EB
+        4C58AC416C68F77BBD34BB1BCA576C4B9339F133161334F2089109C1F4FE3F5D
+        02FC9498DEC8CB8ABCFAC842427CADF79373E54CD6B7B2BC16793D078B3CF6C9
+        443EC0D8E76CCD21D13E55CB8B39C45ACD6E5C6AA11D17685C1D0B191744DAE0
+        7AE21853DD62872DFA0B4A8DCA436A73F1F90000000049454E44AE426082}
+      OnClick = Image1Click
+    end
+  end
+  object ADOTable1: TADOTable
+    Connection = DataModule1.dbProvider
+    CursorType = ctStatic
+    TableName = 'tblAttendance'
+    Left = 8
+    Top = 88
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 40
+    Top = 88
+  end
+  object ADOQuery1: TADOQuery
+    Connection = DataModule1.dbProvider
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT RecordNo, EmployeeID, DateOfDay,'
+      'IIF ( (HOUR(ClockOutTime)  -HOUR( ClockInTime)) = 0 ,'
+      'CDbl('
+      'Format('
+      
+        '(HOUR(ClockOutTime)  -HOUR( ClockInTime) + (  (MINUTE(ClockOutTi' +
+        'me)  -MINUTE(ClockInTime) ) /60) )  ,'
+      '"0.00"'
+      ')),'
+      ''
+      'CDbl('
+      'Format('
+      
+        '(HOUR(ClockOutTime)  -HOUR( ClockInTime) -1 + (  (MINUTE(ClockOu' +
+        'tTime)  -MINUTE(ClockInTime) + 60) /60) ),'
+      '"0.00"'
+      '))'
+      ''
+      ')  AS [NUMBER OF HOURS WORKED]'
+      ' FROM tblAttendance WHERE PAID = FALSE')
+    Left = 992
+    Top = 32
+  end
+  object DataSource2: TDataSource
+    DataSet = ADOQuery2
+    Left = 832
+    Top = 56
+  end
+  object ADOTable2: TADOTable
+    Connection = DataModule1.dbProvider
+    Left = 72
+    Top = 88
+  end
+  object ADOQuery2: TADOQuery
+    Connection = DataModule1.dbProvider
+    Parameters = <>
+    Left = 864
+    Top = 56
+  end
+  object ADOQuery3: TADOQuery
+    Connection = DataModule1.dbProvider
+    Parameters = <>
+    Left = 792
+    Top = 64
+  end
+end

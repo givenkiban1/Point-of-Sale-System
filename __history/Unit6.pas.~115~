@@ -1,0 +1,304 @@
+unit Unit6;
+
+interface
+
+uses
+  dbConn_u,Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, unit7, Buttons, StdCtrls, ExtCtrls, Grids, DBGrids, pngimage, DB,
+  ADODB, UserAcc;
+
+type
+  TForm6 = class(TForm)
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    GridPanel1: TGridPanel;
+    Panel1: TPanel;
+    Image2: TImage;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn2: TBitBtn;
+    BitBtn1: TBitBtn;
+    ComboBox2: TComboBox;
+    ComboBox1: TComboBox;
+    ComboBox3: TComboBox;
+    BitBtn4: TBitBtn;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    GridPanel3: TGridPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Panel3: TPanel;
+    GridPanel2: TGridPanel;
+    BitBtn3: TBitBtn;
+    Button5: TButton;
+    Label4: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormShow(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Account : TAccount;
+    procedure updateStat;
+    procedure fixDb;
+  end;
+
+var
+  Form6: TForm6;
+  searching: Boolean = False;
+  sorting: Boolean = False;
+  searchquery : string = '';
+
+implementation
+Uses dashboard_u,unit17;
+
+{$R *.dfm}
+
+procedure TForm6.BitBtn1Click(Sender: TObject);
+begin
+  ComboBox1.ItemIndex := -1;
+  ComboBox2.ItemIndex := -1;
+  ComboBox3.ItemIndex := -1;
+  ComboBox2.Text:='';
+  ComboBox3.Text:='';
+  ComboBox1.Text:='';
+
+  Edit1.Clear;
+  fixDb;
+end;
+
+procedure TForm6.BitBtn2Click(Sender: TObject);
+begin
+  if (ComboBox2.ItemIndex > -1) and (Edit1.Text<>'') then
+    begin
+
+        searching := true;
+        sorting := false;
+        updateStat;
+
+        ADOQuery1.Close;
+        ADOQuery1.SQL.text := 'Select * from tblEmployees WHERE ADMIN = FALSE AND ' + ComboBox2.Text + ' LIKE ' + QuotedStr('%'+Edit1.Text+'%');
+        searchquery :=ADOQuery1.SQL.text;
+        ADOQuery1.Open;
+
+        DBGrid1.Columns[0].Width := 100;
+        DBGrid1.Columns[1].Width := 150;
+        DBGrid1.Columns[2].Width := 150;
+        DBGrid1.Columns[3].Width := 200;
+        DBGrid1.Columns[4].Width := 200;
+        DBGrid1.Columns[5].Width := 200;
+        DBGrid1.Columns[6].Width := 100;
+        DBGrid1.Columns[7].Width := 70;
+    end
+  else
+    ShowMessage('You need to select a field and enter search value ');
+
+end;
+
+procedure TForm6.BitBtn3Click(Sender: TObject);
+begin
+fixDb;
+end;
+
+procedure TForm6.BitBtn4Click(Sender: TObject);
+begin
+  if (ComboBox1.ItemIndex > -1) and (ComboBox3.ItemIndex > -1) then
+  begin
+    ADOQuery1.Close;
+    sorting := true;
+    if searching then
+    begin
+      if MessageDlg('Do you wish to sort the search results ?', mtWarning,
+        [mbYes, mbNo], 0) = 6 then
+        ADOQuery1.SQL.text := searchquery + ' AND ADMIN = FALSE ORDER BY ' + ComboBox1.Text + ' ' +
+          ComboBox3.Text
+      else
+      begin
+        ADOQuery1.SQL.Text :=
+          'Select * from tblEmployees WHERE ADMIN = FALSE ORDER BY ' + ComboBox1.Text + ' ' +
+          ComboBox3.Text;
+        searchquery:='';
+        searching := False;
+      end;
+    end
+    else
+    ADOQuery1.SQL.Text := 'Select * from tblEmployees WHERE ADMIN = FALSE ORDER BY ' + ComboBox1.Text + ' ' +ComboBox3.Text;
+
+    updateStat;
+
+
+    ADOQuery1.Open;
+
+    DBGrid1.Columns[0].Width:=70;
+    DBGrid1.Columns[1].Width:=100;
+    DBGrid1.Columns[2].Width:=100;
+    DBGrid1.Columns[3].Width:=20;
+    DBGrid1.Columns[4].Width:=150;
+    DBGrid1.Columns[5].Width:=100;
+    DBGrid1.Columns[6].Width:=100;
+    DBGrid1.Columns[7].Width:=100;
+    DBGrid1.Columns[8].Width:=100;
+    DBGrid1.Columns[9].Width:=100;
+    DBGrid1.Columns[10].Width:=50;
+
+    sorting := True;
+  end
+  else
+    ShowMessage
+      ('You need to select both a field and an ORDER in order to sort');
+end;
+
+procedure TForm6.Button1Click(Sender: TObject);
+var
+  x: Integer;
+  siD: String;
+begin
+  x := ADOQuery1.recNo;
+  siD := ADOQuery1['EmployeeID'];
+  if MessageDlg('Are you sure you wish to delete record ' + IntToStr(x),
+    mtWarning, [mbYes, mbNo], 0) = 6 then
+  begin
+    ADOQuery1.Close;
+    ADOQuery1.SQL.Text := 'DELETE FROM tblEmployees where EmployeeID = ' + QuotedStr(siD);
+    if ADOQuery1.ExecSQL > 0 then
+      ShowMessage('Record No. ' + IntToStr(x) + ' deleted')
+    else
+      ShowMessage(
+        'ERROR DELETING RECORD. TRY AGAIN LATER, HOWEVER IF PROBLEM PERSISTS CONTACT ADMINISTRATOR');
+    fixDb;
+  end
+  else
+    ShowMessage('No record deleted.');
+
+end;
+
+procedure TForm6.Button2Click(Sender: TObject);
+begin
+unit7.Form7.Panel2.Caption:='UPDATE EMPLOYEE';
+
+with unit7.Form7 do
+  begin
+    //Label11.Show;
+    //DateTimePicker1.Show;
+    Edit1.Text := ADOQuery1['firstName'];
+    Edit2.Text := ADOQuery1['Surname'];
+    ComboBox1.Text := ADOQuery1['Gender'];
+    Edit4.Text := ADOQuery1['Email'];
+    Edit5.Text := ADOQuery1['SAID'];
+    edtPassword.Text := ADOQuery1['Password'];
+    edtWage.Text := FloatToStr(ADOQuery1['HourlyWage']);
+    CheckBox1.Checked := ADOQuery1['Account_Status'];
+    empID := ADOQuery1['EmployeeID'];
+  end;
+unit7.Form7.Show;
+Form6.Enabled:=False;
+end;
+
+procedure TForm6.Button3Click(Sender: TObject);
+begin
+//
+end;
+
+procedure TForm6.Button5Click(Sender: TObject);
+begin
+unit7.Form7.Button2.Caption:='CREATE EMPLOYEE';
+unit7.Form7.Show;
+Form6.Enabled:=False;
+end;
+
+procedure TForm6.fixDb;
+begin
+  ADOQuery1.Close;
+  ADOQuery1.SQL.Text := 'Select * from tblEmployees WHERE ADMIN = FALSE';
+  ADOQuery1.Open;
+
+  DBGrid1.Columns[0].Width:=70;
+  DBGrid1.Columns[1].Width:=100;
+  DBGrid1.Columns[2].Width:=100;
+  DBGrid1.Columns[3].Width:=20;
+  DBGrid1.Columns[4].Width:=150;
+  DBGrid1.Columns[5].Width:=100;
+  DBGrid1.Columns[6].Width:=100;
+  DBGrid1.Columns[7].Width:=100;
+  DBGrid1.Columns[8].Width:=100;
+  DBGrid1.Columns[9].Width:=100;
+  DBGrid1.Columns[10].Width:=50;
+
+  Button1.Enabled := Not (ADOQuery1.RecordCount = 0);
+  Button2.Enabled := Not (ADOQuery1.RecordCount = 0);
+
+end;
+
+procedure TForm6.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+
+if (NewHeight>=400) and (NewWidth>=800)  then
+  Resize := True
+else Resize := False;
+
+end;
+
+procedure TForm6.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+form15.show;
+form6.hide;
+end;
+
+procedure TForm6.FormCreate(Sender: TObject);
+var
+  i: Integer;
+begin
+  (Sender as TForm).Position := poScreenCenter;
+  (Sender as TForm).DefaultMonitor := dmMainForm;
+  fixDb;
+  for i := 0 to ADOQuery1.FieldCount - 1 do
+  begin
+    ComboBox1.Items.Add(ADOQuery1.Fields[i].FieldName);
+    ComboBox2.Items.Add(ADOQuery1.Fields[i].FieldName);
+  end;
+
+Form6.Color:=RGB(255,140,0);
+end;
+
+procedure TForm6.FormShow(Sender: TObject);
+begin
+fixDb;
+end;
+
+procedure TForm6.Image2Click(Sender: TObject);
+begin
+form15.show;
+form6.hide;
+end;
+
+procedure TForm6.updateStat;
+begin
+  if searching = False then
+  begin
+    ComboBox2.ItemIndex := -1;
+    Edit1.Clear;
+  end;
+
+  if sorting = False then
+  begin
+    ComboBox1.ItemIndex := -1;
+    ComboBox3.ItemIndex := -1;
+  end;
+end;
+
+end.

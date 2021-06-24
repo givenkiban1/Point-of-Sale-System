@@ -1,0 +1,215 @@
+/**
+ * @author: Themba Ntleki <themba.ntleki@gmail.com>
+ * @date 08-Jun-2013, 09:42:46
+ */
+
+$.ajaxSetup({cache: false, type:"POST", timeout:60000, async: true,dataType:'json'});
+//$("*").ajaxSend(function(xhr){ $('<div class="alert alert-info ajax_loader_alert" style="display:block;position:fixed;z-index:999999;top:45%;left:50%;margin-left:-100px;width:200px;"> <img src="/ajax-loader.gif"/> working, please wait...</div>').appendTo(document.body).hide().delay("1500").fadeIn("slow", function(){}); });
+//$("*").ajaxComplete(function(){ setTimeout( function() { $(".ajax_loader_alert").remove(); },3500);  });
+
+
+
+
+//responsive youtube videos
+$(function() {
+    
+    
+
+});
+ 
+$(document).ready(function() { 
+    
+    /**
+     * Make tooltips for all dom elements with title attribute.
+     */
+    $('[title]').tooltip();
+    
+    /**
+     * Homepage sliders
+     */
+    $('.carousel').carousel({interval:8000,pause:"hover"});
+    
+    /**
+     * Highlight active accordion item.
+     */
+    accordion_fix();
+    
+    //resolution
+    //$("#appendedInputButton").val($(window).width() + "x" + $(window).height());
+    
+    //popover_links
+    $(".popover_link").popover();
+    
+    //Add class="nav nav-pills nav-stacked" to sidebar
+    $(".sidebar").find("ul").addClass("nav nav-pills nav-stacked").css({"margin-bottom":"5px"});
+    $(".sidebar").find("ul.nav-pills").find("a").css({"margin":"1px","padding":"4px"});
+    
+    //calendar z-index
+    $("#mediaContactModal").parent().css('position','relative');
+    $("#mediaContactModal").css('z-index',1999990);
+    //calendar z-index
+    $("#econContactModal").parent().css('position','relative');
+    $("#econContactModal").css('z-index',2000000);
+    
+    var $allVideos = $("iframe[src*='player.vimeo.com'], iframe[src*='youtube.com'], object, embed");    
+    
+	$allVideos.each(function() {
+        $(this).wrap('<div class="figure">');
+	  $(this)
+	    // jQuery .data does not work on object/embed elements
+	    .attr('data-aspectRatio', this.height / this.width)
+	    .removeAttr('height')
+	    .removeAttr('width');
+	
+	});
+        
+        $fluidEl = $(".figure");	
+	$(window).resize(function() {
+	
+	  var newWidth = $fluidEl.width();
+	  $allVideos.each(function() {
+	  
+	    var $el = $(this);
+	    $el
+	        .width(newWidth)
+	        .height(newWidth * $el.attr('data-aspectRatio'));
+	  
+	  });
+	
+	}).resize();
+    
+    
+    //Adding target _blank
+    
+    var target_blanks = new Array();
+    target_blanks[0] = "#menu-item-296";
+    target_blanks[1] = "#menu-item-592";
+    target_blanks[2] = "#menu-item-314";
+    target_blanks[3] = "#menu-item-859";
+    target_blanks[4] = "#menu-item-868";
+    //target_blanks[5] = "#menu-item-316";
+    target_blanks[6] = "#menu-item-319";
+    target_blanks[7] = "#menu-item-320";
+    target_blanks[8] = "#menu-item-317";
+    target_blanks[9] = "#menu-item-318";
+    target_blanks[10] = "#menu-item-1001";
+    //target_blanks[11] = "#menu-item-321";
+    target_blanks[12] = "#menu-item-322";
+    target_blanks[13] = "#menu-item-323";
+    target_blanks[14] = "#menu-item-333";
+    //target_blanks[15] = "#menu-item-267";
+    target_blanks[16] = "#menu-item-996";
+    target_blanks[17] = "#menu-item-942";
+    target_blanks[18] = "#menu-item-290";
+    target_blanks[19] = "#menu-item-293";
+    target_blanks[20] = "#menu-item-292";
+    target_blanks[21] = "#menu-item-943";
+    target_blanks[22] = "#menu-item-278";
+    target_blanks[23] = "#menu-item-269";
+    target_blanks[24] = "#menu-item-315";
+    target_blanks[25] = "#menu-item-311";    
+    target_blanks[26]= "#slider_1415";
+    target_blanks[27] = "#menu-item-1478";
+    target_blanks[28] = "#slider_2154";
+    target_blanks[29] = "#slider_2768";
+    target_blanks[30] = "#slider_2892";
+    target_blanks[31] = "#slider_2986";
+    target_blanks[32] = "#slider_3193";
+    target_blanks[33] = "#menu-item-3524";
+    
+    target_blanks[33] = "#slider_3564";
+    target_blanks[34] = "#slider_4058";
+    target_blanks[35] = "#menu-item-4133";
+    target_blanks[36] = "#slider_4452";
+    target_blanks[37] = "#slider_4763";
+    target_blanks[38] = "#slider_6124";
+	target_blanks[38] = "#slider_9526";
+	//target_blanks[39] = "#slider_9526";
+	
+    
+    
+   
+    $("#slider_2164").find("a").attr("target","_blank");
+    //$("#slider_2154").find("a").attr("target","_blank");
+    
+
+    for (var i=0;i<target_blanks.length;i++) {
+        $(target_blanks[i]).find("a").attr("target","_blank");        
+    }
+    
+    //href="#whatsonModal" role="button" data-toggle="modal"
+    $("#menu-item-1362").find("a").attr("href","#mediaContactModal");
+    $("#menu-item-1362").find("a").attr("role","button");
+    $("#menu-item-1362").find("a").attr("data-toggle","modal");
+    
+     $("#menu-item-4215").find("a").attr("href","#econContactModal");
+    $("#menu-item-4215").find("a").attr("role","button");
+    $("#menu-item-4215").find("a").attr("data-toggle","modal");
+    
+    /*$("#menu-item-318").find("a").attr("href","#SuperWebModal");
+    $("#menu-item-318").find("a").attr("role","button");
+    $("#menu-item-318").find("a").attr("data-toggle","modal");*/
+    /*$("#menu-item-309").find("a").click(function(){
+        alert("sdsd");
+    }); */
+    
+    $(".social-icons").find(".linkedin").remove();    
+   // $("#menu-footer-colum-4-tools").append('<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.statssa.gov.za/timeseriesdata/timeseriesdata.asp" target="_blank">Time Series Data</a></li>');
+    //$("#menu-footer-colum-4-tools").append('<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://interactive.statssa.gov.za:8282/webview/" target="_blank">Datasets</a></li>');
+    //$("#menu-footer-colum-4-tools").append('<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://interactive.statssa.gov.za:8282/webview/" target="_blank">Nesstar</a></li>');
+    $("#menu-footer-colum-5-links").append('<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://webmail.statssa.gov.za" target="_blank">GroupWise</a></li>');
+    
+    //$(".container").append('<div class="alert-error" style="padding:3px;position:fixed;top:0;"><button type="button" class="close" data-dismiss="alert">&times;</button>Please note that this is a new Data Portal. Not all content and features are available in the new format yet. </div>');
+    if(!$.cookie('upgrade_alert')) {
+        //$('<div class="alert alert-error alert-upgrade" style="display:block;position:fixed;z-index:999999;top:3px;left:50%;margin-left:-100px;width:200px;"><button type="button" class="close" data-dismiss="alert">&times;</button> <i class="icon-warning-sign"></i> <strong>Urgent Notice:</strong></br> 1. The release of the Quarterly Employment Statistics release (P0277) has been postponed to Monday 29th September. Press will be briefed on impending improvements. Any inconvenience suffered is regretted.</div>').appendTo(document.body).hide().delay("2000").fadeIn("slow", function(){});
+        //$('<div class="alert alert-error alert-upgrade" style="display:block;position:fixed;z-index:999999;top:3px;left:50%;margin-left:-100px;width:200px;"><button type="button" class="close" data-dismiss="alert">&times;</button> <i class="icon-warning-sign"></i> <strong>Please note</strong> that QLFS datasets are reweighted to reflect new estimates based on the population census of 2011. Selected historical tables (2008-13) were released along with the QLFS Q4 2013 results. Q4 data and metadata are available in CDs and Website. Reweighted datasets will be available not later than 21 Feb 14.</div>').appendTo(document.body).hide().delay("2000").fadeIn("slow", function(){});
+       // $('<div class="alert alert-info alert-upgrade" style="display:block;position:fixed;z-index:999999;top:3px;left:50%;margin-left:-100px;width:200px;"><button type="button" class="close" data-dismiss="alert">&times;</button> <i class="icon-warning-sign"></i> <strong>Please note</strong> Stats SA deeply regrets today\'s  earlier than planned release of the \"P2041 - Mining: Production and sales\", due to technical upgrades to the normal release technology. We apologize unreservedly for any inconvenience experienced during this time.<br /></div>').appendTo(document.body).hide().delay("2000").fadeIn("slow", function(){});
+        $(".alert-upgrade").find(".close").click(function(){
+            //alert("here");
+           $.cookie('upgrade_alert', '1', { expires: 1 });
+        });
+    }        
+    
+
+});
+
+
+/**
+ * accordion_fix() highlights active accordion item.
+ */
+function accordion_fix() {
+    $(".accordion").find(".accordion-body").each(function(count,elem) {
+       if($(elem).hasClass("in")) {
+           $(elem).siblings(".accordion-heading").addClass("accordion-heading_active");
+       } else {
+           $(elem).siblings(".accordion-heading").removeClass("accordion-heading_active");
+       }
+    });
+    
+    $(".accordion-toggle").click(function(){ 
+        $(".accordion").find(".accordion-heading").removeClass("accordion-heading_active");
+        $(this).parent(".accordion-heading").addClass("accordion-heading_active");
+    });
+}
+
+/**
+ * Save state for Tabs
+ */
+function save_tab_selection() {
+    $('a[data-toggle="tab"]').on('shown', function(e) {
+       //save the latest tab using a cookie:
+       $.cookie('last_tab', $(e.target).attr('href'));
+    });
+    
+    //activate latest tab, if it exists:
+    var lastTab = $.cookie('last_tab');
+    if (lastTab) {
+        $('ul.nav-tabs').children().removeClass('active');
+        $('a[href='+ lastTab +']').parents('li:first').addClass('active');
+        $('div.tab-content').children().removeClass('active');
+        $(lastTab).addClass('active');
+    }
+
+}
+
+

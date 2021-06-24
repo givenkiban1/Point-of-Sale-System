@@ -1,0 +1,23 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 301
+  Width = 451
+  object dbProvider: TADOConnection
+    KeepConnection = False
+    LoginPrompt = False
+    Left = 32
+    Top = 48
+  end
+  object loginQuery: TADOQuery
+    Connection = dbProvider
+    Parameters = <>
+    Left = 184
+    Top = 48
+  end
+  object ADOTable1: TADOTable
+    Connection = dbProvider
+    Left = 336
+    Top = 48
+  end
+end

@@ -1,0 +1,302 @@
+object reportPage: TreportPage
+  Left = 0
+  Top = 0
+  Caption = 'REPORT'#39'S FORM'
+  ClientHeight = 729
+  ClientWidth = 1012
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCanResize = FormCanResize
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnShow = FormShow
+  DesignSize = (
+    1012
+    729)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 56
+    Top = 387
+    Width = 318
+    Height = 39
+    Caption = 'Sales of Each Product'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic, fsUnderline]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 111
+    Width = 423
+    Height = 78
+    Caption = 'Total Sales for each day this Month'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic, fsUnderline]
+    ParentFont = False
+    WordWrap = True
+  end
+  object Label3: TLabel
+    Left = 482
+    Top = 79
+    Width = 430
+    Height = 39
+    Caption = 'Stats Collected for the Month'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic, fsUnderline]
+    ParentFont = False
+    WordWrap = True
+  end
+  object lblMalesandFemales: TLabel
+    Left = 485
+    Top = 364
+    Width = 3
+    Height = 13
+  end
+  object Label6: TLabel
+    Left = 485
+    Top = 387
+    Width = 469
+    Height = 39
+    Caption = 'Total Expenditure for this Month'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic, fsUnderline]
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 870
+    Top = 716
+    Width = 134
+    Height = 13
+    Anchors = []
+    Caption = 'Developed by GinTEC -2018'
+  end
+  object lblExpenditure: TLabel
+    Left = 488
+    Top = 688
+    Width = 68
+    Height = 13
+    Caption = 'lblExpenditure'
+  end
+  object lblTotalSales: TLabel
+    Left = 24
+    Top = 688
+    Width = 47
+    Height = 13
+    Caption = 'totalSales'
+  end
+  object lblTotalDaily: TLabel
+    Left = 24
+    Top = 343
+    Width = 70
+    Height = 13
+    Caption = 'totalDailySales'
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 432
+    Width = 430
+    Height = 248
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1012
+    Height = 65
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'Report Center '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -48
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    TabOrder = 1
+    object Image1: TImage
+      Left = 0
+      Top = 0
+      Width = 49
+      Height = 65
+      Cursor = crHandPoint
+      Align = alLeft
+      Center = True
+      Picture.Data = {
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000260000
+        002608030000009FE3199C0000000467414D410000B18F0BFC61050000003650
+        4C544500000077828C77828C77828C77828C77828C77828C77828C77828C7782
+        8C77828C77828C77828C77828C77828C77828C77828C000000DC443D35000000
+        1074524E53004080A0C0F03090E010D050602070B016A2AB0E00000009704859
+        7300000B1200000B1201D2DD7EFC00000001624B47440088051D480000014B49
+        44415478DA8D94D99284200C4583A2A303DAF3FF5F39DDA8206E4D141594B2E0
+        C16239DE40089780DFF24C9A2F1785F4A6893B602A617B5FD34504313E16BEB2
+        F815372C9F396A4CB42B643E540417DA69BE60BC37E144AA0FA93245F126932E
+        C6A9992A851F344919E8459E18529F19AE2DA7B9E5568C65006303F75612C375
+        16AB140B531B27FB0D7B91B57B24069C5F50A2D388911728752EA495276D36D4
+        8C88510EEFC5A5DCA15D2650A588BB94BF4F134C4C04EAC499BF530045D10E04
+        457BF9404152C39BC0DF19334861D40F315BDBF31FA6C0080982EC7C505AB9EB
+        4C58AC416C68F77BBD34BB1BCA576C4B9339F133161334F2089109C1F4FE3F5D
+        02FC9498DEC8CB8ABCFAC842427CADF79373E54CD6B7B2BC16793D078B3CF6C9
+        443EC0D8E76CCD21D13E55CB8B39C45ACD6E5C6AA11D17685C1D0B191744DAE0
+        7AE21853DD62872DFA0B4A8DCA436A73F1F90000000049454E44AE426082}
+      OnClick = Image1Click
+    end
+  end
+  object DBGrid3: TDBGrid
+    Left = 455
+    Top = 434
+    Width = 499
+    Height = 248
+    DataSource = DataSource3
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object DBGrid4: TDBGrid
+    Left = 8
+    Top = 195
+    Width = 430
+    Height = 137
+    DataSource = DataSource2
+    TabOrder = 3
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object Button1: TButton
+    Left = 160
+    Top = 338
+    Width = 177
+    Height = 25
+    Caption = 'VIEW GRAPH'
+    TabOrder = 4
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 160
+    Top = 686
+    Width = 177
+    Height = 25
+    Caption = 'VIEW GRAPH'
+    TabOrder = 5
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 676
+    Top = 686
+    Width = 177
+    Height = 25
+    Caption = 'VIEW GRAPH'
+    TabOrder = 6
+    OnClick = Button3Click
+  end
+  object DBChart2: TDBChart
+    Left = 485
+    Top = 136
+    Width = 496
+    Height = 213
+    Title.Text.Strings = (
+      'TDBChart')
+    View3D = False
+    View3DOptions.Elevation = 315
+    View3DOptions.Orthogonal = False
+    View3DOptions.Perspective = 0
+    View3DOptions.Rotation = 360
+    TabOrder = 7
+    object Series1: TPieSeries
+      Marks.Arrow.Visible = True
+      Marks.Callout.Brush.Color = clBlack
+      Marks.Callout.Arrow.Visible = True
+      Marks.Visible = True
+      Gradient.Direction = gdRadial
+      OtherSlice.Legend.Visible = False
+      PieValues.Name = 'Pie'
+      PieValues.Order = loNone
+    end
+  end
+  object ADOConnection1: TADOConnection
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 856
+    Top = 24
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 352
+    Top = 288
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery2
+    Left = 392
+    Top = 448
+  end
+  object ADOQuery2: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 352
+    Top = 456
+  end
+  object DataSource2: TDataSource
+    DataSet = ADOQuery1
+    Left = 392
+    Top = 288
+  end
+  object ADOQuery3: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 800
+    Top = 464
+  end
+  object DataSource3: TDataSource
+    DataSet = ADOQuery3
+    Left = 840
+    Top = 464
+  end
+  object ADOQuery4: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 496
+    Top = 264
+  end
+  object ADOQuery5: TADOQuery
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 456
+    Top = 152
+  end
+end

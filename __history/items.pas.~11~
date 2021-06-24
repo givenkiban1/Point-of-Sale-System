@@ -1,0 +1,35 @@
+unit items;
+
+interface
+
+type
+
+TItem = class(TObject)
+
+private
+uStock, uStockName, uSupplierID, uImageFile, uCategory: String;
+uQuantity: Integer; uUnitCost : Real;
+
+public
+constructor Create(fStock, fStockName, fSupplierID, fImageFile, fCategory: String; fQuantity: Integer; fUnitCost : Real);
+
+function
+end;
+
+implementation
+
+{ TItem }
+
+constructor TItem.Create(fStock, fStockName, fSupplierID, fImageFile,
+  fCategory: String; fQuantity: Integer; fUnitCost: Real);
+begin
+uStock:= fStock;
+uStockName:= fStockName;
+uSupplierID:= fSupplierID;
+uImageFile:= fImageFile;
+uCategory:= fCategory;
+uQuantity:= fQuantity;
+uUnitCost:= fUnitCost;
+end;
+
+end.

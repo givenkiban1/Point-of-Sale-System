@@ -1,0 +1,110 @@
+unit stockitems;
+
+interface
+
+type
+
+TItem = class(TObject)
+
+private
+uStockID, uStockName, uSupplierID, uImageFile, uCategory: String;
+uQuantity: Integer; uUnitCost : Real;
+
+public
+constructor Create(fStock, fStockName, fSupplierID, fImageFile, fCategory: String; fQuantity: Integer; fUnitCost : Real);
+
+//getters - accessor methods
+function getStockID : String;
+function getStockName : String;
+function getSupplierID : String;
+function getImageFile : String;
+function getCategory : String;
+function getQuantity : Integer;
+function getUnitCost : Real;
+
+//setters - mutator methods
+procedure setStockName( x : String);
+procedure setImageFile( x : String);
+procedure setCategory( x : String);
+procedure setQuantity( x : Integer);
+procedure setUnitCost( x : Real);
+
+end;
+
+implementation
+
+{ TItem }
+
+constructor TItem.Create(fStockID, fStockName, fSupplierID, fImageFile,
+  fCategory: String; fQuantity: Integer; fUnitCost: Real);
+begin
+uStockID:= fStock;
+uStockName:= fStockName;
+uSupplierID:= fSupplierID;
+uImageFile:= fImageFile;
+uCategory:= fCategory;
+uQuantity:= fQuantity;
+uUnitCost:= fUnitCost;
+end;
+
+function TItem.getCategory: String;
+begin
+Result := uCategory;
+end;
+
+function TItem.getImageFile: String;
+begin
+Result := uImageFile;
+end;
+
+function TItem.getQuantity: Integer;
+begin
+Result := uQuantity;
+end;
+
+function TItem.getStockID: String;
+begin
+Result := uStockID;
+end;
+
+function TItem.getStockName: String;
+begin
+Result := uStockName;
+end;
+
+function TItem.getSupplierID: String;
+begin
+Result := uSupplierID;
+end;
+
+function TItem.getUnitCost: Real;
+begin
+Result := uUnitCost;
+end;
+
+procedure TItem.setCategory(x: String);
+begin
+uCategory := x;
+end;
+
+procedure TItem.setImageFile(x: String);
+begin
+uImageFile := x;
+end;
+
+procedure TItem.setQuantity(x: Integer);
+begin
+uQuantity := x;
+end;
+
+procedure TItem.setStockName(x: String);
+begin
+uStockName := x;
+end;
+
+procedure TItem.setUnitCost(x: Real);
+begin
+uUnitCost := x;
+end;
+
+end.

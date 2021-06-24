@@ -1,0 +1,334 @@
+unit frmProducts;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Spin, dbConn_u, ExtDlgs, jpeg, pngimage, DB,
+  uploadPic,ADODB;
+
+type
+  TForm27 = class(TForm)
+    Image1: TImage;
+    Panel2: TPanel;
+    edtProductName: TEdit;
+    edtUCost: TEdit;
+    cmbCategory: TComboBox;
+    cmbSupplierID: TComboBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label3: TLabel;
+    sedStockCount: TSpinEdit;
+    Button1: TButton;
+    ComboBox3: TComboBox;
+    Button2: TButton;
+    Label19: TLabel;
+    edtSuppExtra: TEdit;
+    Button3: TButton;
+    OpenPictureDialog1: TOpenPictureDialog;
+    ADOTable1: TADOTable;
+    ADOQuery1: TADOQuery;
+    CheckBox1: TCheckBox;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure cmbSupplierIDChange(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure edtUCostKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtUCostKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+    defaultLocation : string;
+  public
+    { Public declarations }
+    stockID : Integer;
+    oldPicName : String;
+    changedp : Boolean;
+    procedure showAll;
+    procedure clearAll;
+    procedure fetchSuppliers;
+  end;
+
+var
+  Form27: TForm27;
+  picName : string;
+
+implementation
+
+uses Unit20;
+
+{$R *.dfm}
+
+procedure TForm27.Button1Click(Sender: TObject);
+begin
+if ComboBox3.ItemIndex =1 then
+  begin
+    if OpenPictureDialog1.Execute then
+      begin
+        picName := OpenPictureDialog1.FileName;
+        Image1.Picture.LoadFromFile(picName);
+        changedp:= True;
+      end
+    else ShowMessage('No picture selected.');
+  end
+else
+  begin
+    picName:= '';
+    uploadPic.Form28.Show;
+    uploadPic.Form28.Position := poDesktopCenter;
+    self.Enabled := False;
+  end;
+end;
+
+procedure TForm27.Button2Click(Sender: TObject);
+var category, productName, uCost : string;
+    count, supplierID : integer;
+    cost : Real ;
+begin
+//INSERT INTO DATABASE
+
+//FIRSTLY EXTRACT USER INPUT
+category := cmbCategory.Text;
+productName := edtProductName.Text;
+uCost := edtUCost.Text;
+
+try
+cost := StrToFloat(uCost);
+except on E: Exception do
+  begin
+    ShowMessage('An error has occured. Pleased input correct data..');
+  end;
+end;
+
+if (cmbSupplierID.ItemIndex>-1) and (cmbCategory.ItemIndex>-1) and (productName <> '') and (cost>0) then
+  begin
+    //insert or update stock here.
+    supplierID := StrToInt(cmbSupplierID.Text);
+    ADOTable1.Close;
+    ADOTable1.TableName := 'tblStock';
+    ADOTable1.Open;
+
+    if Panel2.Caption = 'CREATE STOCK' then
+      begin
+        if picName<>'' then
+          begin
+            Image1.Picture.SaveToFile(ExtractFilePath(ParamStr(0)) +
+              'media/dbImages/'+ ExtractFileName(picName) );
+            {  Copy(ExtractFileName(picName) , 1 ,
+              Pos(ExtractFileExt(picName) , ExtractFileName(picName) )-1
+                )+ '.jpg'
+              );
+              //ExtractFileName(picName));
+            }
+          end
+        else
+          begin
+            ShowMessage('Hey, you can not create stock item without picking an icon for it.');
+            exit;
+          end;
+        ADOTable1.Insert;
+        ADOTable1['stockName'] := productName;
+        //in this case, if count is not 0, we should automatically place an order from
+        //the supplier for this products
+        ADOTable1['Quantity'] := 0;
+        ADOTable1['UnitCost'] := cost;
+        ADOTable1['Category'] := category;
+        ADOTable1['ImageFile'] := ExtractFileName(picName);
+        {Copy(
+          ExtractFileName(picName) , 1 ,
+          Pos(ExtractFileExt(picName) , ExtractFileName(picName) )-1
+                );  }
+        ADOTable1['SupplierID'] := supplierID;
+        ADOTable1.Post;
+
+        ShowMessage('SUCCESS! YOU HAVE SUCCESSFULLY CREATED NEW STOCK');
+
+      end
+    else //MEANING USER IS SIMPLY EDITING STOCK.
+      begin
+        ADOTable1.Locate('StockID',stockID,[]);
+        ADOTable1.Edit;
+        ADOTable1['stockName'] := productName;
+        ADOTable1['UnitCost'] := cost;
+        ADOTable1['Category'] := category;
+        if changedp and (picName<>'') then
+          begin
+            Image1.Picture.SaveToFile(ExtractFilePath(ParamStr(0)) + 'media/dbImages/'+
+            ExtractFileName(picName));
+            {
+              Copy(ExtractFileName(picName) , 1 ,
+              Pos(ExtractFileExt(picName) , ExtractFileName(picName) )-1
+                  )+ '.jpg'
+            );}
+            ADOTable1['ImageFile'] := ExtractFileName(picName)
+            {
+            Copy(ExtractFileName(picName) , 1 ,
+              Pos(ExtractFileExt(picName) , ExtractFileName(picName) )-1
+            )};
+          end
+        else
+          ADOTable1['ImageFile'] := oldPicName;
+
+        ADOTable1['SupplierID'] := supplierID;
+        if MessageDlg('Are you sure that you wish to make these changes?', mtConfirmation, [mbYes, mbNo], 0 ) =6 then
+          begin
+            ADOTable1.Post;
+            ShowMessage('SUCCESS! STOCK HAS BEEN UPDATED.');
+            clearAll;
+            self.Hide;
+            unit20.form20.enabled := True;
+            unit20.form20.BringToFront;
+          end
+        else
+          begin
+            ADOTable1.Cancel;
+            ShowMessage('No stock has been updated.');
+          end;
+
+      end;
+
+  end
+else
+  begin
+    ShowMessage('Hey, you need to enter all the values because they are all on required!');
+    exit;
+  end;
+
+
+end;
+
+procedure TForm27.Button3Click(Sender: TObject);
+begin
+if MessageDlg('By continuing you are going to disgard All the changes you are trying to make. Continue ?'
+,mtWarning, [mbYes, mbNo], 0) = 6 then
+  begin
+    clearAll;
+    changedp := False;
+    picName := '';
+    oldPicName := '';
+    self.Hide;
+    unit20.form20.enabled := True;
+    unit20.form20.BringToFront;
+  end;
+
+end;
+
+procedure TForm27.clearAll;
+begin
+//
+edtProductName.Clear;
+edtUCost.Clear;
+edtSuppExtra.Clear;
+
+cmbSupplierID.Clear;
+
+sedStockCount.Value := 0;
+
+
+cmbCategory.ItemIndex := -1;
+cmbSupplierID.ItemIndex := -1;
+ComboBox3.ItemIndex := -1;
+ComboBox3.Text := '';
+
+changedp := False;
+picName := '';
+oldPicName := '';
+
+Image1.Picture.Assign(nil);
+Image1.Picture.LoadFromFile(ExtractFilePath(ParamStr(0)) + 'media\icons\upload_image.png');
+fetchSuppliers;
+end;
+
+procedure TForm27.cmbSupplierIDChange(Sender: TObject);
+begin
+//
+if cmbSupplierID.ItemIndex>-1 then
+  begin
+    ADOQuery1.Close;
+    ADOQuery1.SQL.Text := 'SELECT Company from tblSuppliers Where SupplierID = '+ cmbSupplierID.Text;
+    ADOQuery1.Open;
+
+    edtSuppExtra.Text := ADOQuery1['Company'];
+    ADOQuery1.Close;
+  end;
+end;
+procedure TForm27.edtUCostKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if not (key in [VK_BACK, VK_RETURN, 48..57,190]) then
+  key := 0;
+end;
+
+procedure TForm27.edtUCostKeyPress(Sender: TObject; var Key: Char);
+begin
+if not (Ord(key) in [VK_BACK, VK_RETURN, 46, 48..57]) then
+  key := chr(0)
+end;
+
+procedure TForm27.fetchSuppliers;
+begin
+ADOQuery1.Close;
+ADOQuery1.SQL.Text := 'SELECT SupplierID FROM tblSuppliers';
+ADOQuery1.Open;
+
+if ADOQuery1.RecordCount>0 then
+  begin
+    ADOQuery1.First;
+    while not ADOQuery1.Eof do
+      begin
+        cmbSupplierID.Items.Add( IntToStr(ADOQuery1['SupplierID']));
+        ADOQuery1.Next;
+      end;
+  end;
+end;
+
+procedure TForm27.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+Resize := False;
+end;
+
+procedure TForm27.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+Button3Click(Self);
+end;
+
+procedure TForm27.FormCreate(Sender: TObject);
+begin
+defaultLocation := ExtractFilePath(ParamStr(0));
+sedStockCount.MinValue := 0;
+self.Position := poDesktopCenter;
+changedp:= False;
+end;
+
+procedure TForm27.showAll;
+begin
+//
+ADOTable1.Close;
+ADOTable1.TableName := 'tblStock';
+ADOTable1.Open;
+
+ADOTable1.Locate('StockID',stockID,[]);
+
+clearAll;
+edtProductName.Text := ADOTable1['stockName'];
+edtUCost.Text := FloatToStr(ADOTable1['UnitCost']);
+
+sedStockCount.Value := ADOTable1['Quantity'];
+oldPicName := ADOTable1['ImageFile'];
+
+fetchSuppliers;
+cmbCategory.ItemIndex := cmbCategory.Items.IndexOf(ADOTable1['Category']);
+cmbSupplierID.ItemIndex := cmbSupplierID.Items.IndexOf(IntToStr(ADOTable1['SupplierID']));
+cmbSupplierIDChange(Self);
+ADOQuery1.Close;
+Image1.Picture.LoadFromFile( ExtractFilePath(ParamStr(0)) +'media/dbImages/'+ oldPicName)
+end;
+
+end.

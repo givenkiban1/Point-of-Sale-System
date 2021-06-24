@@ -1,0 +1,35 @@
+object Form28: TForm28
+  Left = 0
+  Top = 0
+  Caption = 'Form28'
+  ClientHeight = 278
+  ClientWidth = 504
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 264
+    Top = 8
+    Width = 233
+    Height = 257
+    Center = True
+    Proportional = True
+  end
+  object FileListBox1: TFileListBox
+    Left = 8
+    Top = 8
+    Width = 249
+    Height = 257
+    ItemHeight = 13
+    TabOrder = 0
+    OnChange = FileListBox1Change
+  end
+end

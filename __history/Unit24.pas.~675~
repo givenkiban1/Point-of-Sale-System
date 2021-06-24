@@ -1,0 +1,591 @@
+unit Unit24;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, jpeg, pngimage, ComCtrls, Grids, DBGrids, TabNotBk, DB,
+  ADODB, dbConn_u, ValEdit;
+
+type
+  TForm24 = class(TForm)
+    GridPanel1: TGridPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    pnlHome: TPanel;
+    pnlDashboard: TPanel;
+    pnlAccount: TPanel;
+    pnlHelp: TPanel;
+    edtBalance2: TEdit;
+    Label1: TLabel;
+    Button1: TButton;
+    Label2: TLabel;
+    Timer1: TTimer;
+    Label3: TLabel;
+    Panel1: TPanel;
+    Image2: TImage;
+    Timer2: TTimer;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    RichEdit1: TRichEdit;
+    Panel7: TPanel;
+    Image1: TImage;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    edtPass: TEdit;
+    edtAcc: TEdit;
+    lblName: TLabel;
+    lblSurname: TLabel;
+    lblLastActive: TLabel;
+    lblEmail: TLabel;
+    lblPassword: TLabel;
+    Image3: TImage;
+    Image4: TImage;
+    Label15: TLabel;
+    Label14: TLabel;
+    edtBalance1: TEdit;
+    Button2: TButton;
+    Label16: TLabel;
+    TabbedNotebook1: TTabbedNotebook;
+    DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
+    DBGrid3: TDBGrid;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    DataSource3: TDataSource;
+    Label17: TLabel;
+    qryFetcher: TADOQuery;
+    ADOQuery3: TADOQuery;
+    ValueListEditor1: TValueListEditor;
+    pnlRecharge: TPanel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Button3: TButton;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Panel8: TPanel;
+    tblInsert: TADOTable;
+    Label21: TLabel;
+    Label22: TLabel;
+    tblUpdate: TADOTable;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Panel2Click(Sender: TObject);
+    procedure Panel3Click(Sender: TObject);
+    procedure Panel4Click(Sender: TObject);
+    procedure Panel5Click(Sender: TObject);
+    procedure Panel6Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure TabbedNotebook1Change(Sender: TObject; NewTab: Integer;
+      var AllowChange: Boolean);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Panel8Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Edit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit2KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+  private
+    { Private declarations }
+    procedure handleNotifications;
+  public
+    { Public declarations }
+    arrDetails : array[1..2] of string;
+    procedure togglePassword1;
+    procedure togglePassword2;
+    procedure fetchDetails;
+    procedure getUserDetails;
+    procedure getDbDetails;
+  end;
+
+var
+  Form24: TForm24;
+  showing1 : Boolean = False;
+  showing2 : Boolean = False;
+  seenNoty : Boolean = False;
+  customerID : string;
+  noty : Boolean= False;
+  x: integer = 1;
+  defaultImage: String = 'media\icons\Rounded-31-128.png';
+
+implementation
+
+uses dashboard_u;
+
+{$R *.dfm}
+
+procedure TForm24.Button1Click(Sender: TObject);
+begin
+//
+pnlRecharge.BringToFront;
+end;
+
+procedure TForm24.Button2Click(Sender: TObject);
+begin
+pnlRecharge.BringToFront;
+end;
+
+procedure TForm24.Button3Click(Sender: TObject);
+begin
+if (Edit1.Text = '') or (Edit2.Text='') then
+  ShowMessage('Enter Values!')
+else
+  begin
+    if not((StrToFloat(Edit2.Text)>0) and (StrToFloat(Edit1.Text)>0)) then
+      begin
+        exit;
+        ShowMessage('Enter valid amount');
+      end;
+
+    ADOQuery1.Close;
+    ADOQuery2.Close;
+    ADOQuery3.Close;
+    qryFetcher.Close;
+
+    //record this deposit in tblLoyalty Points
+    tblInsert.Close;
+    tblInsert.TableName := 'tblLoyaltyPoints';
+    tblInsert.Open;
+
+    tblInsert.Insert;
+    tblInsert['CustomerId']:= customerID;
+    tblInsert['LoyaltyPoints']:= StrToFloat(Edit2.Text);
+    tblInsert['Type']:= 'DEPOSIT';
+    tblInsert.Post;
+
+    //now update loyalty points on tblCustomers
+    tblInsert.Close;
+    tblInsert.TableName := 'tblCustomers';
+    tblInsert.Open;
+    tblInsert.Locate('CustomerID', customerID, []);
+
+    tblInsert.Edit;
+    tblInsert['LoyaltyPoints']:= tblInsert['LoyaltyPoints'] +StrToFloat(Edit2.Text);
+    tblInsert.Post;
+
+    tblInsert.Close;
+
+    //create notification
+    tblInsert.TableName := 'tblNotifications';
+    tblInsert.Open;
+
+    tblInsert.Insert;
+    tblInsert['By']:= 'SYSTEM';
+    tblInsert['ToWhom']:= customerID;
+    tblInsert['Message']:= 'You have just made a deposit of R '+ Edit1.Text+ ' and have '+ Edit2.Text+
+    ' Points. Total Balance is '+ FloatToStr(StrToFloat(Edit2.Text) + StrToFloat(edtBalance1.Text))+ ' Points';
+    tblInsert.Post;
+    tblInsert.Close;
+
+    qryFetcher.Close;
+    qryFetcher.SQL.Text := 'SELECT * from tblCustomers'+
+        ' Where ((CustomerID Like '+QuotedStr(arrDetails[1]) +') OR (Email Like '+ QuotedStr(arrDetails[1])+'))'+
+        ' AND (Password = '+ QuotedStr(arrDetails[2])+')';
+    qryFetcher.Open;
+
+    edtBalance1.Text := FloatToStrF(qryFetcher['LoyaltyPoints'], ffGeneral, 7, 2);
+    edtBalance2.Text := FloatToStrF(qryFetcher['LoyaltyPoints'], ffGeneral, 7, 2);
+
+    getDbDetails;
+    ShowMessage('DONE!');
+    Panel8Click(self);
+  end;
+end;
+
+procedure TForm24.Edit1Change(Sender: TObject);
+begin
+if Edit1.Text<>'' then Edit2.Text := FloatToStrF(StrToFloat(Edit1.Text)*0.90, ffGeneral, 7, 2);
+end;
+
+procedure TForm24.Edit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if not (key in [VK_BACK, VK_RETURN, 48..57,190]) then
+  key := 0
+else
+  begin
+    if key = VK_RETURN then
+      Button3Click(self);
+  end;
+end;
+
+procedure TForm24.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if not (Ord(key) in [VK_BACK, VK_RETURN, 48..57, 46]) then
+  key := chr(0)
+end;
+
+procedure TForm24.Edit2Change(Sender: TObject);
+begin
+if edit2.Text<>'' then Edit1.Text := FloatToStrF(StrToFloat(Edit2.Text)/0.90, ffGeneral, 7, 2);
+end;
+
+procedure TForm24.Edit2KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if not (key in [VK_BACK, VK_RETURN, 48..57,190]) then
+  key := 0
+else
+  begin
+    if key = VK_RETURN then
+      Button3Click(self);
+  end;
+end;
+
+procedure TForm24.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+if not (Ord(key) in [VK_BACK, VK_RETURN, 46, 48..57]) then
+  key := chr(0)
+end;
+
+procedure TForm24.fetchDetails;
+var pic : TJPEGImage;
+begin
+//FETCH ALL THE DETAILS ABOUT USER AND DISPLAY THE DATA ON RELEVANT OUTPUT
+getUserDetails;
+getDbDetails;
+end;
+
+procedure TForm24.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+self.Position := poDesktopCenter;
+Panel6Click(self);
+ADOQuery1.Close;
+ADOQuery2.Close;
+ADOQuery3.Close;
+end;
+
+procedure TForm24.FormCreate(Sender: TObject);
+begin
+Position := poDesktopCenter;
+pnlHome.BringToFront;
+end;
+
+procedure TForm24.FormShow(Sender: TObject);
+begin
+Application.ShowMainForm := True;
+Application.MainFormOnTaskBar := False;
+Panel2Click(self);
+end;
+
+procedure TForm24.getDbDetails;
+begin
+ADOQuery1.Close;
+ADOQuery2.Close;
+ADOQuery3.Close;
+
+ADOQuery1.SQL.Text :='SELECT DateOfTrans,LoyaltyPoints,Type FROM tblLoyaltyPoints '+
+'WHERE CustomerID = '+ QuotedStr(customerID) + ' AND Type = "DEPOSIT"';
+
+ADOQuery2.SQL.Text :='SELECT DateOfTrans,LoyaltyPoints,Type FROM tblLoyaltyPoints '+
+'WHERE CustomerID = '+ QuotedStr(customerID) + ' AND Type = "PURCHASE"';
+
+ADOQuery3.SQL.Text :='SELECT DateOfTrans,LoyaltyPoints,Type FROM tblLoyaltyPoints '+
+'WHERE CustomerID = '+ QuotedStr(customerID) + ' AND Type = "BONUS"';
+
+ADOQuery1.Open;
+ADOQuery2.Open;
+ADOQuery3.Open;
+
+togglePassword1;
+togglePassword2;
+
+DBGrid1.BringToFront;
+
+DBGrid1.Columns[0].Width := 100;
+DBGrid1.Columns[1].Width := 100;
+DBGrid1.Columns[2].Width := 100;
+
+DBGrid2.Columns[0].Width := 100;
+DBGrid2.Columns[1].Width := 100;
+DBGrid2.Columns[2].Width := 100;
+
+DBGrid3.Columns[0].Width := 100;
+DBGrid3.Columns[1].Width := 100;
+DBGrid3.Columns[2].Width := 100;
+
+//LAST ACTIVE
+qryFetcher.Close;
+qryFetcher.SQL.Text := 'SELECT * FROM tblLoyaltyPoints WHERE CustomerID = '+ QuotedStr(customerID)+
+' AND TYPE <> "BONUS" ORDER BY RecordNo DESC';
+qryFetcher.Open;
+
+if qryFetcher.RecordCount=0 then
+  begin
+    Label6.Caption := 'Last Active : Never been active.';
+    lblLastActive.Caption := 'Never been active.';
+  end
+else
+  begin
+    qryFetcher.First;
+    Label6.Caption := 'Last Active : '+DateToStr(qryFetcher['DateOfTrans'])+' - '+ qryFetcher['TYPE'];
+    lblLastActive.Caption := DateToStr(qryFetcher['DateOfTrans'])+' - '+ qryFetcher['TYPE'];
+  end;
+qryFetcher.Close;
+
+handleNotifications;
+
+
+end;
+
+procedure TForm24.getUserDetails;
+begin
+qryFetcher.Close;
+qryFetcher.SQL.Text := 'SELECT * from tblCustomers'+
+    ' Where ((CustomerID Like '+QuotedStr(arrDetails[1]) +') OR (Email Like '+ QuotedStr(arrDetails[1])+'))'+
+    ' AND (Password = '+ QuotedStr(arrDetails[2])+')';
+qryFetcher.Open;
+
+lblName.Caption := qryFetcher['firstName'];
+lblSurname.Caption := qryFetcher['Surname'];
+lblEmail.Caption := qryFetcher['Email'];
+lblPassword.Caption := qryFetcher['Password'];
+edtPass.Text := qryFetcher['PASS_CODE'];
+edtAcc.Text := qryFetcher['CardNumber'];
+edtBalance1.Text := FloatToStrF(qryFetcher['LoyaltyPoints'], ffGeneral, 7, 2);
+edtBalance2.Text := FloatToStrF(qryFetcher['LoyaltyPoints'], ffGeneral, 7, 2);
+//Self.SetFocus;
+
+customerID := qryFetcher['CustomerID'];
+
+//fetch profile picture
+
+if FileExists(ExtractFilePath(ParamStr(0))+qryFetcher['ProfilePic']) then
+  begin
+
+    Image2.Picture.Graphic.LoadFromFile(ExtractFilePath(ParamStr(0))+qryFetcher['ProfilePic']);
+    Image1.Picture.Graphic.LoadFromFile(ExtractFilePath(ParamStr(0))+qryFetcher['ProfilePic']);
+  end
+else
+if FileExists(ExtractFilePath(ParamStr(0))+defaultImage) then
+  begin
+    ShowMessage('There seems to be an error. Your profile picture seems to be damaged or may have been deleted from system. we are allocating you the default one for now');
+    Image2.Picture.Graphic.LoadFromFile(ParamStr(0)+defaultImage);
+    Image1.Picture.Graphic.LoadFromFile(ParamStr(0)+defaultImage);
+  end
+else
+  ShowMessage('There seems to be an error. Your profile picture not found. Please contact admin As soon as possible');
+
+
+
+Label4.Caption := 'Name : '+lblName.Caption;
+Label5.Caption := 'Surname : '+lblSurname.Caption;
+
+end;
+
+procedure TForm24.handleNotifications;
+var xy, num : integer;
+begin
+//
+qryFetcher.Close;
+qryFetcher.SQL.Text := 'SELECT * FROM tblNotifications WHERE (TOWHOM IN ("All", '+
+QuotedStr(customerID)+') ) ORDER BY NotificationID DESC';
+qryFetcher.Open;
+
+
+ValueListEditor1.Strings.Clear;
+while not qryFetcher.Eof do
+  begin
+    ValueListEditor1.InsertRow(
+    DateToStr(qryFetcher['DateOfNotification']), qryFetcher['MESSAGE'], True );
+    qryFetcher.Next;
+  end;
+
+qryFetcher.Close;
+{qryFetcher.SQL.Text := 'SELECT * FROM tblNotifications '+
+' WHERE (TOWHOM IN ("All", '+QuotedStr(customerID)+') ) AND NOT inStr('+QuotedStr(customerID)+',SEENBY) = 0';
+}
+num := 0;
+
+qryFetcher.SQL.Text := 'SELECT *, IIF(inStr('+QuotedStr(customerID)+',SEENBY) = 0, TRUE, FALSE) AS [IS_FOUND] FROM tblNotifications '+
+' WHERE (TOWHOM IN ("All", '+QuotedStr(customerID)+') )';
+qryFetcher.Open;
+
+qryFetcher.First;
+
+while not qryFetcher.Eof do
+  begin
+    if not qryFetcher['IS_FOUND'] then
+      begin
+        num := num +1;
+      end;
+    qryFetcher.Next;
+  end;
+
+if num>0 then
+  begin
+    noty := True;
+    seenNoty := False;
+    Label17.Show;
+  end
+else
+  begin
+    noty := False;
+    Label17.Hide;
+  end;
+
+
+qryFetcher.Close;
+
+end;
+
+procedure TForm24.Image3Click(Sender: TObject);
+begin
+togglePassword2;
+end;
+
+procedure TForm24.Image4Click(Sender: TObject);
+begin
+togglePassword1;
+end;
+
+procedure TForm24.Panel2Click(Sender: TObject);
+begin
+pnlHome.BringToFront;
+end;
+
+procedure TForm24.Panel3Click(Sender: TObject);
+begin
+if noty then
+begin
+
+  tblUpdate.Close;
+  tblUpdate.TableName := 'tblNotifications';
+  tblUpdate.Filtered := False;
+  tblUpdate.Filter := 'ToWhom = "All" OR ToWhom = '+QuotedStr(customerID);
+  tblUpdate.Open;
+  tblUpdate.Filtered := True;
+
+  tblUpdate.First;
+
+  while not tblUpdate.Eof do
+  begin
+    if not (pos(customerID,tblUpdate['SeenBy'])>0) then
+        begin
+          tblUpdate.Edit;
+          tblUpdate['SeenBy'] := tblUpdate['SeenBy'] + customerID +';';
+          tblUpdate.Post;
+        end;
+    tblUpdate.Next;
+  end;
+
+  seenNoty:=True;
+  noty := False;
+  panel3.Color := clBackground;
+end;
+
+pnlDashboard.BringToFront;
+
+end;
+
+procedure TForm24.Panel4Click(Sender: TObject);
+begin
+pnlAccount.BringToFront;
+end;
+
+procedure TForm24.Panel5Click(Sender: TObject);
+begin
+pnlHelp.BringToFront;
+end;
+
+procedure TForm24.Panel6Click(Sender: TObject);
+begin
+if MessageDlg('You are about to sign out. Are you sure that you wish to continue?',mtConfirmation, [mbYes,mbNo], 0)= 6 then
+  begin
+    self.Hide;
+    dashboard_u.form2.show;
+  end;
+end;
+
+procedure TForm24.Panel8Click(Sender: TObject);
+begin
+pnlRecharge.SendToBack;
+Edit1.Clear;
+Edit2.Clear;
+end;
+
+procedure TForm24.TabbedNotebook1Change(Sender: TObject; NewTab: Integer;
+  var AllowChange: Boolean);
+begin
+   ((FindComponent('DBGRID'+ IntToStr(TabbedNotebook1.PageIndex+1)) as TObject) as TDBGrid).BringToFront; //;
+end;
+
+procedure TForm24.Timer1Timer(Sender: TObject);
+begin
+Label3.Caption := DateTimeToStr(now);
+if noty then
+  timer2.Enabled := True;
+end;
+
+procedure TForm24.Timer2Timer(Sender: TObject);
+begin
+if seenNoty then
+  begin
+    timer2.Enabled := False;
+    Label17.Hide;
+  end
+else
+    begin
+      if x=1 then begin panel3.Color := clWhite; x := 2 end
+      else begin x :=1; panel3.Color := clYellow; end;
+    end;
+end;
+
+procedure TForm24.togglePassword1;
+begin
+if showing1 = True then
+    begin
+      Showing1 := False;
+      edtAcc.PasswordChar := chr(0);
+      Image4.Picture.LoadFromFile('media\icons\lock-128.png');
+    end
+else
+    begin
+      Showing1 := True;
+      edtAcc.PasswordChar := 'X';
+      Image4.Picture.LoadFromFile('media\icons\unlocked-128.png');
+    end;
+end;
+
+procedure TForm24.togglePassword2;
+begin
+if Showing2 = True then
+    begin
+      Showing2 := False;
+      edtPass.PasswordChar := chr(0);
+      Image3.Picture.LoadFromFile('media\icons\lock-128.png');
+    end
+else
+    begin
+      Showing2 := True;
+      edtPass.PasswordChar := '•';
+      Image3.Picture.LoadFromFile('media\icons\unlocked-128.png');
+    end;
+end;
+
+end.
+{
+//qryFetcher.SQL.Text :='UPDATE tblNotifications SET SeenBy = IIF(SeenBy = Null, '+QuotedStr(customerID+';')+', SeenBy + '+QuotedStr(customerID+ ';')+')' +
+  // qryFetcher.SQL.Text :='SELECT * FROM tblNotifications WHERE SeenBy = IIF(SeenBy = Null, '+QuotedStr(customerID+';')+', SeenBy + '+QuotedStr(customerID+ ';')+')' +
+   //' Where ToWhom in ("All",'+QuotedStr(customerID)+') AND NOT inStr('+QuotedStr(customerID)+',SEENBY) = 0';
+}

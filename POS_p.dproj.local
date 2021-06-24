@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/25 09:49:05.644.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\UserAcc.pas=</Transaction>
+    <Transaction>2018/07/25 09:51:38.361.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit1.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\UserAccount.pas</Transaction>
+    <Transaction>2018/07/25 09:55:38.826.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\UserAccount.pas=</Transaction>
+    <Transaction>2018/07/25 10:26:09.034.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit15.pas=</Transaction>
+    <Transaction>2018/07/25 10:26:09.034.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit15.dfm=</Transaction>
+    <Transaction>2018/07/26 05:07:07.238.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit18.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\productDetails.pas</Transaction>
+    <Transaction>2018/07/26 05:07:07.238.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit18.dfm=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\productDetails.dfm</Transaction>
+    <Transaction>2018/07/30 17:36:23.344.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit1.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\items.pas</Transaction>
+    <Transaction>2018/07/30 17:57:30.958.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\items.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\stockitems.pas</Transaction>
+    <Transaction>2018/08/05 16:38:51.583.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit3.pas=</Transaction>
+    <Transaction>2018/08/05 16:38:51.583.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit3.dfm=</Transaction>
+    <Transaction>2018/08/05 16:56:05.215.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit23.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\payments.pas</Transaction>
+    <Transaction>2018/08/05 16:56:05.215.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit23.dfm=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\payments.dfm</Transaction>
+    <Transaction>2018/08/05 18:48:04.560.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit4.pas=</Transaction>
+    <Transaction>2018/08/05 18:48:04.560.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit4.dfm=</Transaction>
+    <Transaction>2018/08/08 03:31:55.118.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\POS_u.pas=</Transaction>
+    <Transaction>2018/08/08 03:31:55.118.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\POS_u.dfm=</Transaction>
+    <Transaction>2018/08/08 03:45:53.883.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit10.pas=</Transaction>
+    <Transaction>2018/08/08 03:45:53.883.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit10.dfm=</Transaction>
+    <Transaction>2018/08/08 04:16:22.219.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit1.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\aboutPage_u.pas</Transaction>
+    <Transaction>2018/08/08 04:16:22.219.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit1.dfm=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\aboutPage_u.dfm</Transaction>
+    <Transaction>2018/08/10 15:41:15.859.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\dashboard_u.pas=</Transaction>
+    <Transaction>2018/08/10 15:41:15.860.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\dashboard_u.dfm=</Transaction>
+    <Transaction>2018/08/11 08:07:23.925.pas,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit25.pas=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\customerForm.pas</Transaction>
+    <Transaction>2018/08/11 08:07:23.926.dfm,C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\Unit25.dfm=C:\Users\Gkiba\Desktop\Desktop\IT PAT\Application\customerForm.dfm</Transaction>
+    <Transaction>2018/08/16 17:12:43.941.pas,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit27.pas=C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\frmProducts.pas</Transaction>
+    <Transaction>2018/08/16 17:12:43.942.dfm,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit27.dfm=C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\frmProducts.dfm</Transaction>
+    <Transaction>2018/08/17 03:14:23.685.pas,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit28.pas=C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\uploadPic.pas</Transaction>
+    <Transaction>2018/08/17 03:14:23.693.dfm,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit28.dfm=C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\uploadPic.dfm</Transaction>
+    <Transaction>2018/08/17 04:29:05.228.pas,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit29.pas=C:\Users\Gkiba\Documents\RAD Studio\Projects\xxyy\__history\Unit29.pas</Transaction>
+    <Transaction>2018/08/17 04:29:05.228.dfm,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\Unit29.dfm=C:\Users\Gkiba\Documents\RAD Studio\Projects\xxyy\__history\Unit29.dfm</Transaction>
+    <Transaction>2018/08/17 04:32:06.567.pas,C:\Users\Gkiba\Documents\RAD Studio\Projects\xxyy\__history\Unit29.pas=</Transaction>
+    <Transaction>2018/08/17 04:32:06.567.dfm,C:\Users\Gkiba\Documents\RAD Studio\Projects\xxyy\__history\Unit29.dfm=</Transaction>
+    <Transaction>2018/09/09 06:36:07.303.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Zadoka.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.463.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Zadoka.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.504.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Yangtze.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.552.pas,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\UserAcc.pas=</Transaction>
+    <Transaction>2018/09/09 06:37:02.591.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Takion.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.625.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\tahomabd.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.657.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\tahoma.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.684.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Springdale.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.711.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Pantria.ttf=</Transaction>
+    <Transaction>2018/09/09 06:37:02.736.ttf,C:\Users\Gkiba\Desktop\New folder\Desktop\IT PAT\Application\dataSources\Lollipop.ttf=</Transaction>
+  </Transactions>
+</BorlandProject>

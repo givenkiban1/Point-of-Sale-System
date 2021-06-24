@@ -1,0 +1,241 @@
+object Form19: TForm19
+  Left = 0
+  Top = 0
+  Caption = 'Form19'
+  ClientHeight = 467
+  ClientWidth = 549
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 120
+    Top = 80
+    Width = 88
+    Height = 13
+    Caption = 'FIRST NAME : '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 120
+    Top = 109
+    Width = 71
+    Height = 13
+    Caption = 'SURNAME :'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 120
+    Top = 141
+    Width = 65
+    Height = 13
+    Caption = 'GENDER : '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 120
+    Top = 176
+    Width = 47
+    Height = 13
+    Caption = 'EMAIL : '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 120
+    Top = 208
+    Width = 115
+    Height = 13
+    Caption = 'PHONE NUMBER : '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 120
+    Top = 240
+    Width = 75
+    Height = 13
+    Caption = 'COMPANY : '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 120
+    Top = 304
+    Width = 125
+    Height = 13
+    Caption = 'ACCOUNT STATUS :'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 411
+    Top = 428
+    Width = 134
+    Height = 13
+    Caption = 'Developed by GinTEC -2018'
+  end
+  object Label9: TLabel
+    Left = 120
+    Top = 269
+    Width = 70
+    Height = 13
+    Caption = 'ADDRESS :'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Quasar'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object edtFn: TEdit
+    Left = 292
+    Top = 73
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object edtSn: TEdit
+    Left = 292
+    Top = 105
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
+  object edtEm: TEdit
+    Left = 292
+    Top = 169
+    Width = 121
+    Height = 21
+    TabOrder = 2
+  end
+  object edtCell: TEdit
+    Left = 292
+    Top = 201
+    Width = 121
+    Height = 21
+    MaxLength = 10
+    NumbersOnly = True
+    TabOrder = 3
+  end
+  object edtCo: TEdit
+    Left = 292
+    Top = 233
+    Width = 121
+    Height = 21
+    TabOrder = 4
+  end
+  object CheckBox1: TCheckBox
+    Left = 292
+    Top = 299
+    Width = 97
+    Height = 17
+    Caption = 'ACTIVATED'
+    TabOrder = 5
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 549
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'CREATE NEW VENDOR'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -48
+    Font.Name = 'Takion'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    TabOrder = 6
+  end
+  object Button2: TButton
+    Left = 64
+    Top = 364
+    Width = 213
+    Height = 56
+    Caption = 'SAVE'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tempus Sans ITC'
+    Font.Style = [fsBold, fsItalic]
+    ImageIndex = 0
+    ParentFont = False
+    TabOrder = 7
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 307
+    Top = 364
+    Width = 186
+    Height = 56
+    Caption = 'CANCEL'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tempus Sans ITC'
+    Font.Style = [fsBold, fsItalic]
+    ImageIndex = 0
+    ParentFont = False
+    TabOrder = 8
+    OnClick = Button3Click
+  end
+  object ComboBox1: TComboBox
+    Left = 292
+    Top = 139
+    Width = 121
+    Height = 21
+    Style = csDropDownList
+    ItemIndex = 0
+    TabOrder = 9
+    Text = 'M'
+    Items.Strings = (
+      'M'
+      'F')
+  end
+  object edtAdd: TEdit
+    Left = 292
+    Top = 265
+    Width = 121
+    Height = 21
+    TabOrder = 10
+  end
+end

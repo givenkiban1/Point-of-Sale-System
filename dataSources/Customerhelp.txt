@@ -1,0 +1,18 @@
+Hi there, welcome to the Customer Membership System (CMS) of UMBILO PLAZZA. We are delighted
+that you are using this our software because we have created especially for you.
+
+The reason why we created the CMS was so that we can keep track of our most
+loyal customers and so that we can reward them with gifts(discounts) or even additional money.
+
+In our CMS, we use Loyalty Points (LP) as a currency, R1 = 0.9 LPs. 
+Despite how much greater our LP currency is compared to the Rand, we constantly give
+you more LP's for each purchase that you make and give you more discounts.
+ 
+Therefore this is a quality currency and we advise each and every of our customer to 
+make use of it because it is valuable and rich in rewards.
+
+The CMS has been introduced by Given Kibanza - under the alias of his company GinTec, a senior student from Brettonwood High School
+whom is very passionate about computer science and using technology to make the world
+a better place. By the way, Given is my nephew.
+
+UMBILO PLAZZA CMS, Created in 2018.

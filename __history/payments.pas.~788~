@@ -1,0 +1,634 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N-,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN SYMBOL_EXPERIMENTAL ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN UNIT_EXPERIMENTAL ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+{$WARN OPTION_TRUNCATED ON}
+{$WARN WIDECHAR_REDUCED ON}
+{$WARN DUPLICATES_IGNORED ON}
+{$WARN UNIT_INIT_SEQ ON}
+{$WARN LOCAL_PINVOKE ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN TYPEINFO_IMPLICITLY_ADDED ON}
+{$WARN RLINK_WARNING ON}
+{$WARN IMPLICIT_STRING_CAST ON}
+{$WARN IMPLICIT_STRING_CAST_LOSS ON}
+{$WARN EXPLICIT_STRING_CAST OFF}
+{$WARN EXPLICIT_STRING_CAST_LOSS OFF}
+{$WARN CVT_WCHAR_TO_ACHAR ON}
+{$WARN CVT_NARROWING_STRING_LOST ON}
+{$WARN CVT_ACHAR_TO_WCHAR OFF}
+{$WARN CVT_WIDENING_STRING_LOST OFF}
+{$WARN XML_WHITESPACE_NOT_ALLOWED ON}
+{$WARN XML_UNKNOWN_ENTITY ON}
+{$WARN XML_INVALID_NAME_START ON}
+{$WARN XML_INVALID_NAME ON}
+{$WARN XML_EXPECTED_CHARACTER ON}
+{$WARN XML_CREF_NO_RESOLVE ON}
+{$WARN XML_NO_PARM ON}
+{$WARN XML_NO_MATCHING_PARM ON}
+unit payments;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, pngimage, ExtCtrls, ComCtrls, TabNotBk, dbConn_u,
+  StdCtrls, DB, ADODB, userAcc;
+
+type
+  TForm23 = class(TForm)
+    TabbedNotebook1: TTabbedNotebook;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel1: TPanel;
+    Image1: TImage;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    DBGrid2: TDBGrid;
+    DBGrid3: TDBGrid;
+    Button1: TButton;
+    Label1: TLabel;
+    ADOTable1: TADOTable;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    DBGrid1: TDBGrid;
+    ADOTable2: TADOTable;
+    Label2: TLabel;
+    Button2: TButton;
+    Button3: TButton;
+    ADOQuery2: TADOQuery;
+    Label3: TLabel;
+    ADOQuery3: TADOQuery;
+    ADOQuery4: TADOQuery;
+    ADOTable3: TADOTable;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Label4: TLabel;
+    DataSource3: TDataSource;
+    ADOQuery1: TADOQuery;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+
+  private
+    { Private declarations }
+    procedure updateForm;
+    procedure dispAll;
+  public
+    { Public declarations }
+    Account: TAccount;
+    function calcTotalHours : Real;
+    function calcHours(x : Boolean) : Real;
+    procedure payAll ;
+  end;
+
+var
+  Form23: TForm23;
+
+implementation
+
+uses Unit17;
+{$R *.dfm}
+
+procedure TForm23.Button1Click(Sender: TObject);
+var
+  ans: string;
+  d: TDate;
+  r: String;
+  pay, ratePay: real;
+  h,m,s,ms,h1,m1,s1,ms1,x: word;
+  hours : real;
+  ansB : Boolean;
+begin
+            //SOME RANDOM IDEAS TO ADD!!!!
+            //to do first
+            //Add option where u only pay employees if that day
+            //has passed
+            //also, automatically set total sales to 0 for the days that have
+            //been missed... when program starts.
+            //lastly, add customers page, finish the pay taxes and ordering stock from
+            //suppliers
+            //and custommers can apply for jobs, and view their own dashboard for
+            //notifications such as job openings, sales, etc...
+
+  ans := ADOTable1['EmployeeID'];
+
+  ADOTable2.Close;
+  ADOTable2.TableName := 'tblEmployees';
+  ADOTable2.Open;
+
+  if ADOTable2.Locate('EmployeeID', ans, [loCaseInsensitive,loPartialKey]) then
+    begin
+
+      ratePay := ADOTable2['HourlyWage'];
+
+      ADOTable2.Close;
+      ADOTable2.TableName := 'tblAttendance';
+      ADOTable2.Open;
+
+      ADOTable2.Filtered := False;
+      ADOTable2.Filter := 'PAID = False AND DateOfDay = #'+ DateToStr(ADOTable1['DateOfDay']) +
+        '# AND EmployeeID = '+QuotedStr(ans)+ ' AND ClockOutTime <> Null';
+      ADOTable2.Filtered := True;
+      //add input box asking user to choose wether | pay all , pay for day, single pay
+      ansB := False;
+      if ADOTable2.RecordCount>1 then
+        begin
+          if MessageDlg('Do you wish to Pay employee for all '+ sLineBreak+
+            'other logins on this same Date : '+ DateToStr(ADOTable1['DateOfDay']),
+             mtInformation , [mbYes, mbNo], 0) =6 then
+              begin
+                hours := calcTotalHours;
+                ansB := True;
+              end
+              else hours := calcHours(False);
+        end
+      else hours := calcHours(False);
+
+      pay := ratePay * hours;
+
+      if MessageDlg('YOU ARE ABOUT TO PAY EMPLOYEE '+ans+ sLineBreak+
+      FloatToStrF(Pay, ffCurrency, 7, 0)+' for working on '+DateToStr(ADOTable1['DateOfDay']) + slinebreak+
+      ' for '+ Format('%.2f',[hours]) + ' hour(s).' + sLineBreak+
+
+      'Do you wish to Continue ?', mtConfirmation, [mbYes, mbNo], 0) = 6 then
+        begin
+          //update tblTransactions
+
+          ADOTable2.Close;
+
+          ADOTable2.Filter := '';
+
+          ADOTable2.TableName := 'tblTransactions';
+          ADOTable2.Open;
+
+          ADOTable2.Insert;
+
+          ADOTable2['Type'] := 'WAGES';
+          ADOTable2['By'] := Account.getEmployeeID;
+          ADOTable2['To'] := ans;
+          ADOTable2['Amount'] := pay;
+
+          ADOTable2.Post;
+
+
+          //update tblTransactions
+
+          if ansB then
+          begin
+            ADOTable2.Close;
+            ADOTable2.TableName := 'tblAttendance';
+            ADOTable2.Open;
+
+            ADOTable2.Filtered := False;
+            ADOTable2.Filter := 'PAID = False AND DateOfDay = #'+ DateToStr(ADOTable1['DateOfDay']) +
+              '# AND EmployeeID = '+QuotedStr(ans) + ' AND ClockOutTime <> Null';
+            ADOTable2.Filtered := True;
+            ShowMessage(IntToStr(ADOTable2.RecordCount));
+            ADOTable1.Close;
+            payAll;
+          end
+        else
+          begin
+            ADOTable1.Edit;
+            ADOTable1['PAID'] := True;
+            ADOTable1.Post;
+          end;
+
+          updateForm;
+
+        end;
+    end
+  else ShowMessage('Error, The EmployeeID is no longer registered or may have not existed. Please Contact the Admin.');
+
+  ADOTable2.Close;
+  ADOTable2.Filter := '';
+  ADOTable2.Filtered := False;
+
+
+end;
+
+procedure TForm23.Button2Click(Sender: TObject);
+var noRecord : integer;
+begin
+ADOTable3.Close;
+ADOTable3.TableName := 'tblTransactions';
+ADOTable3.Open;
+
+noRecord:= ADOTable3.RecordCount;
+
+ADOTable3.Insert;
+ADOTable3['TYPE'] := 'TAXES';
+ADOTable3['BY'] := Account.getEmployeeID;
+ADOTable3['TO'] := 'SARS';
+ADOTable3['Amount'] := ADOQuery2['totalAmount']* 0.14;
+ADOTable3['RefID'] := ADOQuery2['SaleIndex'];
+ADOTable3.Post;
+
+if ADOTable3.RecordCount > noRecord then
+  begin
+    ADOQuery4.Close;
+    ADOQuery4.SQL.Text := 'UPDATE tblSales SET TaxPaidFor = True Where SaleIndex = '+IntToStr(ADOQuery2['SaleIndex']);
+    if ADOQuery4.ExecSQL>0 then
+      ShowMessage('Tax paid successfully ')
+    else
+      begin
+        ShowMessage('Error has been encountered. please contact the IT Team or try again later. ');
+        ADOTable3.Connection.RollbackTrans;
+      end;
+  end
+else ShowMessage('We have encountered a problem. please try again later.');
+
+updateForm;
+end;
+
+procedure TForm23.Button3Click(Sender: TObject);
+var noRecord : integer;
+begin
+
+ADOQuery2.First;
+ADOTable3.Close;
+ADOTable3.TableName := 'tblTransactions';
+ADOTable3.Open;
+ADOTable3.Connection.BeginTrans;
+while not ADOQuery2.Eof do
+  begin
+    noRecord:= ADOTable3.RecordCount;
+
+    ADOTable3.Insert;
+    ADOTable3['TYPE'] := 'TAXES';
+    ADOTable3['BY'] := Account.getEmployeeID;
+    ADOTable3['TO'] := 'SARS';
+    ADOTable3['Amount'] := ADOQuery2['totalAmount']* 0.14;
+    ADOTable3['RefID'] := ADOQuery2['SaleIndex'];
+    ADOTable3.Post;
+
+    if ADOTable3.RecordCount > noRecord then
+      begin
+        ADOQuery4.Close;
+        ADOQuery4.SQL.Text := 'UPDATE tblSales SET TaxPaidFor = True Where SaleIndex = '+IntToStr(ADOQuery2['SaleIndex']);
+        if ADOQuery4.ExecSQL<=0 then
+          begin
+            ShowMessage('Error has been encountered. please contact the IT Team or try again later. ');
+            ADOTable3.Connection.RollbackTrans;
+          end
+        else ADOTable3.Connection.CommitTrans;
+      end
+    else
+      begin
+        ShowMessage('We have encountered a problem. please try again later.');
+        ADOTable3.Connection.RollbackTrans;
+      end;
+
+    ADOQuery2.Next;
+  end;
+ShowMessage('Tax paid successfully ');
+ADOTable3.Close;
+
+updateForm;
+
+end;
+
+procedure TForm23.Button4Click(Sender: TObject);
+var orderID,prodID , number : Integer;
+    cost : real;
+    suppID : string;
+begin
+try
+  ADOQuery1.Connection.BeginTrans;
+
+  orderID := ADOQuery1['OrderID'];
+
+  number := ADOQuery1['Quantity'];
+
+  cost := ADOQuery1['Cost'];
+
+  ADOQuery1.Close;
+  ADOQuery1.SQL.Text := 'SELECT * FROM tblOrders Where Delivered = False'+
+  ' AND OrderID = '+ IntToStr(orderID);
+  ADOQuery1.Open;
+
+  prodID := ADOQuery1['productID'];
+
+  suppID := ADOQuery1['SupplierID'];
+
+  ADOQuery1.Close;
+  ADOQuery1.SQL.Text :='UPDATE tblOrders SET Delivered = True, DateDelivered = Now()'+
+  ' Where OrderID = '+ IntToStr(orderID);
+
+  if ADOQuery1.ExecSQL>0 then
+    begin
+
+      ADOQuery1.Close;
+      ADOQuery1.SQL.Text := 'UPDATE tblStock SET Quantity = Quantity + '+ IntToStr(number)+
+      ' Where productID = '+ IntToStr();
+      ADOQuery1.ExecSQL;
+
+      ADOTable2.Close;
+      ADOTable2.TableName := 'tblTransactions';
+      ADOTable2.Open;
+
+      ADOTable2.Insert;
+      ADOTable2['Type'] := 'ORDER';
+      ADOTable2['By'] := Account.getEmployeeID;
+      ADOTable2['To'] := 'SUPPLIER';
+      ADOTable2['Amount'] := cost;
+      ADOTable2['RefID'] := StrToInt(suppID);
+      ADOTable2.Post;
+      
+      
+      ShowMessage('YOU SUCCESSFULLY CONFIRMED HAVING RECEIVED ORDER #'+IntToStr(orderID));
+
+      ADOQuery1.Connection.CommitTrans;
+
+    end;
+  
+except on E: Exception do
+begin
+
+  ADOQuery1.Connection.RollbackTrans;
+  ShowMessage('Error there was an Error. Try again later. If problem persists contact The IT technicians.');
+
+end; //end except's begin
+
+end;  //end try
+
+updateForm;
+
+end;
+
+procedure TForm23.Button5Click(Sender: TObject);
+var oID : Integer;
+begin
+try
+
+oID := ADOQuery1['OrderID'];
+
+ADOQuery1.Close;  
+
+ADOQuery1.Connection.BeginTrans;
+
+ADOQuery1.SQL.Text := 'DELETE FROM tblOrders WHERE OrderID = '+ IntToStr(oID);
+
+if ADOQuery1.ExecSQL>0 then ShowMessage('ORDER SUCCESSFULLY CANCELLED.')  
+  else ShowMessage('COULD NOT CANCEL ORDER.');
+except on E: Exception do
+begin
+  ShowMessage('Sorry, We have encountered an error. Could not cancel record.'+slinebreak+
+  'Try again later , but contact the IT technicians if error persists.');
+  ADOQuery1.Connection.RollbackTrans;
+end;//end except
+
+end;//end try
+
+end;
+
+function TForm23.calcHours( x : Boolean): Real;
+var h1, h , m1, m, s,s1, ms, ms1 : word;
+    hours : real;
+begin
+
+if x then
+  begin
+    DecodeTime(ADOTable2['ClockInTime'] ,h , m, s, ms  );
+    DecodeTime(ADOTable2['ClockOutTime'] ,h1 , m1, s1, ms1  );
+  end
+else
+  begin
+    DecodeTime(ADOTable1['ClockInTime'] ,h , m, s, ms  );
+    DecodeTime(ADOTable1['ClockOutTime'] ,h1 , m1, s1, ms1  );
+  end;
+
+if h1 = h then
+  begin
+    hours := (m1 - m)/60;
+  end
+else
+  begin
+    hours := (h1-h-1) + ((m1 - m + 60)/60)
+  end;
+
+Result := hours;
+end;
+
+function TForm23.calcTotalHours: Real;
+var hours : real;
+begin
+ADOTable2.First;
+hours := 0;
+
+while not ADOTable2.Eof do
+  begin
+    hours := hours + calcHours(True);
+    ADOTable2.Next;
+  end;
+Result := hours;
+end;
+
+procedure TForm23.dispAll;
+begin
+ADOTable1.Close;
+ADOTable1.TableName := 'tblAttendance';
+ADOTable1.Open;
+
+ADOTable1.Refresh;
+ADOTable1.Filtered := False;
+ADOTable1.filter := 'PAID = FALSE AND ClockOutTime <> Null';
+ADOTable1.Filtered := True;
+
+//
+end;
+
+procedure TForm23.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+Resize := False;
+end;
+
+procedure TForm23.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  CanClose := faLse;
+  Unit17.form15.show;
+  self.Hide;
+end;
+
+procedure TForm23.FormCreate(Sender: TObject);
+begin
+  Position := poScreenCenter;
+  updateForm;
+end;
+
+procedure TForm23.FormShow(Sender: TObject);
+begin
+  updateForm;
+end;
+
+procedure TForm23.Image1Click(Sender: TObject);
+begin
+  Unit17.form15.show;
+  self.Hide;
+end;
+
+procedure TForm23.payAll;
+var i : integer;
+begin
+ADOTable2.First;
+while (ADOTable2.RecordCount>0) and (ADOTable2.Filtered) do
+  begin
+    i := ADOTable2['RecordNo'];
+
+    if ADOTable2.RecordCount = 1 then
+      begin
+        ADOTable2.Filtered := False;
+        ADOTable2.Locate('RecordNo', i, []);
+      end
+    else ADOTable2.First;
+
+    ADOTable2.Edit;
+    ADOTable2['Paid'] := True;
+    ADOTable2.Post;
+
+
+  end;
+
+ADOTable2.Close;
+
+end;
+
+procedure TForm23.updateForm;
+var
+  RecordNo, EmployeeID, DateOfDay, ClockInTime, ClockOutTime: String;
+begin
+  dispAll;
+  DBGrid1.Columns[1].Width := 100;
+  if ADOTable1.RecordCount= 0 then
+    begin
+    Button1.Enabled := False;
+    Button1.ShowHint := True;
+    Label1.Caption := 'You have made all payments already';
+    end
+  else
+    begin
+    Button1.Enabled := True;
+    Button1.ShowHint := False;
+    Label1.Caption := 'You have not made '+ IntToStr(ADOTable1.RecordCount)+' payments as yet';
+    end;
+
+    ADOQuery2.Close;
+    ADOQuery2.SQL.Text := 'SELECT SaleIndex, transactionDate, totalAmount, Format(totalAmount *  0.14, "R 0.00") AS [TAX TO BE PAID] FROM tblSales'+
+    ' WHERE TaxPaidFor = False';
+    ADOQuery2.Open;
+
+  if ADOQuery2.RecordCount= 0 then
+    begin
+    Button2.Enabled := False;
+    Button2.ShowHint := True;
+    Button3.Enabled := False;
+    Button3.ShowHint := True;
+    Label3.Caption := 'You have already made all Tax payments.';
+    end
+  else
+    begin
+    Button2.Enabled := True;
+    Button2.ShowHint := False;
+    Button3.Enabled := True;
+    Button3.ShowHint := False;
+    Label3.Caption := 'You have not made '+ IntToStr(ADOQuery2.RecordCount)+' Tax payments as yet';
+    end;
+
+    ADOQuery1.Close;
+    ADOQuery1.SQL.Text := 'SELECT a.OrderID, b.StockName, a.Quantity, a.Date_Ordered, a.Cost FROM tblOrders as a, tblStock as b'+
+    ' WHERE Delivered = False AND a.productID = b.StockID';
+    ADOQuery1.Open;
+
+  if ADOQuery1.RecordCount= 0 then
+    begin
+    Button4.Enabled := False;
+    Button4.ShowHint := False;
+
+    Button5.Enabled := False;
+    Button5.ShowHint := False;
+
+    Button6.Enabled := False;
+    Button6.ShowHint := False;
+
+    Label4.Caption := 'You have already confirmed having received all ORDERS payments.';
+    end
+  else
+    begin
+    Button4.Enabled := True;
+    Button4.ShowHint := False;
+    Button5.Enabled := True;
+    Button5.ShowHint := False;
+    Button6.Enabled := True;
+    Button6.ShowHint := False;
+
+    Label4.Caption := 'You have not confirmed having received '+ IntToStr(ADOQuery1.RecordCount)+' orders as yet';
+    end;
+
+
+end;
+
+end.
+

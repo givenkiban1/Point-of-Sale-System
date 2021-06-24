@@ -1,0 +1,104 @@
+unit Unit29;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, Grids, DBGrids, dbConn_u, ExtCtrls, StdCtrls, Buttons;
+
+type
+  TForm29 = class(TForm)
+    DBGrid1: TDBGrid;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form29: TForm29;
+  from : TForm;
+  suppID : integer;
+  productID : Integer;
+  item : string;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm29.BitBtn1Click(Sender: TObject);
+begin
+self.Hide;
+from.BringToFront;
+from.Enabled := True;
+productID := -1;
+suppID := -1;
+item := '';
+end;
+
+procedure TForm29.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+Resize := False;
+end;
+
+procedure TForm29.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+BitBtn1Click(Self);
+end;
+
+procedure TForm29.FormCreate(Sender: TObject);
+begin
+//
+ADOQuery1.Close;
+end;
+
+procedure TForm29.FormShow(Sender: TObject);
+var y : string;
+begin
+//
+self.Color := from.Color;
+
+ADOQuery1.Close;
+ADOQuery1.SQL.Text := 'SELECT * FROM tblOrders Where ';
+
+y := '';
+
+if (suppID>-1) and (productID=-1)then
+  begin
+    y := ' SupplierID = '+ QuotedStr(IntToStr(suppID));
+    Panel1.Caption := 'VIEW ORDER HISTORY WITH SUPPLIER '+
+    IntToStr(suppID)+ ' - '+ item;
+  end
+else
+if (suppID=-1) and (productID>-1)then
+  begin
+    y := ' productID = '+ IntToStr(productID);
+    Panel1.Caption := 'VIEW ORDER HISTORY for Product '+
+    IntToStr(productID)+ ' - '+ item;
+  end;
+
+ADOQuery1.SQL.Text := ADOQuery1.SQL.Text  + y;
+
+try
+ADOQuery1.Open;
+except on E: Exception do
+
+end;
+
+
+
+end;
+
+end.

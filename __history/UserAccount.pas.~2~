@@ -1,0 +1,15 @@
+unit UserAccount;
+
+interface
+type
+TAccount = class(TObject)
+
+private
+
+public
+
+end;
+
+implementation
+
+end.

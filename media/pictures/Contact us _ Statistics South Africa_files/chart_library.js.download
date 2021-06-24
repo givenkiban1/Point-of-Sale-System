@@ -1,0 +1,349 @@
+Highcharts.setOptions({
+    //colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
+    chart: {
+        animation: true,
+        zoomType:'xy'
+        //marginBottom: 10
+    },
+    credits: {
+        enabled:true,
+        href:"http://www.statssa.gov.za",
+        text:"Statistics South Africa"
+        
+    },
+    lang: {
+        decimalPoint:','        
+    },
+    title: {
+        text: null,
+        style: {
+            color: '#999999',
+            fontSize: '13px',
+            fontWeight: 'bold',
+            fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif'
+        }
+    },
+    subtitle: { text: null },
+    //credits: { enabled: false },
+    xAxis: {
+          labels: {
+              rotation:0,
+              align: 'center',
+              style: {
+                  color:"#333333",
+                  fontSize: '12px',
+                  fontWeight: 'normal',
+                  fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif'
+              }
+          }
+      },
+      yAxis: { 
+          min: null,
+          max:null,
+          tickInterval: null, // 20000000,
+          title:{ text: null },
+          lineWidth: 0,
+          tickWidth: 0,
+          allowDecimals:true,
+          gridLineColor:"#DDDDDD",
+          //plotLines: [{color: '#FF0000',width: 0}],
+          stackLabels: {
+              enabled: false,
+              rotation: -90,
+              align: 'center',
+              style: {
+                  fontSize: '12px',
+                  fontWeight: 'normal',
+                  fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+                  color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'                  
+              }
+          }
+      },
+      legend: {
+          enabled: true,
+          floating: false,
+          borderRadius:4,
+          borderColor:'#E1E1E8',
+          borderWidth: 1,
+          backgroundColor: 'white',
+          shadow:false,
+          layout:'horizontal',
+          padding:5,
+          margin:5,
+          verticalAlign: 'bottom',
+          align: 'center',
+          itemStyle: {
+              font: '9pt Helvetica,Arial,sans-serif',
+              color: '#333333'              
+          },
+          itemHoverStyle: {
+              color: '#0088CC'            
+          },
+          itemHiddenStyle: {
+              color: 'gray'
+          }
+      },
+      plotOptions: {
+          column: {
+              //stacking: 'normal',
+              pointPadding: 0,              
+              dataLabels: {
+                  enabled: false,
+                  rotation: -90,
+                  color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                  align: 'center',
+                  style: {
+                      fontSize: '12px',
+                      fontWeight: 'normal',
+                      fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif'
+                  }
+              }
+          },
+          line: {
+              marker: {
+                  enabled: false
+              }
+          },
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer'
+          },
+          bar: {
+              dataLabels: {
+                  enabled: false
+              }
+              
+          }
+      }
+});
+
+var stacked_column_chart = {chart: {type: 'column'}, tooltip: {
+        shared:false,
+        formatter: function() {
+            return '<b>'+ this.x +'</b><br/>' + this.series.name +': '+ this.y +'<br/>' + 'Population: '+ this.point.stackTotal;
+        }        
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        }            
+    }
+};
+
+
+var line_chart = {
+    chart: {
+        type: 'line'
+    },
+    tooltip: {
+        //decimalPoint:',',
+        formatter: function() { 
+            return '<b>'+ this.x +'</b><br/>' + this.series.name +': '+ Highcharts.numberFormat(this.y, 1, ',') +'%<br/>';
+            //return '<b>'+ this.x +'</b><br/>' + this.series.name +': '+ Highcharts.numberFormat(this.y, 1, ',') +'%<br/>';
+        }
+    }
+};
+
+
+
+
+var bar_chart = {
+    chart: {
+        type: 'bar'
+    },
+    tooltip: {
+        formatter: function() {
+            return this.x + ': <b>' + Highcharts.numberFormat(this.y, 1, ',') + '%</b>';
+        }        
+    }
+};
+
+
+var bar_chart2 = {
+    chart: {
+        type: 'bar'
+    },
+    tooltip: {
+        decimalPoint:',',
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0;font-size:11px;">{series.name}: </td>' +
+            '<td style="padding:0;font-size:11px"><b>{point.y:.1f}%</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+     }
+};
+
+
+var pie_chart = {
+    chart: {
+        type: 'pie'        
+    },
+    tooltip: {
+        //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+        //pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+        //percentageDecimals:1,
+        formatter: function() {
+            //return this.point.name + '<br />' +this.series.name + ': <b>' + Highcharts.numberFormat(this.percentage, 1, ',') + '%</b>';  
+            return this.point.name +': '+ Highcharts.numberFormat(this.y, 1, ',') +'%<br/>';
+        }
+    },    
+    series: [{
+            type: 'pie'
+    }]
+};
+
+
+var column_chart = {
+    chart: {
+        type: 'column'
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0;font-size:11px;">{series.name}: </td>' +
+                    '<td style="padding:0;font-size:11px"><b>{point.y:.1f}%</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+    }
+};
+
+
+var column_chart2 = {
+    chart: {
+        type: 'column'
+    },
+    xAxis: {
+        labels:{
+            align:"center",
+            style: {
+                color: '#666666',
+                fontSize: '10px',
+                fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+                fontWeight: 'normal' 
+            }
+        }
+        
+    },
+    plotOptions: {
+        column: {
+            colorByPoint: true            
+        }
+    },
+    tooltip: {
+        shared: false,
+        useHTML: true,
+        formatter: function() {
+            return this.x +': '+ Highcharts.numberFormat(this.y, 1, ',') +'%<br/>';
+        }
+    }
+};
+
+
+var pyramid_chart = {
+    chart: {
+        type: 'bar'
+    },
+    xAxis: [{
+        //categories: categories,
+        reversed: false
+    },{
+        opposite: true,
+        reversed: false,
+        //categories: categories,
+        linkedTo: 0
+        
+            
+    }],
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    tooltip: {
+        formatter: function() {
+            return '<b>'+ this.series.name +', age '+ this.point.category +'</b><br/>'+
+                //'Population: '+ Highcharts.numberFormat(Math.abs(this.point.y), 1);
+                'Population: '+ Highcharts.numberFormat(Math.abs(this.point.y), 1, ',') + "%";
+        }
+    }
+};
+
+
+
+
+
+$.fn.geo_chart = function(options) {
+    options = $.extend({
+        data: [
+            ['Province', 'Population'],
+            ['ZA-EC', 6562053],
+            ['ZA-WC', 5822634],
+            ['ZA-NC', 1145861],
+            ['ZA-FS', 2745590],
+            ['ZA-GT', 12272263],
+            ['ZA-LP', 5404868],
+            ['ZA-NW', 3509953],
+            ['ZA-MP', 4039939],
+            ['ZA-NL', 10267300]
+        ],
+        regionClick : function(eventData) {
+            alert(eventData.region);
+        },
+        callback: function() {
+            alert("map drawn");
+        },
+        colors: [],
+        width: 890,
+        height: 510,
+        backgroundColor: '#ffffff',
+        datalessRegionColor:'ffffff',
+        region:'ZA',
+        resolution:'provinces',
+        marginLeft:-210,
+        containerWidth: 380,
+        containerHeight: 245,
+        //containerClass: 'pull-right'
+        containerClass: '',
+        containerBorder: 'border:0px solid #444'
+    },options);
+    
+    var dom_element = this;
+    var dom_element_id = $(this).attr("id");
+    
+     if($('#' + dom_element_id).length>0) {
+         drawMap(dom_element,dom_element_id,options);
+         //google.setOnLoadCallback(drawMap(dom_element,dom_element_id,options));
+         //$('#' + dom_element_id).wrap('<div class="' + options.containerClass + '" style="' + options.containerBorder + ';width:' + options.containerWidth + 'px;height:' + options.containerHeight + 'px;overflow:hidden;" />');
+         //$('#' + dom_element_id).css({"margin-left": options.marginLeft +"px"});
+     }
+     
+     function drawMap(dom_element,dom_element_id,options) {
+         var geochart = new google.visualization.GeoChart(document.getElementById(dom_element_id));
+         google.visualization.events.addListener(geochart, "regionClick", options.regionClick);
+         google.visualization.events.addListener(geochart, 'ready', function() {
+             //$('#' + dom_element_id).hide();
+             $('#' + dom_element_id).fadeIn(2800, function() { options.callback(); }); 
+             //$("#homepage_map").parent("div").css({"overflow":"hidden"});
+             //console.log();
+         });
+         
+         geochart.draw(google.visualization.arrayToDataTable(options.data), {
+             width: options.width,
+             height: options.height,
+             backgroundColor: options.backgroundColor,
+             region:options.region,
+             colorAxis: {colors:options.colors},
+             resolution:options.resolution,
+             legend:'none',
+             //displayMode:'markers',
+             keepAspectRatio:false,
+             magnifyingGlass: '{enable: true, zoomFactor:100}',
+             datalessRegionColor:options.datalessRegionColor,
+             backgroundColor: {stroke:'#ffffff',strokeWidth:0},
+             tooltip: {textStyle: {color: '#444444'}, trigger:'none'}
+         });
+     }
+    
+};

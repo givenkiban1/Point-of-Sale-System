@@ -1,0 +1,142 @@
+unit Unit19;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, pngimage, db_management;
+
+type
+  TForm19 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label11: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    edtFn: TEdit;
+    edtSn: TEdit;
+    edtEm: TEdit;
+    edtCell: TEdit;
+    edtCo: TEdit;
+    CheckBox1: TCheckBox;
+    Panel2: TPanel;
+    Button2: TButton;
+    Button3: TButton;
+    ComboBox1: TComboBox;
+    edtAdd: TEdit;
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    vID : Integer;
+  procedure clearAll;
+  end;
+
+var
+  Form19: TForm19;
+  POSQuery : TPOSQuery;
+
+
+implementation
+uses unit8;
+{$R *.dfm}
+
+procedure TForm19.Button2Click(Sender: TObject);
+var
+  fName , surname, gender, email,co , address, cell , resp: String;
+  AccStat :Boolean ;
+
+begin
+fName := edtFn.Text;
+surname := edtSn.Text;
+gender := ComboBox1.Items.Strings[ComboBox1.ItemIndex];
+email := edtEm.Text;
+co := edtCo.Text;
+cell := edtCell.Text;
+address := edtAdd.Text;
+AccStat := CheckBox1.Checked;
+
+
+//check that data is correct- Validation
+
+POSQuery := TPOSQuery.create;
+
+if Panel2.Caption <> 'UPDATE VENDOR' then
+    begin
+        resp:= POSQuery.createVendor(fName,surname,co,email,address,cell,gender,AccStat);
+
+        if resp<>'' then
+          ShowMessage('Vendor has been Added. The Vendor ID For '+co+' = '+resp)
+        else
+        ShowMessage('Error while creating Vendor. If error persists, please contact admin.');
+        //also have a profile for vendors, like from vendors page, manager can view all products supplied
+    end
+    else
+    begin
+        resp:= POSQuery.updateVendor(vID,fName,surname,co,email,address,cell,gender,AccStat);
+        ShowMessage(resp);
+    end;
+clearAll;
+unit8.Form8.Enabled :=true;
+self.Hide;
+end;
+
+procedure TForm19.Button3Click(Sender: TObject);
+begin
+clearAll;
+Form8.Enabled := True;
+self.Hide;
+end;
+
+procedure TForm19.clearAll;
+var i:integer;
+    obj : TObject;
+begin
+
+for i := 0 to self.ComponentCount-1 do
+  begin
+    obj := (self.Components[i] as TObject);
+    if  (obj is TEdit) then
+        (obj as TEdit).Clear
+    else
+    if  (obj is TComboBox) then
+        begin
+            (obj as TComboBox).Clear;
+            (obj as TComboBox).ItemIndex:=-1
+        end
+    else
+    if (obj is TCheckBox) then
+        (obj as TCheckBox).Checked:=false;
+  end;
+end;
+
+procedure TForm19.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+resize := False;
+end;
+
+procedure TForm19.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+clearAll;
+Form8.Enabled := True;
+end;
+
+procedure TForm19.FormShow(Sender: TObject);
+begin
+//
+
+end;
+
+end.

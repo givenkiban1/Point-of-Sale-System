@@ -1,0 +1,256 @@
+unit Unit11;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, Grids, DBGrids, dbConn_u, pngimage,
+  DB, ADODB, UserAcc;
+
+type
+  TForm11 = class(TForm)
+    Label3: TLabel;
+    DBGrid1: TDBGrid;
+    ComboBox1: TComboBox;
+    DateTimePicker1: TDateTimePicker;
+    Panel1: TPanel;
+    ComboBox2: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Panel2: TPanel;
+    DBGrid2: TDBGrid;
+    Label1: TLabel;
+    Image2: TImage;
+    Label4: TLabel;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    ComboBox3: TComboBox;
+    Panel3: TPanel;
+    procedure FormCreate(Sender: TObject);
+    procedure DateTimePicker1Change(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Account : TAccount;
+    procedure displayTable1( x : String);
+    procedure displayTable2;
+  end;
+
+var
+  Form11: TForm11;
+
+implementation
+
+uses unit17;
+
+{$R *.dfm}
+
+procedure TForm11.BitBtn1Click(Sender: TObject);
+begin
+ComboBox1.Text :='';
+ComboBox2.Text :='';
+ComboBox1.ItemIndex:=-1;
+ComboBox2.ItemIndex:=-1;
+ComboBox3.ItemIndex := -1;
+ComboBox3.Text := '';
+
+displayTable1('');
+displayTable2;
+DateTimePicker1.DateTime := Now;
+end;
+
+procedure TForm11.BitBtn2Click(Sender: TObject);
+var queryV , queryD, fin: String;
+begin
+//
+queryV:='';
+queryD:='';
+/// The user firstly chooses what they want to search for
+/// If they pick All, then they will be searching for 2 kinds of data - TransactionDate and one of the different Type of IDs
+/// Either EmployeeID, customerID or receriptID.
+/// However, if the user picks anything else except for All, then they will be performing a search based on a single field
+
+if (ComboBox1.ItemIndex = 0) and (ComboBox3.ItemIndex>=0) then
+  begin
+
+    if (ComboBox2.ItemIndex >= 0)  and (ComboBox2.ItemIndex<=2) then
+          queryD := ComboBox2.Text +'(TransactionDate) = ' + ComboBox2.Text + '(#'+ DateToStr(DateTimePicker1.Date)+'#)'
+    else
+      if (ComboBox2.ItemIndex = 3) then
+          queryD := 'TransactionDate = #'+ DateToStr(DateTimePicker1.Date)+'#'
+    else
+      begin
+          ShowMessage('You need to pick Either Month, Day, Year or Both!');
+          Exit;
+      end; //end else
+    queryV := ComboBox3.Text+ ' Like ' +QuotedStr('%'+InputBox('','Enter '+ ComboBox3.Text,'')+'%');
+
+  end//end if
+
+else
+
+if ComboBox1.ItemIndex in [1..4] then
+  begin
+//However, if the user picks the last option, TransactionDate, then we extract the following
+//If user choses either Day, Month or Year , the program will fetch records that match that criteria.
+    if ComboBox1.ItemIndex = 4 then
+      begin
+
+        if (ComboBox2.ItemIndex >= 0)  and (ComboBox2.ItemIndex<=2) then
+          queryD := ComboBox2.Text +'(TransactionDate) = ' + ComboBox2.Text + '(#'+ DateToStr(DateTimePicker1.Date)+'#)'
+        else
+
+//However if they choose the last option, BOTH, then we simply fetch records which match the chosen date in the datetimepicker
+        if (ComboBox2.ItemIndex = 3) then
+              queryD := 'TransactionDate = #'+ DateToStr(DateTimePicker1.Date)+'#'
+        else
+          begin
+            ShowMessage('You need to pick Either Month, Day, Year or Both!');
+            exit;
+          end;
+
+      end //end
+
+      else queryV := ComboBox1.Text+ ' Like ' +QuotedStr('%'+InputBox('','Enter '+ ComboBox1.Text,'')+'%');
+  end
+else
+  ShowMessage('You need to select / Enter the Needed Data in order to search');
+
+
+fin := '';
+
+if (queryV<>'') and (queryD<>'') then
+  fin := 'Where '+queryV+' AND '+queryD
+else
+if (queryD<>'') then
+  fin := 'Where '+queryD
+else
+if (queryV<>'') then
+  fin := 'Where '+queryV;
+
+displayTable1(' '+fin);
+
+end;
+
+procedure TForm11.Button3Click(Sender: TObject);
+begin
+//
+end;
+
+procedure TForm11.ComboBox1Change(Sender: TObject);
+begin
+//
+if ComboBox1.ItemIndex in [0,4] then
+  begin
+    ComboBox2.Show;
+    DateTimePicker1.Show;
+    if ComboBox1.ItemIndex = 0 then
+      ComboBox3.Show;
+  end
+else
+  begin
+    ComboBox2.Hide;
+    DateTimePicker1.Hide;
+    ComboBox3.Hide;
+  end;
+
+
+end;
+
+procedure TForm11.DateTimePicker1Change(Sender: TObject);
+begin
+if DateTimePicker1.Date>Date then
+  DateTimePicker1.DateTime := Now;
+end;
+
+procedure TForm11.displayTable1(x: String);
+begin
+ADOQuery1.Close;
+ADOQuery1.SQL.Text:='Select * from tblSales ' + x;
+ADOQuery1.Open;
+
+DBGrid1.Columns[0].Width := 60;
+DBGrid1.Columns[1].Width := 100;
+DBGrid1.Columns[2].Width := 150;
+DBGrid1.Columns[3].Width := 150;
+DBGrid1.Columns[4].Width := 100;
+DBGrid1.Columns[5].Width := 100;
+
+end;
+
+procedure TForm11.displayTable2;
+var x : integer;
+begin
+ADOQuery2.Close;
+ADOQuery2.SQL.Text:='Select * from tblSales where TransactionDate = #'+DateToStr(now)+'#';
+ADOQuery2.Open;
+
+//CALCULATE SUM
+ADOQuery2.First;
+x := 0;
+while not ADOQuery2.Eof do
+  begin
+    x := x + ADOQuery2['totalAmount'];
+    ADOQuery2.Next;
+  end;
+
+ADOQuery1.First;
+
+DBGrid2.Columns[0].Width := 60;
+DBGrid2.Columns[1].Width := 100;
+DBGrid2.Columns[2].Width := 150;
+DBGrid2.Columns[3].Width := 150;
+DBGrid2.Columns[4].Width := 100;
+DBGrid2.Columns[5].Width := 100;
+
+
+Panel3.Caption := 'Total Amount made from sales today is '+FloatToStrF(x, ffCurrency, 7,2);
+end;
+
+procedure TForm11.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+Resize := False;
+end;
+
+procedure TForm11.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+CanClose := False;
+Image2Click(Self);
+end;
+
+procedure TForm11.FormCreate(Sender: TObject);
+begin
+(Sender as TForm).Position:=poScreenCenter;
+(Sender as TForm).DefaultMonitor := dmMainForm;
+ComboBox1Change(Self);
+CurrencyString := 'R';
+end;
+
+procedure TForm11.FormShow(Sender: TObject);
+begin
+displayTable1('');
+displayTable2;
+BitBtn1Click(Self);
+ComboBox1Change(Self);
+end;
+
+procedure TForm11.Image2Click(Sender: TObject);
+begin
+form15.show;
+form11.hide;
+end;
+
+end.

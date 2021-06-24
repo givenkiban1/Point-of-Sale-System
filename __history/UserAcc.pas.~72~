@@ -1,0 +1,233 @@
+unit UserAcc;
+
+interface
+uses sysUtils, dbConn_u;
+type
+TAccount = class(TObject)
+
+private
+
+EmployeeID : string;
+firstName : string;
+Surname : string;
+Gender : string;
+Email : string;
+SAID : string;
+Password : string;
+ACCOUNT_STATUS : Boolean;
+DateHired : TDate;
+DateFired : TDate;
+Admin : boolean;
+hWage : Real;
+permissions : array of string;
+loginTime : TTime;
+posiz : integer ;
+procedure assignPermissions;
+procedure setPosiz;
+public
+
+Constructor Create(fEmpID , fName, fSurname, fGender, fEmail,
+            fSaID, fPassword : String; fStatus,fAdmin : Boolean;
+            fHired,fFired : TDate; fWage : Real);
+
+//getters   --- Accessor Methods
+function getName : string;
+function getSurname:string;function getGender:string;
+function getEmail:string;function getID:string;function getPassword:string;
+function getStatus:boolean;function getAdmin:boolean;function getPermissions: variant;
+function getDfired:TDate;function getDhired:TDate;
+function getEmployeeID: string;
+function getLoginTime : TTime;
+function getHourlyWage : Real;
+function getPosiz : Integer;
+//setters   --- mutator Methods
+procedure setName (x: string);
+procedure setSurname(x: string);procedure setGender(x: string);
+procedure setEmail(x: string);procedure setID(x: string);procedure setPassword(x: string);
+procedure setStatus(x:boolean);//procedure setAdmin(x:boolean);
+procedure setDfired(x:TDate);procedure setDhired(x:TDate);
+procedure setHourlyWage (x: Real);
+end;
+
+implementation
+
+{ TAccount }
+
+procedure TAccount.assignPermissions;
+var x :integer;
+begin
+if Admin then
+  begin
+    SetLength(permissions , 1);
+    permissions[0]:='*';
+  end
+else
+  begin
+    SetLength(permissions , 3);
+    permissions[0]:='form12';
+    permissions[1]:='form9';
+    permissions[2]:='form13';
+  end;
+end;
+
+constructor TAccount.Create(fEmpID, fName, fSurname, fGender, fEmail, fSaID,
+  fPassword: String; fStatus, fAdmin: Boolean; fHired, fFired: TDate ; fWage : Real);
+begin
+// INSTANTIATE OBJECT
+EmployeeID:=fEmpID;
+firstName:=fName;
+Surname := fSurname;
+Gender := fGender;
+Email := fEmail;
+SAID := fSaID;
+Password := fPassword;
+ACCOUNT_STATUS := fStatus;
+DateHired := fHired;
+DateFired := fFired;
+Admin := fAdmin;
+hWage := fWage;
+loginTime := Now;
+
+assignPermissions;
+end;
+
+function TAccount.getAdmin: boolean;
+begin
+Result := Admin;
+end;
+
+function TAccount.getDfired: TDate;
+begin
+Result:=DateFired;
+end;
+
+function TAccount.getDhired: TDate;
+begin
+Result:=DateHired;
+end;
+
+function TAccount.getEmail: string;
+begin
+Result:=Email;
+end;
+
+function TAccount.getEmployeeID: string;
+begin
+Result:=EmployeeID;
+end;
+
+function TAccount.getGender: string;
+begin
+Result:=Gender;
+end;
+
+function TAccount.getHourlyWage: Real;
+begin
+Result := hWage;
+end;
+
+function TAccount.getID: string;
+begin
+Result:=SAID;
+end;
+
+function TAccount.getLoginTime: TTime;
+begin
+Result := loginTime;
+end;
+
+function TAccount.getName: string;
+begin
+Result:=firstName;
+end;
+
+function TAccount.getPassword: string;
+begin
+Result:=Password;
+end;
+
+function TAccount.getPermissions: variant;
+begin
+Result:=permissions;
+end;
+
+function TAccount.getPosiz: Integer;
+begin
+Result := posiz;
+end;
+
+function TAccount.getStatus: boolean;
+begin
+Result:=ACCOUNT_STATUS;
+end;
+
+function TAccount.getSurname: string;
+begin
+Result:=Surname;
+end;
+
+
+procedure TAccount.setDfired(x: TDate);
+begin
+DateFired:=x;
+end;
+
+procedure TAccount.setDhired(x: TDate);
+begin
+DateHired:=x;
+end;
+
+procedure TAccount.setEmail(x: string);
+begin
+Email:=x;
+end;
+
+procedure TAccount.setGender(x: string);
+begin
+Gender:=x;
+end;
+
+procedure TAccount.setHourlyWage(x: Real);
+begin
+hWage := x;
+end;
+
+procedure TAccount.setID(x: string);
+begin
+SAID:=x;
+end;
+
+procedure TAccount.setName(x: string);
+begin
+firstName:=x;
+end;
+
+procedure TAccount.setPassword(x: string);
+begin
+Password:=x;
+end;
+
+procedure TAccount.setPosiz;
+begin
+
+with dbConn_u.DataModule1 do
+  begin
+    ADOQuery3.Close;
+    ADOQuery3.SQL.Text:='SELECT RecordNo from tblAttendance order by DateOfDay Desc';
+    ADOQuery3.Open;
+  end;
+end;
+
+procedure TAccount.setStatus(x: boolean);
+begin
+ACCOUNT_STATUS:=x;
+end;
+
+procedure TAccount.setSurname(x: string);
+begin
+Surname:=x;
+end;
+//also have the things such as pay rate per hour, etc
+//maybe remove date fired and hired from db, and even account status
+
+end.

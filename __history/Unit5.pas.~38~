@@ -1,0 +1,125 @@
+unit Unit5;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, ComCtrls, dashboard_u;
+
+type
+  TForm5 = class(TForm)
+    ProgressBar1: TProgressBar;
+    Label1: TLabel;
+    Timer1: TTimer;
+    Label4: TLabel;
+    Timer2: TTimer;
+    Label2: TLabel;
+    a1: TLabel;
+    a2: TLabel;
+    a3: TLabel;
+    a4: TLabel;
+    a5: TLabel;
+    a10: TLabel;
+    a9: TLabel;
+    a8: TLabel;
+    a7: TLabel;
+    a6: TLabel;
+    a12: TLabel;
+    a11: TLabel;
+    Timer4: TTimer;
+    Timer5: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+    procedure Timer5Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form5: TForm5;
+  line: string = 'ANOTHER PROUD PRODUCTION OF GINTEC';
+  posi : integer = 1;
+  yy : integer=1;
+  start :boolean = false;
+  num :integer = 1;
+  line2 : string = 'UMBILO PLAZA';
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+timer4.Enabled:=false;
+Timer1.Enabled:=true;
+(Sender as TForm).Position:=poScreenCenter;
+(Sender as TForm).DefaultMonitor := dmMainForm;
+end;
+
+procedure TForm5.Timer1Timer(Sender: TObject);
+begin
+if ProgressBar1.Position<100 then
+  begin
+    ProgressBar1.Position:=ProgressBar1.Position+1;
+  end
+else
+  begin
+    Timer1.Enabled:=false;
+    //Form2.Show;
+    //Form5.Hide;
+  end;
+
+  if ProgressBar1.Position>=50 then begin
+    ProgressBar1.Top:=ProgressBar1.Top+2;
+    label1.Top:=label1.Top+2;
+    label2.Top:=label2.Top-1;
+    Timer4.Enabled:=true;
+    timer5.Enabled:=True;
+  end;
+end;
+
+procedure TForm5.Timer2Timer(Sender: TObject);
+begin
+Label2.Caption := Label2.Caption + line[posi];
+label2.Left:=150;
+Label2.Width:=800;
+Label2.Height:=74;
+Inc(posi);
+if posi>length(line) then Timer2.Enabled:=false;
+
+end;
+
+procedure TForm5.Timer4Timer(Sender: TObject);
+begin
+(FindComponent('a'+IntToStr(yy)) as TLabel).Caption:=line2[yy];
+Inc(yy);
+if yy>12 then
+  begin
+    start:=true;
+    timer4.Enabled:=false;
+  end;
+end;
+
+procedure TForm5.Timer5Timer(Sender: TObject);
+var u:integer;
+begin
+for u := 1 to Length(line2) do
+    begin
+      (FindComponent('a'+IntToStr(u)) as TLabel).Color := rgb(Random(INFINITE),Random(INFINITE),Random(INFINITE));
+      (FindComponent('a'+IntToStr(u)) as TLabel).Font.Color := rgb(Random(INFINITE),Random(INFINITE),Random(INFINITE));
+    end;
+if start then num:=num+1;
+if num>10 then
+  begin
+    timer5.Enabled:=false;
+    Form2.Show;
+    Form5.Hide;
+  end;
+
+end;
+
+end.

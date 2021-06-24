@@ -1,0 +1,152 @@
+unit Unit17;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, jpeg, pngimage, ExtCtrls,unit6,unit8,unit20,unit11, unit1, unit21, payments, UserAcc;
+
+type
+  TForm15 = class(TForm)
+    GridPanel1: TGridPanel;
+    Panel2: TPanel;
+    Image2: TImage;
+    Panel10: TPanel;
+    Panel23: TPanel;
+    Image12: TImage;
+    Panel24: TPanel;
+    Panel3: TPanel;
+    Image3: TImage;
+    Panel13: TPanel;
+    Panel4: TPanel;
+    Image4: TImage;
+    Panel14: TPanel;
+    Panel5: TPanel;
+    Image5: TImage;
+    Panel11: TPanel;
+    Panel6: TPanel;
+    Image6: TImage;
+    Panel15: TPanel;
+    Panel8: TPanel;
+    Image8: TImage;
+    Panel16: TPanel;
+    Panel1: TPanel;
+    Image1: TImage;
+    Panel7: TPanel;
+    Image7: TImage;
+    Panel9: TPanel;
+    procedure Panel10Click(Sender: TObject);
+    procedure Panel14Click(Sender: TObject);
+    procedure Panel16Click(Sender: TObject);
+    procedure Panel15Click(Sender: TObject);
+    procedure Panel11Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Panel24Click(Sender: TObject);
+    procedure Panel9Click(Sender: TObject);
+    procedure Panel13Click(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Account : TAccount;
+    procedure updateAllAccounts;
+
+  end;
+
+var
+  Form15: TForm15;
+
+implementation
+uses dashboard_u;
+
+{$R *.dfm}
+
+procedure TForm15.FormCanResize(Sender: TObject; var NewWidth,
+  NewHeight: Integer; var Resize: Boolean);
+begin
+if (NewHeight>= 514) and (NewWidth>=842) then
+    Resize := True
+else Resize := False;
+end;
+
+procedure TForm15.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Image1Click(self);
+end;
+
+procedure TForm15.FormCreate(Sender: TObject);
+begin
+(Sender as TForm).Position:=poScreenCenter;
+(Sender as TForm).DefaultMonitor := dmMainForm;
+end;
+
+procedure TForm15.Image1Click(Sender: TObject);
+begin
+Form15.Hide;
+form2.Show;
+end;
+
+procedure TForm15.Panel10Click(Sender: TObject);
+begin
+unit11.Form11.Show;
+Form15.hide;
+end;
+
+procedure TForm15.Panel11Click(Sender: TObject);
+begin
+//
+unit8.Form8.Show;
+Form15.hide;
+end;
+
+procedure TForm15.Panel13Click(Sender: TObject);
+begin
+//
+unit1.Form1.Show;
+self.Hide;
+end;
+
+procedure TForm15.Panel14Click(Sender: TObject);
+begin
+unit20.Form20.Show;
+Form15.hide;
+end;
+
+procedure TForm15.Panel15Click(Sender: TObject);
+begin
+//Form2.Color:=RGB(255,140,0);
+unit6.Form6.Show;
+Form15.Hide;
+end;
+
+procedure TForm15.Panel16Click(Sender: TObject);
+begin
+//ShowMessage(); colorto
+//255,140,0
+end;
+
+procedure TForm15.Panel24Click(Sender: TObject);
+begin
+//
+payments.Form23.Show;
+self.Hide;
+end;
+
+procedure TForm15.Panel9Click(Sender: TObject);
+begin
+unit21.reportPage.Show;
+self.Hide;
+end;
+
+procedure TForm15.updateAllAccounts;
+begin
+payments.Form23.Account:= self.Account;
+unit21.reportPage.Account := self.Account;
+ShowMessage(payments.Form23.Account.getEmployeeID);
+end;
+
+end.

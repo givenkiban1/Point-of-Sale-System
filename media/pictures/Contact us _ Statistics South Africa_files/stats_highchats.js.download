@@ -1,0 +1,3608 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$.fn.line_double_axis_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        xAxisTitle:'motse',
+        subtitle_text: 'test',
+        yAxis_title1: 'Percentage',
+        yAxis_title2: 'nothing',
+        legend_name: 'text'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line',
+                options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        tooltip: {
+             shared:true
+                //formatter: function(){
+                    //return '<b>' + this.x + '</b>: ' +
+                            //Highcharts.numberFormat(this.y, 1, ',')+ '%';
+               // }
+                       
+            },
+              xAxis: [{
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true,
+                title: {
+                    text: options.xAxisTitle
+                },
+            crosshair: true
+        }],
+         yAxis: [{ // Primary yAxis
+            labels: {
+                //format: '{value}°C',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: options.yAxis_title1,
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: options.yAxis_title2,
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                //format: '{value} mm',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+            /*xAxis: {
+                
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true,
+                title: {
+                    text: options.xAxisTitle
+                }
+                
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            */
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+           // name: 'Rainfall',
+           // type: 'column',
+            yAxis: 1,
+            name: options.name,
+            data: options.data
+
+        }, {
+            //name: 'Temperature',
+           // type: 'spline',
+            name: options.name1,
+            data: options.data1
+        }]
+            /*series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            } ]*/
+        });
+    };
+$.fn.reagen_line_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        rotation_x: 0,
+        subtitle_text: '',
+        yAxis_title: 'Primary school completion (%)',
+        legend_name: 'text',
+	  toolt: '%', 
+	  source: 'Source: Stats SA',
+	  yAxis_tickInterval: 50
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {                
+                options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text: options.source
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',') + options.toolt;
+                }
+            },
+            xAxis: {
+                
+                
+                categories: options.categories,
+                labels:{
+                    rotation: options.rotation_x
+                },
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+                
+            },
+            yAxis: {
+                     
+                title: {
+                    text: options.yAxis_title			  
+                },
+		    tickInterval: options.yAxis_tickInterval,
+                    
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: true,
+			  type: 'line',
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+			  type: 'scatter',
+                    enabled: true,
+			  radius: 4,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }			 
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+			  type: 'scatter',
+                    enabled: true,
+			  radius: 4,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }			 
+                },
+                name: options.name2,
+                data: options.data2
+            } ]
+        });
+    }; 
+    $.fn.single_line_qes_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        yAxis_title: 'Percentage',
+        //title_text: 'title_text',
+        rotation_x_axis: 0,
+        subtitle_text: '',
+        legend_name: 'text',
+        title: ''
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+            },
+             credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },     
+            title:{
+              text:options.title  
+            },
+            subtitle: {
+            text: options.subtitle_text,
+            x: -5
+        },
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                 labels: 
+            {
+                rotation: options.rotation_x_axis
+            }
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',');
+                }
+            },
+       
+            //legend: false,
+            legend: {
+                verticalAlign: 'top',
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data,
+                showInLegend: false
+            } ]
+        });
+    };
+$.fn.three_line_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        rotation_x: 0,
+        subtitle_text: '',
+        yAxis_title: 'Primary school completion (%)',
+        legend_name: 'text',
+	  yAxis_tickInterval: 2,
+	  toolt: '%', 
+	  source: 'Source: Stats SA'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line',
+                options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text: options.source
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',') + options.toolt;
+                }
+            },
+            xAxis: {
+                
+                
+                categories: options.categories,
+                labels:{
+                    rotation: options.rotation_x
+                },
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+                
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title			  
+                },
+		    tickInterval: options.yAxis_tickInterval
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+                data: options.data2
+            } ]
+        });
+    }; 
+$.fn.line_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        subtitle_text: 'test',
+        yAxis_title: 'Percentage',
+        legend_name: 'text'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line',
+                options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',');
+                }
+            },
+            xAxis: {
+                
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+                
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            } ]
+        });
+    };
+    $.fn.line_causes_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        subtitle_text: 'test',
+        yAxis_title: 'Percentage',
+        legend_name: 'text'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        /*tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',');
+                }
+            },*/
+            xAxis: {
+                
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+                
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            } ]
+        });
+    };
+    
+    $.fn.line_poverty_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        subtitle_text: 'test',
+        yAxis_title: 'Percentage',
+        legend_name: 'text'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: null,
+            x: -20
+        },
+        /* tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',')+ '%';
+                }
+            },*/
+            xAxis: {
+                
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+                
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'bottom',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+                data: options.data2
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name3,
+                data: options.data3
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name4,
+                data: options.data4
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name5,
+                data: options.data5
+            } ]
+        });
+    };
+ 
+    
+$.fn.cs_2007_column_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John',
+        enabled_stacked: false,
+        colorByPoint_stack:true,
+        fontSize: '13px',
+        xAxisRotations: 0
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+           credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+           
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories,
+                labels: {
+                //rotation: 15
+            }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percentage'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: options.name,
+                data: options.data
+    
+            }, {
+                name: options.name1,
+                data: options.data1
+    
+            }]
+        });
+    };
+    
+//------------------
+$.fn.line_new_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        subtitle_text: 'test',
+        yAxis_title: 'Percentage',
+        legend_name: 'text'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title:{
+              text:''  
+            },
+             subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' + 
+                            '<b>'+ 'R'+ '</b> '+
+                            Highcharts.numberFormat(this.y, 1,',')+'bn';
+                }
+            },
+            xAxis: {
+                    tickmarkPlacement: 'on',
+                    title: {
+                            text: 'Year'
+                        },
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+            },
+            yAxis: {
+               tickInterval: 30,
+                title: {
+                    text: options.yAxis_title
+                },
+                        labels: {
+               enabled: true,
+               
+              //staggerLines: 2,
+               format:'{value}'
+       
+            }
+            },
+            
+            //legend: false,
+            legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+                
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            } ]
+        });
+    };
+
+$.fn.stacked_bar_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle_text: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John'
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+        chart: {
+            type: 'bar',
+            marginLeft:85
+             //marginBottom: 40
+        },
+        credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        title: {
+            text: options.title
+        },
+        xAxis: {
+            categories: options.categories,
+            offset: 15,
+            lineWidth: 0
+            //marginLeft: 60
+        },
+        yAxis: {
+            min: 0,
+            gridLineWidth: 1,
+            lineWidth: 0,
+            // marginLeft: 60,
+             //rotation: 90,
+             
+            //align: 'left',
+            labels: {
+                style: {
+	//color: '#6D869F',
+	fontSize: 10
+}
+                
+               // rotation: 90
+               
+            },
+            
+            title: {
+                text: options.yAxisTitle
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>' + this.x + '</b>: ' +
+                        Highcharts.numberFormat(this.y, 1, ',') + '%';
+            }
+        },
+        stackLabels: {
+            enabled: true,
+            //align: 'left',
+            formatter: function() {
+                return Highcharts.numberFormat(this.total, 1, ',');
+            }
+        },
+        legend: {
+            backgroundColor: '#FFFFFF',
+            reversed: true,
+            floating: true
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal',
+                //align: 'right',
+                colorByPoint: true,
+             dataLabels: {
+                    enabled: true,
+                    inside: false
+                }
+                
+            }
+        },
+        series: [{
+                name: options.name,
+                showInLegend: false,
+                data: options.data,
+				data1: options.data1,
+				data2: options.data2,
+				data3: options.data3,
+				data4: options.data4
+            }]
+    });
+};
+
+$.fn.stacked_education_bar_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle_text: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John'
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+           chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Stacked bar chart'
+    },
+    xAxis: {
+        categories: ['LP', 'MP', 'GP', 'NW', 'KZN','FS', 'NC', 'EC', 'WC']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total fruit consumption'
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series: [{
+        name: 'NoSchooling',
+       data: [2.2,6.5,7.2,5.0,7.5,8.1,3.6,9.6,11.2]
+    }, {
+        name: 'PreSchool',
+         data: [0.1,0.2,0.1,0.1,0.1,0.1,0.0,0.1,0.1]
+    }, {
+        name: 'Primary',
+        data: [13.9,18.9,19.8,17.2,13.4,18.6,9.4,13.8,13.4]
+    }, {
+        name: 'Secondary',
+        data: [70.7,64.9,64.8,67.5,68.2,65.4,70.7,67.0,64.6]
+    }, {
+        name: 'PostSecondary',
+        data: [13.0,9.5,8.2,10.2,10.7,7.8,16.3,9.5,10.7]
+    }]
+    });
+};
+
+$.fn.single_stacked_column_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John',
+        colorByPoint_stack: true,
+        enabled_stacked: false,
+        fontSize: '13px',
+        xAxisRotations: 0
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column',
+                colorByPoint: true,
+                 options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                
+            },
+           credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+               text: options.title
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on'
+                ,labels: {
+                    style: {
+                            color: '#666666',
+                            fontSize: '10px',
+                            fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+                            fontWeight: 'normal'
+                        }
+                    , rotation: options.xAxisRotations
+                    //, tickmarkPlacement: 'on'
+                                //,tickPositions: ['LP','EC','MP','KZN','NC','FS','NW','WC','GP']
+                    // , align: 'right'
+//                    , verticalAlign: 'bottom'
+                }
+            },
+            yAxis: {
+                min: 0,
+                align: 'left',
+                title: {
+                    text: options.yAxisTitle
+                },
+                stackLabels: {
+                    enabled: options.enabled_stacked,
+                    
+                    style: {
+                        //fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    },
+                    formatter: function(){
+                        return Highcharts.numberFormat(this.total, 1, ',');
+                    }
+                    , rotation: 0
+//                    , x: -5
+//                    , verticalAlign: 'bottom'
+//                    , align: 'left'
+//                    , textAlign: 'left'
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -100,
+                verticalAlign: 'top',
+                y: 20,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',') + '%';
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    colorByPoint: options.colorByPoint_stack
+                 
+                }
+            },
+            series: [{
+                name: options.name,
+                data: options.data,
+                showInLegend: false
+            }]
+        });
+    };
+    
+    
+ $.fn.stacked22_column_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        xAxixTitle: 'Province',
+        name: 'John',
+        enabled_stacked: false,
+        fontSize: '13px',
+        xAxisRotations: 0
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+       chart: {
+                type: 'column'
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: options.title
+            },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories,
+                 title: {
+                    text: 'Province'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            legend: false,
+            series: [{
+                name: options.name,
+                data: options.data
+    
+            }, {
+                name: options.name1,
+                data: options.data1
+    
+            }, {
+                name: options.name2,
+                data: options.data2
+    
+            }, {
+                name: options.name3,
+                data: options.data3
+    
+            }, {
+                name: options.name4,
+                data: options.data4
+    
+            }]
+        });
+    };
+    
+    
+
+
+
+
+
+$.fn.single_line_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        yAxis_title: 'Percentage',
+        //title_text: 'title_text',
+        subtitle_text: '',
+        legend_name: 'text',
+        title: ''
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },    
+            title:{
+              text:options.title  
+            },
+            subtitle: {
+            text: options.subtitle_text,
+            x: -5
+        },
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            tooltip: {
+               /* formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1) ;
+                }*/
+            },
+            //legend: false,
+            legend: {
+                verticalAlign: 'top',
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data,
+                showInLegend: false
+            } ]
+        });
+    };
+    
+    
+    
+    
+    
+    
+    
+    
+    $.fn.single_line_lbr_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        yAxis_title: 'Percentage',
+        //title_text: 'title_text',
+        subtitle_text: '',
+        legend_name: 'text',
+        title: ''
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'line'
+            },
+             credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+           text:'Source: Tourism'
+        },     
+            title:{
+              text:options.title  
+            },
+            subtitle: {
+            text: options.subtitle_text,
+            x: -5
+        },
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',');
+                }
+            },
+            //legend: false,
+            legend: {
+                verticalAlign: 'top',
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data,
+                showInLegend: false
+            } ]
+        });
+    };
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ $.fn.single_line_qes_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval:7,
+        yAxis_title: 'Percentage',
+        //title_text: 'title_text',
+        rotation_x_axis: 0,
+        subtitle_text: '',
+        legend_name: 'text',
+        title: ''
+    },options);
+        
+		 $dom_element = this;
+        $dom_element.highcharts({
+            chart: {                
+                options3d: {
+                enabled: true,
+                alpha: 15,
+                beta: 15,
+                depth: 50,
+                viewDistance: 25
+            }
+                //plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+                //marginRight: 130,
+                //marginBottom: 25
+            },
+             credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text: options.source
+        },
+        //$dom_element = this;
+        //$dom_element.highcharts({
+        //    chart: {
+        //        type: 'line'
+        //    },
+        //     credits: {
+        //    enabled: true,
+        //    href:'http://beta2.statssa.gov.za',
+        //    text:'Source: Stats SA'
+        //},     
+            title:{
+              text:options.title  
+            },
+            subtitle: {
+            text: options.subtitle_text,
+            x: -5
+        },
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                 labels: 
+            {
+                rotation: options.rotation_x_axis
+            },
+                tickInterval: options.tickInterval,
+                //endOnTick: true,
+                showLastLabel: true,
+                startOnTick: true
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',');
+                }
+            },
+       
+            //legend: false,
+            legend: {
+                verticalAlign: 'bottom',
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },
+            series: [{
+                    marker: {
+                    enabled: true,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+            },{
+                    marker: {
+                    enabled: true,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            } ]
+        });
+    }; 
+    
+$.fn.area_chart = function(options) {
+    options = $.extend({
+        data: [502, 635, 809, 947, 1402, 3634, 5268],
+        categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+        name: 'Tokyo',
+        tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'area'
+            },
+             credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        
+            title: {
+                text: ''
+            },
+            
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                tickmarkPlacement: 'on',
+                title: {
+                    enabled: false
+                }
+            },
+            legend:false, 
+            yAxis: {
+                title: {
+                    text: 'Percent'
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> <br/>',
+                shared: true
+            },
+            plotOptions: {
+                area: {
+                    stacking: 'percent',
+                    lineColor: '#ffffff',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#ffffff'
+                    }
+                }
+            },
+            series: [{
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },    
+                name: options.name,
+                data: options.data
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+                data: options.data2
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name3,
+                data: options.data3
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name4,
+                data: options.data4
+            }]
+            
+        });
+   };
+   
+$.fn.stacked_area_chart = function(options) {
+    options = $.extend({
+        data: [502, 635, 809, 947, 1402, 3634, 5268],
+        categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+        name: 'Tokyo',
+        legend_name: 'text',
+        yAxis_title: 'Billions',
+        tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'area'
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        legend: false,
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories,
+                tickInterval: options.tickInterval,
+                tickmarkPlacement: 'on',
+                title: {
+                    enabled: false
+                }
+            },
+            yAxis: {
+                title: {
+                    text: options.yAxis_title
+                }
+               /* labels: {
+                    formatter: function() {
+                        return this.value / 1000;
+                    }
+                }*/
+            },
+            /*legend: {
+                //layout: 'vertical',
+                //align: 'top',
+                verticalAlign: 'top',
+               // x: -10,
+                //y: 100,
+                borderWidth: 0,
+                legend_name: options.legend_name
+            },*/
+            tooltip: {
+                shared: true
+                //valueSuffix: ' millions'
+            },
+            plotOptions: {
+                area: {
+                    stacking: 'normal',
+                    lineColor: '#666666',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666'
+                    }
+                }
+            },
+            series: [{
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },    
+                name: options.name,
+                data: options.data
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },    
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+                data: options.data2
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name3,
+                data: options.data3
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name4,
+                data: options.data4
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name5,
+                data: options.data5
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name6,
+                data: options.data6
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name7,
+                data: options.data7
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name8,
+                data: options.data8
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name9,
+                data: options.data9
+            }]
+        });
+    };
+$.fn.stacked_column_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column',
+                colorByPoint: true
+            },
+           credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+               text: null
+            },
+            xAxis: {
+                categories: options.categories
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: null
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -100,
+                verticalAlign: 'bottom',
+                y: 20,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                        this.series.name +': '+ this.y +'<br/>'+
+                        'Total: '+ this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                    }
+                }
+            },
+            series: [{
+                name: 'John',
+                data: [5, 3, 4, 7, 2]
+            }, {
+                name: 'Jane',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Joe',
+                data: [3, 4, 4, 2, 5]
+            }]
+        });
+    };
+	
+$.fn.crime_bar_chart = function(options) {
+    options = $.extend({
+       yAxisTitle: 'Percentage'
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+                //colorByPoint: true
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+			
+			tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+			
+           /* tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+                footerFormat: '</table>',
+                //shared: true,
+                //useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            }, */
+           series: [{
+        name: 'Male',
+        data: [12.1, 10.2, 9.2, 7.0]
+
+    }, {
+        name: 'Female',
+        data: [10.0, 9.8, 7.5,6.0]
+
+    }] 
+        });
+    };
+	
+$.fn.africa_bar_chart = function(options) {
+    options = $.extend({
+       data: [107, 31, 635, 203, 2],
+       categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+       title: 'Monthly Average Rainfall',
+       xAxis: 'Source: WorldClimate.com',
+       yAxisTitle: 'Number of tourists'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+                //colorByPoint: true
+            },
+			legend: {
+							enabled: false,
+							//layout: 'vertical',
+							backgroundColor: '#FFFFFF',
+							//align: 'left',
+							verticalAlign: 'top'
+							//floating: true,
+							//x: 90,
+							//y: 10
+						}, 
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Tourism, 2016'
+        },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories,
+				title: {
+                    text: options.xAxisTitle
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                //shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    //colorByPoint: true,
+                    borderWidth: 0
+                }
+            },
+			
+		
+            series: [{
+				
+					name: 'Country',
+					data: [ 2028881,1757058,1268258,893618,679828]
+
+    
+               
+    
+            }]
+        });
+    };
+
+	
+	
+	$.fn.province_bar_chart = function(options) {
+    options = $.extend({
+       data: [107, 31, 635, 203, 2],
+       categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+       title: 'Province of destination by most recent overnight trips 2015',
+      // subtitle: 'Source: WorldClimate.com',
+       yAxisTitle: 'Number of overnight trips'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+                //colorByPoint: true
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: DTS, 2015'
+        },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                //shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    //colorByPoint: true,
+                    borderWidth: 0
+                }
+            },
+			
+		
+            series: [{
+				
+               name: 'Province',
+					data: [ 4297,4077,3948,3120,2832,2626,1972,1280,694],
+    
+            }]
+        });
+    };
+	
+	
+	
+	
+	
+	$.fn.overseas_bar_chart = function(options) {
+    options = $.extend({
+       data: [107, 31, 635, 203, 2],
+       categories: ['UK','USA','Germany','France','The Netherlands'],
+       title: 'Number of tourists from five leading overseas countries in 2016 ',
+      // subtitle: 'Source: WorldClimate.com',
+       yAxisTitle: 'Number of tourists'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+                //colorByPoint: true
+            },
+			
+			legend: {
+							enabled: false,
+							backgroundColor: '#FFFFFF',
+							verticalAlign: 'top'
+						}, 
+
+			
+			
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source:  Tourism, 2016'
+        },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories,
+				title: {
+                    text: options.xAxisTitle
+                }
+
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                //shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                  //  colorByPoint: true,
+                    borderWidth: 0
+                }
+            },
+			
+		
+            series: [{
+				
+               name: 'Country',
+			data: [ 447840,345013,311832,154226,147973],
+    
+            }]
+        });
+    };
+	
+	
+	
+	
+	
+
+$.fn.bar_chart = function(options) {
+    options = $.extend({
+       data: [107, 31, 635, 203, 2],
+       categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+       title: 'Monthly Average Rainfall',
+       subtitle: 'Source: WorldClimate.com',
+       yAxisTitle: 'Rainfall (mm)'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+                //colorByPoint: true
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            subtitle: {
+                text: options.subtitle
+            },
+            xAxis: {
+                categories: options.categories
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: options.yAxisTitle
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+                footerFormat: '</table>',
+                //shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    colorByPoint: true,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                //name: 'Tokyo',
+                data: options.data
+    
+            }, {
+                //name: 'New York',
+                data: options.data1
+    
+            }, {
+                //name: 'London',
+                data: options.data2
+    
+            }, {
+                //name: 'Berlin',
+                data: options.data3
+    
+            }]
+        });
+    };
+
+$.fn.pie_chart = function(options) {
+    options = $.extend({
+    data: [
+              ['Government grants',   43],
+              ['Tuition fees ',    34],
+              /*{
+                  name: 'Donations',
+                  y: 6,
+                  sliced: true,
+                  selected: true
+              },*/
+			  ['Donations', 6],
+             
+              ['Other',     17]
+          ],
+    name: 'Diseases',
+    title: null,
+    size: "60%"
+//    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+			colors: ['#ACACAC', '#AE4FC1', '#ED561B', '#DDDF00', '#D81159', '#64E572', 
+             '#FF9655', '#FFF263', '#736F72','#242423','#4F8DC6'],
+            chart: { 
+                type: 'pie'
+                , margin: [0,0,0,0]
+            },
+			legend: {
+							enabled: true,
+							//layout: 'vertical',
+							backgroundColor: '#FFFFFF',
+							//align: 'left',
+							verticalAlign: 'top'
+							//floating: true,
+							//x: 90,
+							//y: 10
+						}, 
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: { text: options.title },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+                    percentageDecimals: 1,
+                    formatter: function(){
+                        return '<b>'+ this.point.name + '</b>: '+ Highcharts.numberFormat(this.percentage, 0, ',') + '%';
+                    }
+                },
+				
+            plotOptions: {
+                pie: {
+                    size: options.size,
+                    allowPointSelect: true,
+                    //cursor: 'pointer',
+                    dataLabels: { enabled: true ,
+                            formatter: function(){
+							//return '<b>'+ this.point.name + '</b>: ' + '%';
+                            return Highcharts.numberFormat(this.percentage, 0, ',') + '%';
+                        }
+                    },
+					
+                   //showInLegend: true,
+					
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: options.name,
+                data: options.data
+            }]
+        });
+    };
+
+
+$.fn.crime_pies_chart = function(options) {
+    options = $.extend({
+    data: [
+              ['Theft of motor vehicle',   4],
+              ['Housebreaking/burglary ',    50],
+          	  ['Home robbery', 12],
+              ['Theft of livestock/poultry and other animals',     9]
+			  ['Theft of crops planted by household',    1],
+			  ['Murder',    9],
+			  ['Theft out of motor vehicle',    10],
+			  ['Deliberate damaging of dwellings',    3],
+			  ['Motor vehicle vandalism',    3],
+			  ['Theft of bicycle',    3],
+			  ['Other crime',    3],
+          ],
+    name: 'Diseases',
+    title: null,
+    size: "60%"
+//    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: { 
+                type: 'pie'
+                , margin: [0,0,0,0]
+            },
+			legend: {
+							enabled: true,
+							//layout: 'vertical',
+							backgroundColor: '#FFFFFF',
+							//align: 'left',
+							verticalAlign: 'top'
+							//floating: true,
+							//x: 90,
+							//y: 10
+						}, 
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: { text: options.title },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+                    percentageDecimals: 1,
+                    formatter: function(){
+                        return '<b>'+ this.point.name + '</b>: '+ Highcharts.numberFormat(this.percentage, 0, ',') + '%';
+                    }
+                },
+				
+            plotOptions: {
+                pie: {
+                    size: options.size,
+                    allowPointSelect: true,
+                    //cursor: 'pointer',
+                    dataLabels: { enabled: true ,
+                            formatter: function(){
+							//return '<b>'+ this.point.name + '</b>: ' + '%';
+                            return Highcharts.numberFormat(this.percentage, 0, ',') + '%';
+                        }
+                    },
+					
+                   //showInLegend: true,
+					
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: options.name,
+                data: options.data
+            }]
+        });
+    };
+
+$.fn.pie2_chart = function(options) {
+    options = $.extend({
+        /*data: [
+         ['Firefox', 45.0],
+         ['IE', 26.8],
+         {
+         name: 'Chrome',
+         y: 12.8,
+         sliced: true,
+         selected: true
+         },
+         ['Safari', 8.5],
+         ['Opera', 6.2],
+         ['Others', 0.7]
+         ]*/
+// categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+//name: 'Tokyo',
+//tickInterval:6
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+        chart: {
+            type: 'pie'
+        },
+        credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            percentageDecimals: 1,
+            formatter: function(){
+                        return '<b>'+ this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 1, ',') + '%';
+                    }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+                type: 'pie',
+                name: 'Diseases',
+                data: [
+                    ['Intestinal', 3.8],
+                    ['Influenza', 6.6],
+                    {
+                        name: 'Tuberculosis',
+                        y: 10.7,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Heart', 4.7],
+                    ['Cerebrovascula', 5.1],
+                    ['Diabetes', 4],
+                    ['HIV', 3.4],
+                    ['Hypertensive', 3.1],
+                    ['Respiratory', 2.6],
+                    ['Other viral', 2.9],
+                    ['Other natural causes', 44.1],
+                    ['Non-natural causes', 9.1]
+                ]
+            }]
+    });
+};
+
+$.fn.pie3_chart = function(options) {
+    options = $.extend({
+        /*data: [
+         ['Firefox', 45.0],
+         ['IE', 26.8],
+         {
+         name: 'Chrome',
+         y: 12.8,
+         sliced: true,
+         selected: true
+         },
+         ['Safari', 8.5],
+         ['Opera', 6.2],
+         ['Others', 0.7]
+         ]*/
+// categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+//name: 'Tokyo',
+//tickInterval:6
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+        chart: {
+            type: 'pie'
+        },
+        credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            percentageDecimals: 1,
+            formatter: function(){
+                        return '<b>'+ this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 1, ',') + '%';
+                    }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+                type: 'pie',
+                name: 'Diseases',
+                data: [
+                    ['Field crops', 19.4],
+                    ['Horticulture', 24.6],
+                    {
+                        name: 'Animals',
+                        y: 43.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Animal products', 10.8],
+                    ['Other farming', 1.4]
+                ]
+            }]
+    });
+};
+
+$.fn.column_line_pie_chart = function(options) {
+    options = $.extend({
+          /*data: [
+                    ['Firefox',   45.0],
+                    ['IE',       26.8],
+                    {
+                        name: 'Chrome',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Safari',    8.5],
+                    ['Opera',     6.2],
+                    ['Others',   0.7]
+                ]*/
+      // categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+            },
+            tooltip: {
+                formatter: function() {
+                    var s;
+                    if (this.point.name) { // the pie chart
+                        s = ''+
+                            this.point.name +': '+ this.y +' fruits';
+                    } else {
+                        s = ''+
+                            this.x  +': '+ this.y;
+                    }
+                    return s;
+                }
+            },
+                    legend:false,
+           /* labels: {
+                items: [{
+                    html: 'Total fruit consumption',
+                    style: {
+                        left: '40px',
+                        top: '8px',
+                        color: 'black'
+                    }
+                }]
+            },*/
+            series: [{
+                type: 'column',
+                name: 'Jane',
+                data: [3, 2, 1, 3, 4]
+            }, {
+                type: 'column',
+                name: 'John',
+                data: [2, 3, 5, 7, 6]
+            }, {
+                type: 'column',
+                name: 'Joe',
+                data: [4, 3, 3, 9, 0]
+            }, {
+                type: 'spline',
+                name: 'Average',
+                data: [3, 2.67, 3, 6.33, 3.33],
+                marker: {
+                	lineWidth: 2,
+                	lineColor: Highcharts.getOptions().colors[3],
+                	fillColor: 'white'
+                }
+            }, {
+                type: 'pie',
+                name: 'Total consumption',
+                data: [{
+                    name: 'Jane',
+                    y: 13,
+                    color: Highcharts.getOptions().colors[0] // Jane's color
+                }, {
+                    name: 'John',
+                    y: 23,
+                    color: Highcharts.getOptions().colors[1] // John's color
+                }, {
+                    name: 'Joe',
+                    y: 19,
+                    color: Highcharts.getOptions().colors[2] // Joe's color
+                }],
+                center: [100, 20],
+                size: 100,
+                showInLegend: false,
+                dataLabels: {
+                    enabled: false
+                }
+            }]
+        });
+    };
+
+$.fn.column_line_chart = function(options) {
+    options = $.extend({
+          /*data: [
+                    ['Firefox',   45.0],
+                    ['IE',       26.8],
+                    {
+                        name: 'Chrome',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Safari',    8.5],
+                    ['Opera',     6.2],
+                    ['Others',   0.7]
+                ]*/
+      // categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Tourism, 2016'
+        },
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: [{
+                categories: ['2008', '2009', '2010', '2011', '2012', '2013','2014', '2015', '2016'],
+                tickInterval: 2
+                //endOnTick: true
+            }],
+            yAxis: [{ // Primary yAxis
+                 labels: {
+            format: '{value}%',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+                title: {
+                    //text: 'Temperature',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    //text: 'Rainfall',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 10,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: 'Tertiary Education',
+                color: '#4572A7',
+                type: 'column',
+                yAxis: 1,
+                data: [7.0, 8.4, 8.0, 8.5, 9.8, 9.8, 9.4, 9.8, 0.0],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+    
+            }, {
+                name: 'Headline',
+                color: '#89A54E',
+                type: 'spline',
+                data: [11.5, 7.1, 4.3, 5.0, 5.6, 5.7, 6.1, 4.6, 6.4],
+                tooltip: {
+                valueSuffix: '%'
+                }
+            }]
+        });
+    };
+	
+$.fn.stacked_columnprov_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Age 0', 'Age 1', 'Age 2', 'Age 3', 'Age 4','Age 5', 'Age 6'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        //xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                 series: [{
+							name: 'None',
+							data: [84.8,75.5,62.8,48.7,28.7,12.9,13.0]
+						}, {
+							name: 'Other',
+							data: [0.9,0.3,0.1,0.4,0.2,5.6,29.9]
+						},
+{
+							name: 'Home based playground',
+							data: [0.2,0.5,0.4,0.3,0.0,0.1,0.2]
+						},
+						
+						{
+							name: 'Day mother/Gogo',
+							data: [7.3,6.0,5.0,1.8,1.1,0.8,0.3]
+						}, {
+							name: 'Creche/educare centre',
+							data: [4.4,13.6,24.0,35.6,44.4,19.0,3.6]
+							
+						}, {
+							name: 'Pre-school/Nursery',
+							data: [2.3,4.1,7.8,13.3,16.6,18.6,20.4]
+							
+						},
+						 {
+							name: 'Grade R',
+							data: [0.0,0.0,0.0,0.0,9.1,43.0,32.5]
+							
+						}
+						]
+        });
+    };
+
+$.fn.stacked_columnpop_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Black African', 'Coloured', 'Indian/Asian', 'White', 'RSA'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        //xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+			
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                 series: [{
+							name: 'Post-secondary',
+							data: [9.1,8.1,21.0,38.3,12.1] 
+						}, {
+							name: 'Secondary',
+							data: [68.7,71.9,71.1,59.1,68.2]
+						}, {
+							name: 'Primary',
+							data: [15.1,17.1,5.5,1.0,13.6]
+						}, {
+							name: 'Pre-school',
+							data: [0.1,	0.1,0.0,0.0,0.1]
+						}, {
+							name: 'No Schooling',
+							data: [7.1,	2.8,2.5,1.6,6.0]
+
+						}]
+        });
+    };
+	$.fn.stacked_column100_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Black', 'Coloured', 'Indian/Asian', 'White', 'RSA'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        //xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                 series: [{
+							name: options.name,
+							data: options.data
+						}, {
+							name: options.name1,
+							data: options.data1
+						}, {
+							name: options.name2,
+							data: options.data2
+						}, {
+							name: options.name3,
+							data: options.data3
+						}, {
+							name: options.name4,
+							data: options.data4
+
+						}, {
+							name: options.name5,
+							data: options.data5
+
+						}, {
+							name: options.name6,
+							data: options.data6
+
+						}, {
+							name: options.name7,
+							data: options.data7
+
+						}, {
+							name: options.name8,
+							data: options.data8
+
+						}, {
+							name: options.name9,
+							data: options.data9
+
+						}, {
+							name: options.name10,
+							data: options.data10
+
+						}]
+        });
+    };
+	
+	$.fn.stacked_columngender_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['No Schooling', 'Pre School', 'Primary', 'Secondary', 'Post Secondary'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        //xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                 series: [{
+							name: 'Male',
+							data: [44.7,47.3,49.4,49.1,48.0] 
+						}, {
+							 name: 'Female',
+							 data: [55.3,52.7,50.6,50.9,52.0]
+						}]
+        });
+    };
+	
+	$.fn.stacked_bar100_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'bar'
+            },
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: NHTS 2013'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                series: [{
+                name: options.name,
+                data: options.data
+            }, {
+                name: options.name,
+                data: options.data
+            }, {
+                name: options.name,
+                data: options.data
+            }, {
+                name: options.name,
+                data: options.data
+            }, {
+                name: options.name,
+                data: options.data
+            }]
+        });
+    };
+	
+	$.fn.stacked_column_education_chart = function(options) {
+    options = $.extend({
+        data: [5, 3, 4, 7, 2],
+        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+        name: 'John',
+        yAxisTitle: 'Percentage',
+        xAxixTitle: 'Province',
+        toolheaderFormat:'Western Cape'
+        //name: 'Tokyo',
+        //tickInterval:6
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: NHTS 2013'
+        },
+            title: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+                ,tickmarkPlacement: 'on',
+                title: {
+                    text: options.xAxixTitle 
+                }
+            },
+            yAxis: {
+                 min: 0,
+                    align: 'left',
+                    tickInterval: 20,
+                    //tickInterval: options.ytickInterval,
+                title: {
+                    text: options.yAxisTitle 
+                }
+            },
+            legend: false,
+            tooltip: {
+                //headerFormat: options.toolheaderFormat,
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>%<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                series: [{
+                name: options.name,
+                data: options.data
+            }, {
+                name: options.name1,
+                data: options.data1
+            }, {
+                name: options.name2,
+                data: options.data2
+            }, {
+                name: options.name3,
+                data: options.data3
+            }, {
+                name: options.name4,
+                data: options.data4
+            }]
+        });
+    };
+	
+	$.fn.national_gdp_column_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John',
+        enabled_stacked: false,
+        colorByPoint_stack:true,
+        fontSize: '10px',
+        xAxisRotations: 0
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+           credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: GDP'
+        },
+           
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories,
+                labels: {
+                //rotation: -90
+            }
+            },
+            yAxis: {
+                min: 0,
+				
+				tickInterval: 1,
+                title: {
+                    text: 'Percentage'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.17,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: options.name,
+                data: options.data,
+				showInLegend: false
+            },/* {
+                name: null,
+                data: null
+    
+            }, {
+                name: options.name2,
+                data: options.data2
+    
+            }*/]
+        });
+    };
+	
+	
+		$.fn.provincial_gdp_column_chart = function(options) {
+    options = $.extend({
+        data: [107, 31, 635, 203, 2],
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: 'Monthly Average Rainfall',
+        subtitle: 'Source: WorldClimate.com',
+        yAxisTitle: 'Rainfall (mm)',
+        name: 'John',
+        enabled_stacked: false,
+        colorByPoint_stack:true,
+        fontSize: '10px',
+        xAxisRotations: 0
+    },options);
+        
+        $dom_element = this;
+        $dom_element.highcharts({
+            chart: {
+                type: 'column'
+            },
+           credits: {
+            enabled: true,
+            href:'http://beta2.statssa.gov.za',
+            text:'Source: GDP'
+        },
+           
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: {
+                categories: options.categories
+            },
+            yAxis: {
+                min: 0,
+				tickInterval: 2,
+                title: {
+                    text: 'Percentage'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.17,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: options.name,
+                data: options.data,
+				showInLegend: false
+            },/* {
+                name: null,
+                data: null
+    
+            }, {
+                name: options.name2,
+                data: options.data2
+    
+            }*/]
+        });
+    };	
+
+$.fn.triple_line_chart = function(options) {
+    options = $.extend({
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories2: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        name: 'Tokyo',
+        tickInterval: 7,
+        title_text: 'lucky',
+        yAxis_title: 'Percentage',
+        subtitle_text: 'test',
+        legend_name: 'text'
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+        chart: {
+            type: 'line'
+//plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+//marginRight: 130,
+//marginBottom: 25
+        },
+        credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        title: {
+            text: options.title_text
+        },
+        xAxis: {
+            categories: options.categories,
+            categories2: options.categories2,
+            tickInterval: options.tickInterval
+//endOnTick: true
+//tickWidth: 10
+        },
+        yAxis: {
+            title: {
+                text: options.yAxis_title
+            }
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',')+ '%';
+                }
+            },
+//legend: false,
+        legend: {
+//layout: 'vertical',
+//align: 'top',
+            verticalAlign: 'bottom',
+// x: -10,
+//y: 100,
+            borderWidth: 0,
+            legend_name: options.legend_name
+        },
+        series: [{
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+                data: options.data2
+            }]
+    });
+};  
+
+
+$.fn.crimetrend_line_chart = function(options) {
+    options = $.extend({
+        //data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+      
+        tickInterval: 7,
+        title_text: '',
+        yAxis_title: 'Percentage',
+        subtitle_text: 'test',
+        legend_name: 'text'
+    }, options);
+    $dom_element = this;
+    $dom_element.highcharts({
+        chart: {
+            type: 'line'
+//plotBackgroundImage: 'http://www.highcharts.com/demo/gfx/skies.jpg',
+//marginRight: 130,
+//marginBottom: 25
+        },
+        credits: {
+            enabled: true,
+            href:'http://www.statssa.gov.za',
+            text:'Source: Stats SA'
+        },
+        subtitle: {
+            text: options.subtitle_text,
+            x: -20
+        },
+        title: {
+            text: options.title_text
+        },
+        xAxis: {
+            categories: options.categories,
+            categories2: options.categories2,
+            tickInterval: options.tickInterval
+//endOnTick: true
+//tickWidth: 10
+        },
+        yAxis: {
+            title: {
+                text: options.yAxis_title
+            }
+        },
+        tooltip: {
+                formatter: function(){
+                    return '<b>' + this.x + '</b>: ' +
+                            Highcharts.numberFormat(this.y, 1, ',')+ '%';
+                }
+            },
+//legend: false,
+        legend: {
+//layout: 'vertical',
+//align: 'top',
+            verticalAlign: 'bottom',
+// x: -10,
+//y: 100,
+            borderWidth: 0,
+            legend_name: options.legend_name
+        },
+        series: [{
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name,
+                data: options.data
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name1,
+                data: options.data1
+            }, {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                },
+                name: options.name2,
+               // data: options.data2
+            }]
+    });
+};  

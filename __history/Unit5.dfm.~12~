@@ -1,0 +1,68 @@
+object Form5: TForm5
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  ClientHeight = 406
+  ClientWidth = 589
+  Color = clBtnFace
+  DefaultMonitor = dmMainForm
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 96
+    Top = 240
+    Width = 270
+    Height = 13
+    Caption = 'Please wait while all the necessary files are being loaded'
+  end
+  object Label4: TLabel
+    Left = 447
+    Top = 385
+    Width = 134
+    Height = 13
+    Caption = 'Developed by GinTEC -2018'
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 71
+    Width = 8
+    Height = 35
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tempus Sans ITC'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    WordWrap = True
+  end
+  object ProgressBar1: TProgressBar
+    Left = 96
+    Top = 160
+    Width = 385
+    Height = 57
+    MarqueeInterval = 1
+    Step = 1
+    TabOrder = 0
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    Left = 288
+    Top = 32
+  end
+  object Timer2: TTimer
+    Interval = 100
+    OnTimer = Timer2Timer
+    Left = 352
+    Top = 40
+  end
+end

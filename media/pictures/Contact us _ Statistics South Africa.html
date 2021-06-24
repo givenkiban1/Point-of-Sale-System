@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.statssa.gov.za/?page_id=505 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--<META HTTP-EQUIV="Refresh" Content="0; URL=http://www.statssa.gov.za/">-->
+
+        <title>
+            Contact us | Statistics South Africa        </title>
+        <noscript>
+            <meta http-equiv="refresh" content="0; URL=javascript_required.html">
+        </noscript>
+        <!--[if lte IE 6]>
+            <meta http-equiv="refresh" content="0; URL=browser_upgrade_required.html">
+        <![endif]-->
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <meta name="author" content="Statistics South Africa">
+        <meta name="robots" content="index,follow,archive,noodp, noydir">
+        <meta name="google-site-verification" content="7XJGrmKADuNsHIhl4dmKRuT4vGFK7yqQAKtMXw38wII">
+        <meta name="msvalidate.01" content="9422731A8A86AFA4165C01782818E94C">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                <link rel="pingback" href="http://www.statssa.gov.za/xmlrpc.php">
+        <link rel="shortcut icon" href="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/Favicon.png">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="" href="http://www.statssa.gov.za/?feed=rss2" data-original-title="Statistics South Africa » Feed">
+<link rel="alternate" type="application/rss+xml" title="" href="http://www.statssa.gov.za/?feed=comments-rss2" data-original-title="Statistics South Africa » Comments Feed">
+<link rel="alternate" type="application/rss+xml" title="" href="http://www.statssa.gov.za/?feed=rss2&amp;page_id=505" data-original-title="Statistics South Africa » Contact us Comments Feed">
+		<script type="text/javascript" async="" src="./Contact us _ Statistics South Africa_files/ga.js.download"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/www.statssa.gov.za\/wp-includes\/js\/wp-emoji.js?ver=4.6","twemoji":"http:\/\/www.statssa.gov.za\/wp-includes\/js\/twemoji.js?ver=4.6"}};
+			( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	/**
+	 * Detect if the browser supports rendering emoji or flag emoji. Flag emoji are a single glyph
+	 * made of two characters, so some browsers (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param type {String} Whether to test for support of "simple", "flag", "diversity" or "unicode8" emoji.
+	 * @return {Boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var canvas = document.createElement( 'canvas' ),
+			context = canvas.getContext && canvas.getContext( '2d' ),
+			stringFromCharCode = String.fromCharCode,
+			flag, flag2, tonedata, tone, tone2;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * This works because the image will be one of three things:
+				 * - Two empty squares, if the browser doesn't render emoji
+				 * - Two squares with 'A' and 'U' in them, if the browser doesn't render flag emoji
+				 * - The Australian flag
+				 *
+				 * The first two will encode to small images (1-2KB data URLs), the third will encode
+				 * to a larger image (4-5KB data URL).
+				 */
+				context.fillText( stringFromCharCode( 55356, 56806, 55356, 56826 ), 0, 0 );
+				if ( canvas.toDataURL().length < 3000 ) {
+					return false;
+				}
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				/*
+				 * Test for rainbow flag compatibility. As the rainbow flag was added out of sequence with
+				 * the usual Unicode release cycle, some browsers support it, and some don't, even if their
+				 * Unicode support is up to date.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + rainbow emoji).
+				 */
+				context.fillText( stringFromCharCode( 55356, 57331, 65039, 8205, 55356, 57096 ), 0, 0 );
+				flag = canvas.toDataURL();
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				context.fillText( stringFromCharCode( 55356, 57331, 55356, 57096 ), 0, 0 );
+				flag2 = canvas.toDataURL();
+
+				return flag !== flag2;
+			case 'diversity':
+				/*
+				 * This tests if the browser supports the Emoji Diversity specification, by rendering an
+				 * emoji with no skin tone specified (in this case, Santa). It then adds a skin tone, and
+				 * compares if the emoji rendering has changed.
+				 */
+				context.fillText( stringFromCharCode( 55356, 57221 ), 0, 0 );
+				tonedata = context.getImageData( 16, 16, 1, 1 ).data;
+				tone = tonedata[0] + ',' + tonedata[1] + ',' + tonedata[2] + ',' + tonedata[3];
+
+				context.fillText( stringFromCharCode( 55356, 57221, 55356, 57343 ), 0, 0 );
+				// Chrome has issues comparing arrays, and Safari has issues converting arrays to strings.
+				// So, we create our own string and compare that, instead.
+				tonedata = context.getImageData( 16, 16, 1, 1 ).data;
+				tone2 = tonedata[0] + ',' + tonedata[1] + ',' + tonedata[2] + ',' + tonedata[3];
+
+				return tone !== tone2;
+			case 'simple':
+				/*
+				 * This creates a smiling emoji, and checks to see if there is any image data in the
+				 * center pixel. In browsers that don't support emoji, the character will be rendered
+				 * as an empty square, so the center pixel will be blank.
+				 */
+				context.fillText( stringFromCharCode( 55357, 56835 ), 0, 0 );
+				return context.getImageData( 16, 16, 1, 1 ).data[0] !== 0;
+			case 'unicode8':
+				/*
+				 * To check for Unicode 8 support, let's try rendering the most important advancement
+				 * that the Unicode Consortium have made in years: the burrito.
+				 */
+				context.fillText( stringFromCharCode( 55356, 57135 ), 0, 0 );
+				return context.getImageData( 16, 16, 1, 1 ).data[0] !== 0;
+			case 'unicode9':
+				/*
+				 * Do Unicode 9 emoji render?
+				 * ¯\_(ツ)_/¯
+				 */
+				context.fillText( stringFromCharCode( 55358, 56631 ), 0, 0 );
+				return context.getImageData( 16, 16, 1, 1 ).data[0] !== 0;
+		}
+
+		return false;
+	}
+
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'simple', 'flag', 'unicode8', 'diversity', 'unicode9' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script><script src="./Contact us _ Statistics South Africa_files/twemoji.js.download" type="text/javascript"></script><script src="./Contact us _ Statistics South Africa_files/wp-emoji.js.download" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="cptchStylesheet-css" href="./Contact us _ Statistics South Africa_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap_css-css" href="./Contact us _ Statistics South Africa_files/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" id="bootstrap_responsive_css-css" href="./Contact us _ Statistics South Africa_files/bootstrap-responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" id="umkhanyakude_css-css" href="./Contact us _ Statistics South Africa_files/style(1).css" type="text/css" media="screen">
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/jquery-1.9.1.min.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/bootstrap.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/highcharts.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/chart_library.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/stats_highchats.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/umkhanyakude.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/map.js.download"></script>
+<link rel="https://api.w.org/" href="http://www.statssa.gov.za/?rest_route=/">
+<link rel="EditURI" type="application/rsd+xml" title="" href="http://www.statssa.gov.za/xmlrpc.php?rsd" data-original-title="RSD">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.statssa.gov.za/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.6">
+<link rel="canonical" href="http://www.statssa.gov.za/?page_id=505">
+<link rel="shortlink" href="http://www.statssa.gov.za/?p=505">
+<link rel="alternate" type="application/json+oembed" href="http://www.statssa.gov.za/?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.statssa.gov.za%2F%3Fpage_id%3D505">
+<link rel="alternate" type="text/xml+oembed" href="http://www.statssa.gov.za/?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.statssa.gov.za%2F%3Fpage_id%3D505&amp;format=xml">
+         <!--[if IE]>
+           <!--<script type="text/javascript" src="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/js/firebug-lite/content/firebug-lite-dev.js"></script>-->
+         <!--[endif]---->
+         
+         <!--[if lt IE 10]>
+           <link href="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/css/responsive_ie.css" rel="stylesheet" media="screen">
+         <![endif]-->
+
+         <!--[if IE 7]>
+            <link href="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/css/ie7.css" rel="stylesheet" media="screen">
+         <![endif]-->
+         
+         <!--[if IE]>
+            <link href="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/css/ie8.css" rel="stylesheet" media="screen">
+         <![endif]-->
+         
+         
+
+         <script src="./Contact us _ Statistics South Africa_files/respond.min.js.download"></script> 
+                         <script src="./Contact us _ Statistics South Africa_files/jquery.cookie.js.download"></script> 
+    <link rel="stylesheet" type="text/css" href="chrome-extension://immhpnclomdloikkpcefncmfgjbkojmh/css/emoji.css"><script type="text/javascript" charset="UTF-8" src="./Contact us _ Statistics South Africa_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Contact us _ Statistics South Africa_files/util.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Contact us _ Statistics South Africa_files/stats.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Contact us _ Statistics South Africa_files/AuthenticationService.Authenticate"></script></head>
+    <body>
+       
+
+
+
+ 
+        
+        <div class="container" style="position: relative;">
+            <!--<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button> <i class="icon-warning-sign"></i> <strong>Please note</strong> that this is a new Data Portal. Not all content and features are available in the new format yet. </div>-->
+            
+            <!-- Header block@start -->
+            <div class="row">
+                
+                <!-- Logo block@start -->
+                <div class="span4" style="">
+                    <div class="logo">
+                        <a class="brand" href="http://www.statssa.gov.za/"><img src="./Contact us _ Statistics South Africa_files/logo_centered.png" width="300" height="92" border="0"></a>
+                    </div>
+                </div>
+                <!-- Logo block@end -->
+				
+				<!-- Slogan block@start -->
+                <div class="span4" style="">
+                    <div class="logo">
+                        <img src="./Contact us _ Statistics South Africa_files/SloganNew.png" width="300" height="92" border="0">
+                    </div>
+                </div>
+                <!-- Slogan block@end -->
+
+                <!-- Search Form & Social Icons@start -->
+                <div class="span4" style="background-color: #fff; margin-top:10px;">
+                    
+                    <!-- Search Form block@start -->
+                    <form method="get" id="searchform" name="header_searchform" action="http://www.statssa.gov.za/">
+                    <!--<form target="_blank" method="get" id="searchform" action="http://www.statssa.gov.za/net/ArticlesofInterest_2/Search.aspx"> -->
+                        <div class="input-prepend pull-right" style="margin:10px 0;">
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="http://www.statssa.gov.za/?page_id=505#">
+                                    <i class="icon-search"></i>
+                                    <span class="caret"></span>
+                                </a>
+                                                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0);" class="soption">Content</a></li>
+                                    <li><a href="javascript:void(0);" class="soption">Publications</a></li> 
+                                                                        <li><a href="javascript:void(0);" class="soption">Statistics by Place</a></li>
+                                    <li><a href="javascript:void(0);" class="soption">Statistics by Theme</a></li>
+                                                                    </ul>
+                                
+                            </div>
+                            <input class="input-large" name="s" id="appendedInputButton" type="text" placeholder="Search">
+                            <input type="hidden" name="sitem" value="publications">
+                             <!--<input class="input-large" name="SrchKeyword1" id="appendedInputButton" type="text" placeholder="Search"> -->
+                            
+                            <!--<button class="btn" type="submit"><i class="icon-search"></i></button>-->
+                        </div>
+                    </form>
+                    <!-- Search Form block@end -->
+                    
+                    <div class="clear"></div>
+                    
+                    <!-- Social Icons block@start -->
+                    <ul class="social-icons pull-right">
+                        			<div class="textwidget"><li class="facebook" title="" data-original-title="Stats SA on Facebook"><a href="https://www.facebook.com/StatsSA" target="_blank">Facebook</a></li>
+<li class="twitter" title="" data-original-title="Stats SA on Twitter"><a href="https://twitter.com/StatsSA" target="_blank">Twitter</a></li>
+
+<!--<li class="googleplus"  title="Stats SA on Google+"><a href="#">Google+</a></li> -->
+<li class="youtube" title="" data-original-title="Stats SA on YouTube"><a href="http://www.youtube.com/user/TheStatisticsSA?feature=mhee" target="_blank">YouTube</a></li>
+<li class="rss" title="" data-original-title="RSS Feeds"><a href="http://www.statssa.gov.za/?feed=rss2" target="_blank">RSS</a></li></div>
+		                    </ul>
+                    <div class="clear"></div>
+                    <!-- Social Icons block@end -->
+                </div>
+                <!-- Search Form & Social Icons@end -->
+
+<script>
+                    $(document).ready(function() {
+                        $(".soption").click(function() {                           
+                            $("input[name='sitem']").val($(this).text().toLowerCase());
+                            $("form[name='header_searchform']").submit();
+                            //alert($(this).text());
+                        });                        
+                    });                
+
+Navigation
+CPI November 2015=4,8% y/y PPI April 2016=+7% y/y GDP 2016 - Q1 = -1,2% q/q Unemployment 2015 - Q1 = 26,4% Population (Mid-year estimate)  52,98 million mid 2013
+
+                </script>
+
+                
+                <div class="span12" style="background-color: #fff;">
+                    <div class="navbar" style="">
+                        <div class="navbar-inner">
+                            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="pull-left nav-info-block hidden-desktop">Navigation</div>
+                            <div class="nav-collapse collapse">
+                                <div class="hidden-desktop" style="border:0px solid #fff; height:10px; overflow:hidden;">&nbsp;</div>
+                                <ul id="menu-stats-sa-website-main-menu" class="nav"><li id="menu-item-961" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-961"><a href="http://www.statssa.gov.za/">Home</a></li>
+<li id="menu-item-962" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-962"><a href="http://www.statssa.gov.za/?page_id=505#" class="dropdown-toggle" data-toggle="dropdown">Find Statistics <b class="caret hidden-phone hidden-tablet"></b><i class="icon-chevron-right pull-right hidden-desktop"></i></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-611" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-611"><a href="http://www.statssa.gov.za/?page_id=595">By Theme</a></li>
+	<li id="menu-item-966" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-966"><a href="http://www.statssa.gov.za/?page_id=964">By Place</a></li>
+	<li id="menu-item-610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610"><a href="http://www.statssa.gov.za/?page_id=593">Indicators</a></li>
+</ul>
+</li>
+<li id="menu-item-263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-263"><a href="http://www.statssa.gov.za/?page_id=505#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret hidden-phone hidden-tablet"></b><i class="icon-chevron-right pull-right hidden-desktop"></i></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-267"><a href="http://www.statssa.gov.za/?page_id=1859">Statistical publications</a></li>
+	<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-849"><a href="http://www.statssa.gov.za/?page_id=364">Pricing policy</a></li>
+	<li id="menu-item-721" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-721"><a href="http://www.statssa.gov.za/?page_id=377">Codes and classifications</a></li>
+	<li id="menu-item-722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-722"><a href="http://www.statssa.gov.za/?page_id=379">Questionnaires</a></li>
+	<li id="menu-item-1532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1532"><a href="http://www.statssa.gov.za/?page_id=845">Order publications</a></li>
+</ul>
+</li>
+<li id="menu-item-280" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-280"><a href="http://www.statssa.gov.za/?page_id=505#" class="dropdown-toggle" data-toggle="dropdown">Census <b class="caret hidden-phone hidden-tablet"></b><i class="icon-chevron-right pull-right hidden-desktop"></i></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-8158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8158"><a href="http://cs2016.statssa.gov.za/">2016 CS Results</a></li>
+	<li id="menu-item-6292" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6292"><a href="http://www.statssa.gov.za/?page_id=6283">2016 Community survey</a></li>
+	<li id="menu-item-942" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-942"><a href="http://www.statssa.gov.za/?page_id=3839" target="_blank">2011 Census</a></li>
+	<li id="menu-item-290" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-290"><a href="http://www.statssa.gov.za/?page_id=3955" target="_blank">2011 Census products</a></li>
+	<li id="menu-item-293" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="http://www.statssa.gov.za/?page_id=3914" target="_blank">2007 Community survey</a></li>
+	<li id="menu-item-292" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="http://www.statssa.gov.za/?page_id=3892" target="_blank">2001 Census</a></li>
+	<li id="menu-item-943" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-943"><a href="https://apps.statssa.gov.za/census01/Census96/HTML/default.htm" target="_blank">1996 Census</a></li>
+</ul>
+</li>
+<li id="menu-item-274" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-274"><a href="http://www.statssa.gov.za/?page_id=505#" class="dropdown-toggle" data-toggle="dropdown">Suppliers <b class="caret hidden-phone hidden-tablet"></b><i class="icon-chevron-right pull-right hidden-desktop"></i></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-875"><a href="http://www.statssa.gov.za/?page_id=853">Supplier database</a></li>
+	<li id="menu-item-877" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-877"><a href="http://www.statssa.gov.za/?page_id=385">Advertised bids</a></li>
+	<li id="menu-item-899" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-899"><a href="http://www.statssa.gov.za/?page_id=518">Cancelled bids</a></li>
+	<li id="menu-item-898" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-898"><a href="http://www.statssa.gov.za/?page_id=487">Awarded bids</a></li>
+	<li id="menu-item-278" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-278"><a href="https://invoicetracking.statssa.gov.za/" target="_blank">Invoice Tracking System (ITS)</a></li>
+</ul>
+</li>
+<li id="menu-item-294" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown active menu-item-294"><a href="http://www.statssa.gov.za/?page_id=505#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret hidden-phone hidden-tablet"></b><i class="icon-chevron-right pull-right hidden-desktop"></i></a>
+<ul class="dropdown-menu">
+	<li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-643"><a href="http://www.statssa.gov.za/?page_id=560">Vision and mission</a></li>
+	<li id="menu-item-644" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-644"><a href="http://www.statssa.gov.za/?page_id=627">Corporate information</a></li>
+	<li id="menu-item-823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-823"><a href="http://www.statssa.gov.za/?page_id=677">Statistics Act</a></li>
+	<li id="menu-item-1676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1676"><a href="http://www.statssa.gov.za/?page_id=419">Vacancies</a></li>
+	<li id="menu-item-1827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1827"><a href="http://www.statssa.gov.za/?page_id=1823">Internship</a></li>
+	<li id="menu-item-2059" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2059"><a href="http://www.statssa.gov.za/?page_id=2050">Bursaries</a></li>
+	<li id="menu-item-912" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-505 current_page_item active menu-item-912"><a href="http://www.statssa.gov.za/?page_id=505">Contact us</a></li>
+</ul>
+</li>
+</ul>                            </div>                            
+                        </div>
+                        
+                        
+                        			
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!-- Header block@end -->
+            
+
+<ul class="breadcrumb"><li><a href="http://www.statssa.gov.za/">Home</a></li> <span class="divider">/</span> <li><a href="http://www.statssa.gov.za/?page_id=433">About us</a></li> <span class="divider">/</span> <li class="active">Contact us</li></ul>
+<div class="row">
+  <div class="span9" style="margin-bottom:20px;">
+    <div class="span9" style="margin-left: 0;margin-bottom:20px;">
+      <div style="position: relative;border: 1px solid #E1E1E8;padding:5px;">
+                        <img src="./Contact us _ Statistics South Africa_files/Header-27.png" width="870" height="150" alt="Contact us" class="wp-post-image " style="margin-left:0;border: 0px solid #E1E1E8;margin-bottom: 5px;">
+                <h1 class="image_text_overlay_about_one">The South Africa I know,</h1>
+        <h1 class="image_text_overlay_about_two">The Home I Understand</h1>
+      </div>
+    </div>
+    <h2 style="border-bottom: 1px solid #ccc;"><span class="muted pull-right" title="" data-original-title="Last modified: February 1, 2017"><i class="icon-calendar"></i></span>
+      Contact us    </h2>
+    <div id="contact_form">
+             <form class="form-horizontal" id="feedback" method="post">
+        <div class="span5" style="margin-left:0px;">
+          <label class="radio inline" style="margin-left:10%">
+            <input type="radio" name="optionsRadios" value="feedback" checked="">Feedback </label>
+          <label class="radio inline">
+            <input type="radio" name="optionsRadios" value="request">Request </label>
+          <label class="radio inline">
+            <input type="radio" name="optionsRadios" value="complaint">Complaint </label>
+          <p></p>
+          <div class="control-group">
+            <label class="control-label span1" for="inputName" style="width:25%; margin-right:10px">Name<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputName" placeholder="Name" maxlength="50" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label span1" for="inputSurname" style="width:25%; margin-right:10px">Surname<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputSurname" placeholder="Surname" maxlength="50" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label span1" for="inputCompany" style="width:25%; margin-right:10px">Company<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputCompany" placeholder="Company" maxlength="50" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label span1" for="inputTelephone" style="width:25%; margin-right:10px">Telephone<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputTelephone" placeholder="Telephone" maxlength="15" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label span1" for="inputEmail" style="width:25%; margin-right:10px">Email address<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputEmail" placeholder="Email address" maxlength="50" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label span1" for="inputLocation" style="width:25%; margin-right:10px">Location<span class="text-error">*</span></label>
+            <div class="controls" style="margin-left:0px;">
+              <input class="span3" type="text" name="inputLocation" placeholder="Location" maxlength="50" value="">
+              <div class="text-error pull-right span3"><sub></sub></div> </div>
+          </div>
+        </div>
+        <div class="span4">
+          <label class="control-label" for="messagebody" style="text-align:left;">Message<span class="text-error">*</span></label>
+          <div class="clear"></div>
+          <textarea class="span4" name="messagebody" placeholder="Message" rows="7" maxlength="450" style="height:160px;"></textarea><div class="clear"></div>
+          <div class="text-error pull-left span3"><sub></sub></div><div class="clear" style="margin-bottom: 15px"></div>
+          Answer the arithmetic question<span class="text-error">*</span><br>
+		<input type="hidden" name="cntctfrm_contact_action" value="true"><input type="hidden" name="cptch_result" value="t2w="><input type="hidden" value="Version: 2.4">3 × <input type="text" autocomplete="off" name="cptch_number" value="" maxlength="1" size="1" style="width:20px;margin-bottom:0;display:inline;font-size: 12px;width: 30px;"> =  fifteen          <div class="clear"></div>
+          <div class="text-error pull-left span3"><sub></sub></div> 
+          <div class="clear"></div>
+                     <div class="control-group" style="margin-top: 10px; text-align: right; padding:0px 10px;">
+            <button type="submit" class="btn btn-info" name="btn" value="submit">Send</button>
+          </div>
+          <div class="control-group" style="text-align: right"><span><span class="text-error">×</span><sub> Indicates compulsory fields</sub></span> </div>
+        </div>
+      </form>
+    </div>
+    <div id="provinces">
+      <div id="ec_prov" style="display: none;">
+<p><a name="ec_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Eastern Cape (East London)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block C &amp; D<br>
+2nd Floor Ocean Park Terrace<br>
+15 Coutts Street<br>
+East London</td>
+<td>P.O Box 7379<br>
+East London<br>
+5200</td>
+<td>Tel: (043) 7074900<br>
+Fax: (043) 7074906</td>
+<td>Zandile Nkosiyane</td>
+<td>Nompucuko Sigwela</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="fs_prov" style="display: none;">
+<p><a name="fs_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Free State (Bloemfontein)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ellen Gaborone Building<br>
+Rocklands<br>
+Bloemfontein</td>
+<td>Stand 58525<br>
+Moshoeshoe Road<br>
+Rocklands<br>
+Bloemfontein<br>
+9323</td>
+<td>Tel: (051) 4127500<br>
+Fax: (051) 4127507</td>
+<td>Ntebaleng Chobokoane</td>
+<td>Tshepang Chueu</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="kzn_prov" style="display: none;">
+<p><a name="kzn_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">KwaZulu-Natal (Durban)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3rd &amp; 4th Floor<br>
+On Field Building<br>
+Joe Slovo Street<br>
+Durban</td>
+<td>Private Bag X54337<br>
+Durban<br>
+4000</td>
+<td>Tel: (031) 3600600<br>
+Fax: (031) 3059960/85</td>
+<td>Hellen North</td>
+<td>Ravi Naidoo</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mp_prov" style="display: none;">
+<p><a name="mp_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Mpumalanga (Nelspruit)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17 Henshall Street<br>
+Second Floor Stats House<br>
+17 Hensall Street<br>
+Nelspruit</td>
+<td>Private Bag X11290<br>
+Nelspruit<br>
+1200</td>
+<td>Tel: (013) 7540600<br>
+Fax: (013) 7555064</td>
+<td>Margaret Africa</td>
+<td>Linda Chirwa</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="lp_prov" style="display: none;">
+<p><a name="lp_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Limpopo (Polokwane)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29 Bodenstein Str<br>
+Ivory Route<br>
+Corporate Park Building<br>
+Polokwane</td>
+<td>Private Bag X9441<br>
+Polokwane<br>
+0700</td>
+<td>Tel: (015) 2953300/1<br>
+Fax:(015) 2953579</td>
+<td>Mukwevho Nthambeleni</td>
+<td>Sherly Semenya</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="nc_prov" style="display: none;">
+<p><a name="nc_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Northern Cape (Kimberley)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Old Standard Bank Building<br>
+90 cnr. Lennox &amp; Du Toitspan Roads<br>
+Kimberly</td>
+<td>Private Bag X5053<br>
+Kimberley<br>
+8300</td>
+<td>Tel: (053) 8322042<br>
+Fax:(053) 8325407</td>
+<td>Deon Kleinsmith</td>
+<td>Nkareng Thogomusi</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="nw_prov" style="display: none;">
+<p><a name="nw_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">North West (Mmabatho)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shop No. 55<br>
+North Entrance<br>
+Mega City<br>
+James Moroka Drive<br>
+Mmabatho</td>
+<td>P.O. Box 23213<br>
+Mafikeng<br>
+2745</td>
+<td>Tel:(018) 3842877/8/9<br>
+Fax:(018) 3842832</td>
+<td>Ingrid Setshedi</td>
+<td>Cecilia Masenya</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="wc_prov" style="display: none;">
+<p><a name="wc_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Western Cape (Cape Town)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3rd Floor<br>
+Liberty Building<br>
+22 Long Street<br>
+Cape Town</td>
+<td>Private Bag X9072<br>
+Cape Town<br>
+8000</td>
+<td>Tel: (021) 4815500<br>
+Fax: (021) 4221834</td>
+<td>Marius Cronje</td>
+<td>Vanessa Mostert</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="gp_prov" style="display: none;">
+<p><a name="gp_prov"></a></p>
+<table class="table table-striped">
+<caption>
+<h5 style="margin: 0;">Gauteng (Johannesburg)</h5>
+</caption>
+<thead>
+<tr>
+<td>VISITING ADDRESS</td>
+<td>MAILING ADDRESS</td>
+<td>TELEPHONE &amp; FAX</td>
+<td>PROVINCIAL HEAD</td>
+<td>INFORMATION OFFICER</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>284 Oak Avenue<br>
+c/o Oak and Harley<br>
+Ferndale<br>
+Randburg<br>
+2194</td>
+<td>P.O. Box 7798<br>
+Johannesburg<br>
+2000</td>
+<td>Tel: (011) 7813506<br>
+Fax: (011) 8363184</td>
+<td>Dr Mahlape Mohale</td>
+<td>Virginia Marobe</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ho_map" style="display: none;">
+<p><a name="ho_map"></a></p>
+<h5 style="margin: 0;">Stats SA head-office map, Pretoria</h5>
+<p><iframe src="./Contact us _ Statistics South Africa_files/embed.html" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe></p>
+</div>
+    </div>
+  </div>
+  <div class="span3 sidebar">
+    <div class="accordion" id="accordion2">
+      <div class="accordion-group">
+        <div class="accordion-heading accordion-heading_active" id="1"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="http://www.statssa.gov.za/?page_id=505#headoffice">Head Office</a> </div>
+        <div id="headoffice" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+              <li>Tel: (012) 310 8911</li>
+              <li>Fax: (012) 310 8944</li>
+              <li><a href="mailto:info@statssa.gov.za" style="margin: 1px; padding: 4px;">info@statssa.gov.za</a></li>
+            </ul>
+            <h5 style="border-bottom:1px solid #E1E1E8;">Physical Address</h5>
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+              <li>ISIbalo House, Koch Street</li>
+	      <li>Salvokop, Pretoria</li>
+              <li>0002&nbsp;<a href="http://www.statssa.gov.za/?page_id=505#" id="ho-map" class="btn pull-right" type="button" style="margin: 1px; padding: 4px;">MAP</a></li>
+            </ul>
+            <h5 style="border-bottom:1px solid #E1E1E8;">User information</h5>
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+              <li>Tel: (012) 310 8600</li>
+              <li>Fax: (012) 310 8944</li>
+              <li><a href="mailto:info@statssa.gov.za" style="margin: 1px; padding: 4px;">info@statssa.gov.za</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading" id="4"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="http://www.statssa.gov.za/?page_id=505#contactecon">Subject area contacts</a></div>
+        <div id="contactecon" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+                <!--<li><a href="#ecoContactModal" role="button" class="btn" data-toggle="modal">Contact a statistician</a></li>-->
+            </ul>
+          </div>
+        </div>
+      </div>   
+        
+      <div class="accordion-group">
+        <div class="accordion-heading" id="2"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="http://www.statssa.gov.za/?page_id=505#prov_contact">Provinces</a> </div>
+        <div id="prov_contact" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+              <li><a href="http://www.statssa.gov.za/?page_id=505#ec_prov" id="ec" style="margin: 1px; padding: 4px;">Eastern Cape</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#fs_prov" id="fs" style="margin: 1px; padding: 4px;">Free State</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#kzn_prov" id="kzn" style="margin: 1px; padding: 4px;">Kwazulu-Natal</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#mp_prov" id="mp" style="margin: 1px; padding: 4px;">Mpumalanga</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#lp_prov" id="lp" style="margin: 1px; padding: 4px;">Limpopo</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#nc_prov" id="nc" style="margin: 1px; padding: 4px;">Northern Cape</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#nw_prov" id="nw" style="margin: 1px; padding: 4px;">North West</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#wc_prov" id="wc" style="margin: 1px; padding: 4px;">Western Cape</a></li>
+              <li><a href="http://www.statssa.gov.za/?page_id=505#gp_prov" id="gp" style="margin: 1px; padding: 4px;">Gauteng</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+        
+      <div class="accordion-group">
+        <div class="accordion-heading" id="3"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="http://www.statssa.gov.za/?page_id=505#grpwise">GroupWise</a> </div>
+        <div id="grpwise" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom: 5px;">
+                <li><a href="http://196.25.65.5/gw/webacc" class="btn pull-left" type="button" target="_blank" style="margin: 1px; padding: 4px;">GroupWise</a><sub>&nbsp;for Stats SA employees only</sub></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+        
+    </div>
+     
+      <div id="ecoContactModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Subject area contacts</h3>
+        </div>
+        <div class="modal-body" style="max-height: 435px;">
+            <table class="table" style="margin-bottom:1px;">
+                <tbody>
+                    <tr>
+                        <td style="font-size: 10px"><div class="well" style="margin-bottom:2px;"><h5 style="border-bottom:1px solid #E1E1E8;">Economic Stats</h5><i class="icon-user"></i>&nbsp;Joe de Beer (Deputy Director-General)<br>012 310 8024<br>082 888 2600<br><a href="mailto:joedb@statssa.gov.za">joedb@statssa.gov.za</a><br><br>
+                    <i class="icon-user"></i>&nbsp;Peter Perkins<br>(Economist)<br>012 310 8389<br>082 883 9532<br><a href="mailto:peterp@statssa.gov.za">peterp@statssa.gov.za</a></div></td>
+                        
+                        <td style="font-size: 10px"><div class="well" style="margin-bottom:2px;"><h5 style="border-bottom:1px solid #E1E1E8;">Social Stats</h5><i class="icon-user"></i>&nbsp;Gwen Lehloenya (Acting Deputy Director-General)<br>012 310 8333<br>082 888 2323<br><a href="mailto:gwenL@statssa.gov.za">gwenL@statssa.gov.za</a><br><br>
+                    <i class="icon-user"></i>&nbsp;Neo Nghenavo<br>(Director)<br>012 310 8047<br>082 888 2613<br><a href="mailto:neon@statssa.gov.za">neon@statssa.gov.za</a></div></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table striped" style="margin-top:1px;">
+                <caption><i class="icon-hand-down"></i>&nbsp;&nbsp;<b>Scroll for more contacts by subject area</b>&nbsp;&nbsp;<i class="icon-hand-down pull-right"></i></caption>
+                <thead>
+                    <tr>
+                        <th style="font-size: 10px">Topic</th>
+                        <th style="font-size: 10px">Contact</th>
+                        <th style="font-size: 10px">Alternative Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-size: 10px">Consumer price index (CPI), Producer price index (PPI), <br>Unit value indices: exports / imports, Construction materials<br> price indices</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Kelly (Chief Director)<br>012 310 8290<br>082 888 2248<br><a href="mailto:patrickke@statssa.gov.za">patrickke@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Marietjie Bennett (Director)<br>012 310 8077<br>082 888 2194<br><a href="mailto:marietjieb@statssa.gov.za">marietjieb@statssa.gov.za</a></td>
+                    </tr>
+                    <!--tr>
+                        <td  style="font-size: 10px">Producer price index (PPI), Unit value index (UVI), Contract price adjustment provisions (CPAP)</td>
+                        <td  style="font-size: 10px"><i class="icon-user"></i>&nbsp;Marietjie Bennett (Statistician)<br/>012 310 8077<br/>082 888 2194<br/><a href="mailto:marietjieb@statssa.gov.za">marietjieb@statssa.gov.za</a></td>
+                        <td  style="font-size: 10px"><i class="icon-user"></i>&nbsp;Marais Kleu (Director)<br/>012 310 8170<br/>082 468 2592<br/><a href="mailto:maraisk@statssa.gov.za">maraisk@statssa.gov.za</a></td>
+                    </tr-->
+                    <tr>
+                        <td style="font-size: 10px">Government finance: national and provincial government</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Naidoo (Chief Director)<br>012 310 8307<br>082 888 2509<br><a href="mailto:patrickn@statssa.gov.za">patrickn@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Elizabeth Makhafola (Director)<br>012 310 8977<br>082 888 9062<br><a href="mailto:elizabethma@statssa.gov.za">elizabethma@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Government finance: local government</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Naidoo (Chief Director)<br>012 310 8307<br>082 888 2509<br><a href="mailto:patrickn@statssa.gov.za?">patrickn@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malibongwe Mhemhe (Director)<br>012 310 6928<br>082 906 8964<br><a href="mailto:malibongwem@statssa.gov.za?">malibongwem@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Gross domestic product (GDP), production</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Michael Manamela (Chief Director)<br>012 310 8520<br>082 888 2205<br><a href="mailto:michaelm@statssa.gov.za">michaelm@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Bontlenyana Makhoba(Chief Economist)<br>012 310 8567<br><a href="mailto:bontlenyanam@statssa.gov.za">bontlenyanam@statssa.gov.za</a></td>
+                    </tr>
+					<tr>
+                        <td style="font-size: 10px">Gross domestic product (GDP), expenditure</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Michael Manamela (Chief Director)<br>012 310 8520<br>082 888 2205<br><a href="mailto:michaelm@statssa.gov.za">michaelm@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Litshani Ligudu (Director)<br>012 310 4674<br>082 884 4279<br><a href="mailto:litshanil@statssa.gov.za">litshanil@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Satellite accounts, environmental-economic accounts, <br>social accounting matrix (SAM), input-output tables</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerhardt Bouwer (Chief Director)<br>012 310 8241<br>082 888 2409<br><a href="mailto:gerhardb@statssa.gov.za">gerhardb@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Riaan Grobler (Director)<br>012 406 3474<br>084 515 2908<br><a href="mailto:riaang@statssa.gov.za">riaang@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Mining, manufacturing, building, electricity, liquidations, <br>civil cases for debt, capacity utilisation</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerda Bruwer (Chief Director)<br>012 310 8249<br>082 786 3627<br><a href="mailto:gerdab@statssa.gov.za">gerdab@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Nicolai Claassen (Director)<br>012 310 8007<br>076 759 0200<br><a href="mailto:nicolaic@statssa.gov.za">nicolaic@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Retail, wholesale, motor, food &amp; beverages, tourist accommodation, <br>land transport</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerda Bruwer (Chief Director)<br>012 310 8249<br>082 786 3627<br><a href="mailto:gerdab@statssa.gov.za">gerdab@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Keshnee Naidoo (Director)<br>012 310 8423<br>083 689 5341<br><a href="mailto:keshneen@statssa.gov.za">keshneen@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Annual financial statistics (AFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Sagaren Pillay (Chief Director)<br>012 310 4619<br>082 905 2665<br><a href="mailto:sagarenp@statssa.gov.za">sagarenp@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Amukelani Ngobeni (Director)<br>012 310 2938<br>082 677 4536<br><a href="mailto:amukelanin@statssa.gov.za">amukelanin@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Quarterly financial statistics (QFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Sagaren Pillay (Chief Director)<br>012 310 4619<br>082 905 2665<br><a href="mailto:sagarenp@statssa.gov.za">sagarenp@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Krisseelan Govinden (Director)<br>012 310 4651<br>082 901 7960<br><a href="mailto:krisseelang@statssa.gov.za">krisseelang@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Structural industry statistics (large sample surveys of industries <br>every 3 to 5 years; agriculture)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Itani Magwaba (Chief Director)<br>012 337 6471 / 6254<br>082 905 5143<br><a href="mailto:itanim@statssa.gov.za">itanim@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Pekane (Director)<br>012 310 8191<br>083 675 8654<br><a href="mailto:tshepop@statssa.gov.za">tshepop@statssa.gov.za</a></td>
+                    </tr>					
+                    <!--tr>
+                        <td  style="font-size: 10px">Agriculture (annual and periodic)</td>
+                        <td  style="font-size: 10px"><i class="icon-user"></i>&nbsp;Itani Magwaba (Chief Director)<br/>012 337 6471 / 6254<br/>082 905 5143<br/><a href="mailto:itanim@statssa.gov.za">itanim@statssa.gov.za</a></td>
+                        <td  style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Pekane (Director)<br/>012 310 8191<br/>083 675 8654<br/><a href="mailto:tshepop@statssa.gov.za">tshepop@statssa.gov.za</a></td>
+                    </tr-->
+                    <tr>
+                        <td style="font-size: 10px">Population Statistics (Census and Community Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Christine Khoza (Chief Director)<br>012 310 2185<br>071 670 2672<br><a href="mailto:christinek@statssa.gov.za">christinek@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Angela Ngyende (Chief Statistician)<br>012 310 4699<br>079 519 3212<br><a href="mailto:angelan@statssa.gov.za">angelan@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Demography-Mid-year Population Estimates</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Diego Iturralde (Chief Director)<br>012 310 8922<br>082 413 2661<br><a href="mailto:diegoi@statssa.gov.za">diegoi@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Chantal Munthree (Chief Statistician)<br>012 310 6648<br>082 888 2289<br><a href="mailto:chantalMu@statssa.gov.za">chantalMu@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Labour Statistics- Quarterly Labour Force Survey (QLFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malerato Mosiane (Acting Chief Director)<br>012 310 8688<br>082 888 2449<br><a href="mailto:maleratoM@statssa.gov.za">maleratoM@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Desiree Manamela (Director)<br>012 310 2145<br>071 681 2768<br><a href="mailto:DesireeM@statssa.gov.za">DesireeM@statssa.gov.za</a><br><br>
+                            <i class="icon-user"></i>&nbsp;Malerato Mosiane (Chief Statistician)<br>012 310 8688<br>082 888 2449<br><a href="mailto:maleratoM@statssa.gov.za">maleratoM@statssa.gov.za</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Quarterly Employment Statistics (QES)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malerato Mosiane (Acting Chief Director)<br>012 310 8688<br>082 8882449<br><a href="mailto:maleratoM@statssa.gov.za">maleratoM@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Matlapane Masupye (Acting Director)<br>012 310 8168<br>082 317 5340<br><a href="mailto:matlapanem@statssa.gov.za">matlapanem@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Tourism Statistics (Domestic Tourism Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Brenda Mosima (Director)<br>012 310 8168<br>082 906 7925<br><a href="mailto:BrendaMo@statssa.gov.za">BrendaMo@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Crime and Safety Statistics (Victims of Crime Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Joseph Lukhwareni (Director)<br>012 310 8485<br>082 888 2486<br><a href="mailto:JosephL@statssa.gov.za">JosephL@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Service Delivery Statistics (General Household Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Niel Roux (Director)<br>012 310 2939<br>082 904 7919<br><a href="mailto:NielR@statssa.gov.za">NielR@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Transport Statistics (National Travel Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Solly Molayi (Director) <br>012 310 6442<br>083 440 7035<br><a href="mailto:SollyMol@statssa.gov.za">SollyMol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Gender Statistics</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Mabela (Director)<br>012 310 8587<br>082 941 9383<br><a href="mailto:TshepoMab@statssa.gov.za">TshepoMab@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Mortality and Causes of Deaths</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director) Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Thabo Molebatsi(Director)<br>012 310 4857<br>060 997 8372<br><a href="mailto:thabomol@statssa.gov.za">thabomol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Tourism and Migration </td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director) Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Ramadimetja Matji(Director)<br>012 406 33011<br>071 670 3272<br><a href="mailto:ramadimetjaM@statssa.gov.za">ramadimetjaM@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Registered  Births </td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director) Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Thabo Molebatsi(Director)<br>012 310 4857<br>060 997 8372<br><a href="mailto:thabomol@statssa.gov.za">thabomol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Marriages and Divorces</td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director) Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                       <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Ramadimetja Matji(Director)<br>012 406 33011<br>071 670 3272<br><a href="mailto:ramadimetjaM@statssa.gov.za">ramadimetjaM@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Living Conditions Survey</td>
+                       <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director) Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                    <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Thabo Molebatsi(Director)<br>012 310 4857<br>060 997 8372<br><a href="mailto:thabomol@statssa.gov.za">thabomol@statssa.gov.za</a></td>
+					</tr>
+                    <tr>
+                        <td style="font-size: 10px">Income and Expenditure Survey</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Nozipho Shabalala  (Chief Director )<br>012 310 6994<br>082 904 8896<br><a href="mailto:Noziphos@statssa.gov.za">Noziphos@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Werner Ruch (Director)<br>012 310 6318<br>082 906 7967<br><a href="mailto:wernerr@statssa.gov.za">wernerr@statssa.gov.za</a></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() 
+    {
+        $("#prov_contact").find("a").click(function(e)
+        {
+            e.preventDefault();
+            $("#contact_form").hide();
+            $("#provinces").find("div").each(function(i,inpt)
+            {
+                if($(inpt).is(":visible")) 
+		{
+                    $(inpt).hide();
+                }
+            });
+            $("#" + $(this).attr("id") + "_prov").toggle();
+        });
+        //show map
+        $("#headoffice").find("#ho-map").click(function(e)
+        {
+            e.preventDefault();
+            $("#contact_form").hide();
+            $("#provinces").find("div").each(function(i,inpt)
+            {
+                if($(inpt).is(":visible")) 
+		{
+                    $(inpt).hide();
+                }
+            });
+            $("#ho_map").toggle();
+        });
+	//if accordion header Head Office is clicked, form must reload
+	$('.accordion-heading').click(function()
+        {
+            $("#provinces").find("div").each(function(i,inpt)
+            {
+                if($(inpt).is(":visible")) 
+                {
+                    $(inpt).hide();
+                    $("#contact_form").show();
+                }
+            });
+	});  
+        $('#4').click(function(e)
+        {
+            e.stopPropagation();
+            $('#ecoContactModal').modal();
+        });
+	$('#accordion2').accordion({
+            collapsible: true,
+            active: false
+	});
+  
+
+    });
+</script>
+
+<script src="./Contact us _ Statistics South Africa_files/js(1)"></script>
+<script type="text/javascript">
+    function initialize() 
+    {
+          var myLatlng = new google.maps.LatLng(-25.7468217,28.1905482);
+          var mapOptions = {zoom: 15,center: myLatlng}
+          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+          var marker = new google.maps.Marker({position: myLatlng,map: map,title: 'Stats SA HQ!'});
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+         
+
+
+            <div id="mediaContactModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel" aria-hidden="true" style="z-index: 1999990;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    
+                    <h3 id="mediaModalLabel">Media Contact</h3>
+                </div>
+                <div class="modal-body">
+                    <ul style="list-style:none;margin:0;">
+                        <li class="odd" style="padding:5px 10px;"><i class="icon-user"></i> <strong>Trevor Oosterwyk</strong>, Director: Communications, Tel: +27 12 310 4687 , Cell: +27 82 908 9104</li>
+                        <li class="even" style="padding:5px 10px;"><i class="icon-user"></i> <strong>Lesedi Dibakwane</strong>, Media Liaison, Tel: +27 12 310 8578 , Cell: +27 82 805 7088</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>   
+                </div>
+            </div>
+
+
+<div id="econContactModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 2000000;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Subject area contacts</h3>
+        </div>
+        <div class="modal-body" style="max-height: 435px;">
+            <table class="table" style="margin-bottom:1px;">
+                <tbody>
+                    <tr>
+                        <td style="font-size: 10px"><div class="well" style="margin-bottom:2px;"><h5 style="border-bottom:1px solid #E1E1E8;">Economic Stats</h5><i class="icon-user"></i>&nbsp;Joe de Beer (Deputy Director-General)<br>012 310 8024<br>082 888 2600<br><a href="mailto:joedb@statssa.gov.za">joedb@statssa.gov.za</a><br><br>
+                    <i class="icon-user"></i>&nbsp;Peter Perkins<br>(Economist)<br>012 310 8389<br>082 883 9532<br><a href="mailto:peterp@statssa.gov.za">peterp@statssa.gov.za</a></div></td>
+                        
+                        <td style="font-size: 10px"><div class="well" style="margin-bottom:2px;"><h5 style="border-bottom:1px solid #E1E1E8;">Social Stats</h5><i class="icon-user"></i>&nbsp;Gwen Lehloenya(Acting Deputy Director-General)<br>012 310 8333<br>083 888 2323<br><a href="mailto:gwenL@statssa.gov.za">gwenL@statssa.gov.za</a><br><br>
+                    <i class="icon-user"></i>&nbsp;Neo Nghenavo<br>(Director)<br>012 310 8047<br>082 888 2613<br><a href="mailto:neon@statssa.gov.za">neon@statssa.gov.za</a></div></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table striped" style="margin-top:1px;">
+                <caption><i class="icon-hand-down"></i>&nbsp;&nbsp;<b>Scroll for more contacts by subject area</b>&nbsp;&nbsp;<i class="icon-hand-down pull-right"></i></caption>
+                <thead>
+                    <tr>
+                        <th style="font-size: 10px">Topic</th>
+                        <th style="font-size: 10px">Contact</th>
+                        <th style="font-size: 10px">Alternative Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-size: 10px">Consumer price index (CPI), Producer price index (PPI), <br>Unit value indices: exports / imports, Construction materials<br> price indices</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp; Patrick Kelly (Chief Director)<br>012 310 8290<br>082 888 2248<br><a href="mailto:patrickke@statssa.gov.za">patrickke@statssa.gov.za</a></td>
+                          <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Marietjie Bennett (Director)<br>012 310 8077<br>082 888 2194<br><a href="mailto:marietjieb@statssa.gov.za">marietjieb@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Producer price index (PPI), Unit value index (UVI), Contract price adjustment provisions (CPAP)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Kelly (Chief Director)<br>012 310 8290<br>082 888 2248<br><a href="mailto:patrickke@statssa.gov.za">patrickke@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Andrew Rankhumise (Pricipal survey Statistician)<br>012 406 3304<br><br><a href="mailto:andrewR@statssa.gov.za">andrewR@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Government finance: national and provincial government</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Naidoo (Chief Director)<br>012 310 8307<br>082 888 2509<br><a href="mailto:patrickn@statssa.gov.za">patrickn@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Elizabeth Makhafola (Director)<br>012 310 8977<br>082 888 9062<br><a href="mailto:elizabethma@statssa.gov.za">elizabethma@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Government finance: local government</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patrick Naidoo (Chief Director)<br>012 310 8307<br>082 888 2509<br><a href="mailto:patrickn@statssa.gov.za?">patrickn@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malibongwe Mhemhe (Director)<br>012 310 6928<br>082 906 8964<br><a href="mailto:malibongwem@statssa.gov.za?">malibongwem@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Gross domestic product (GDP), production</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Michael Manamela (Chief Director)<br>012 310 8520<br>082 888 2205<br><a href="mailto:michaelm@statssa.gov.za">michaelm@statssa.gov.za</a></td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Bontlenyana Makhoba(Chief Economist)<br>012 310 8567<br><a href="mailto:bontlenyanam@statssa.gov.za">bontlenyanam@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Satellite accounts, environmental-economic accounts</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerhardt Bouwer (Chief Director)<br>012 310 8241<br>082 888 2409<br><a href="mailto:gerhardb@statssa.gov.za">gerhardb@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Riaan Grobler (Director)<br>012 310 8321<br>084 515 2908<br><a href="mailto:riaang@statssa.gov.za">riaang@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Mining, manufacturing, building, electricity, liquidations, civil cases, capacity utilisation</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerda Bruwer (Chief Director)<br>012 310 8249<br>082 786 3627<br><a href="mailto:gerdab@statssa.gov.za">gerdab@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Nicolai Claassen (Director)<br>012 310 8007<br>076 759 0200<br><a href="mailto:nicolaic@statssa.gov.za">nicolaic@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Retail, wholesale, motor, food &amp; beverages, tourist accommodation, transport</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Gerda Bruwer (Chief Director)<br>012 310 8249<br>082 786 3627<br><a href="mailto:gerdab@statssa.gov.za">gerdab@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Keshnee Govender (Director)<br>012 310 8423<br>083 689 5341<br><a href="mailto:keshneeg@statssa.gov.za">keshneeg@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Annual financial statistics (AFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Sagaren Pillay (Chief Director)<br>012 310 4619<br>082 905 2665<br><a href="mailto:sagarenp@statssa.gov.za">sagarenp@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Amukelani Ngobeni (Director)<br>012 310 2928<br>082 677 4536<br><a href="mailto:amukelanin@statssa.gov.za">amukelanin@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Quarterly financial statistics (QFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Sagaren Pillay (Chief Director)<br>012 310 4619<br>082 905 2665<br><a href="mailto:sagarenp@statssa.gov.za">sagarenp@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Krisseelan Govinden (Director)<br>012 310 4651<br>082 901 7960<br><a href="mailto:krisseelang@statssa.gov.za">krisseelang@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Periodic industry surveys (every three to five years)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Itani Magwaba (Chief Director)<br>012 337 6471 / 6254<br>082 905 5143<br><a href="mailto:itanim@statssa.gov.za">itanim@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Pekane (Director)<br>012 310 8191<br>083 675 8654<br><a href="mailto:tshepop@statssa.gov.za">tshepop@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Agriculture (annual and periodic)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Itani Magwaba (Chief Director)<br>012 337 6471 / 6254<br>082 905 5143<br><a href="mailto:itanim@statssa.gov.za">itanim@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Pekane (Director)<br>012 310 8191<br>083 675 8654<br><a href="mailto:tshepop@statssa.gov.za">tshepop@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td>Population Statistics (Census and Community Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Christine Khoza (Chief Director)<br>012 310 2185<br>071 670 2672<br><a href="mailto:christinek@statssa.gov.za">christinek@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Angela Ngyende (Chief Statistician)<br>012 310 4699<br>079 519 3212<br><a href="mailto:angelan@statssa.gov.za">angelan@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Demography-Mid-year Population Estimates</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Diego Iturralde (Chief Director)<br>012 310 8922<br>082 413 2661<br><a href="mailto:diegoi@statssa.gov.za">diegoi@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Chantal Munthree (Chief Statistician)<br>012 310 6648<br>082 888 2289<br><a href="mailto:chantalMu@statssa.gov.za">chantalMu@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Labour Statistics- Quarterly Labour Force Survey (QLFS)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malerato Mosiane (Acting Chief Director)<br><br>082 888 2449<br><a href="mailto:maleratoM@statssa.gov.za">maleratoM@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Desiree Manamela (Director)<br>012 310 2145<br>071 681 2768<br><a href="mailto:DesireeM@statssa.gov.za">DesireeM@statssa.gov.za</a><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Quarterly Employment Statistics (QES)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Malerato Mosiane (Acting Chief Director)<br>012 310 8688<br>082 888 2449<br><a href="mailto:maleratoM@statssa.gov.za">maleratoM@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Matlapane Masupye (Deputy Director)<br>012 310 8168<br>082 317 5340<br><a href="mailto:matlapanem@statssa.gov.za">matlapanem@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Tourism Statistics (Domestic Tourism Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Brenda Mosima (Director)<br>012 310 8168<br>082 906 7925<br><a href="mailto:BrendaMo@statssa.gov.za">BrendaMo@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Crime and Safety Statistics (Victims of Crime Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Joseph Lukhwareni (Director)<br>012 310 8485<br>082 888 2486<br><a href="mailto:JosephL@statssa.gov.za">JosephL@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Service Delivery Statistics (General Household Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Niel Roux (Director)<br>012 310 2939<br>082 904 7919<br><a href="mailto:NielR@statssa.gov.za">NielR@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Transport Statistics (National Travel Survey)</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Solly Molayi (Director) <br>012 310 6442<br>083 440 7035<br><a href="mailto:SollyMol@statssa.gov.za">SollyMol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Gender Statistics</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Isabel Schmidt (Chief Director )<br>012 337 6379 <br>082 884 4281<br><a href="mailto:IsabelSc@statssa.gov.za">IsabelSc@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Tshepo Mabela (Director)<br>012 310 8587<br>082 941 9383<br><a href="mailto:TshepoMab@statssa.gov.za">TshepoMab@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Mortality &amp; Causes of Death, Perinatal deaths in South Africa, Living conditions survey (LCS), Thematic Health Report, South Africa Demographic and Health Survey</td>
+                       <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director)Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+					   <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Thabo Molebatsi(Director)<br>012 310 4857<br>060 997 8372<br><a href="mailto:thabomol@statssa.gov.za">thabomol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Tourism and Migration </td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director)Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Ramadimetja Matji(Director)<br>012 406 33011<br>071 670 3272<br><a href="mailto:ramadimetjaM@statssa.gov.za">ramadimetjaM@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Registered  Births </td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director)Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Thabo Molebatsi(Director)<br>012 310 4857<br>060 997 8372<br><a href="mailto:thabomol@statssa.gov.za">thabomol@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Marriages and Divorces</td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Rika du Plessis (Acting Chief Director)Health and Vital Statistics<br>012 310 2913<br>..<br><a href="mailto:rikaDP@statssa.gov.za">rikaDP@statssa.gov.za</a></td>
+                         <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Ramadimetja Matji(Director)<br>012 406 33011<br>071 670 3272<br><a href="mailto:ramadimetjaM@statssa.gov.za">ramadimetjaM@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Living Conditions Survey</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Nozipho Shabalala  (Chief Director )<br>012 310 6994<br>082 904 8896<br><a href="mailto:Noziphos@statssa.gov.za">Noziphos@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Patricia Koka (Director)<br>012 310 8555<br>071 680 9545<br><a href="mailto:PatriciaK@statssa.gov.za">PatriciaK@statssa.gov.za</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 10px">Income and Expenditure Survey</td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Nozipho Shabalala  (Chief Director )<br>012 310 6994<br>082 904 8896<br><a href="mailto:Noziphos@statssa.gov.za">Noziphos@statssa.gov.za</a></td>
+                        <td style="font-size: 10px"><i class="icon-user"></i>&nbsp;Werner Ruch (Director)<br>012 310 6318<br>082 906 7967<br><a href="mailto:wernerr@statssa.gov.za">wernerr@statssa.gov.za</a></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+
+            <!--<div id="SuperWebModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="supModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="supModalLabel">SuperWeb</h3>
+                </div>
+                <div class="modal-body">
+                    <ul style="list-style:none;margin:0;">
+                        <li class="odd" style="padding:5px 10px;"></i> <strong></strong>SuperWeb is currently unavailable - for data requests contact  <a href="mailto:info@statssa.gov.za">info@statssa.gov.za</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>   
+                </div>
+            </div>-->
+
+            <div class="row footer_links" style="margin-top: 10px; ">
+                <div class="span12 footer_cols">
+                    <div class="span2" style="margin-left:0;">
+                        <div class="textwidget" style="border:none;">
+                             <h4>Press Room</h4>
+                             <div class="menu-footer-colum-1-pressroom-container"><ul id="menu-footer-colum-1-pressroom" class="menu"><li id="menu-item-295" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="http://www.statssa.gov.za/?page_id=1307">Press Statements</a></li>
+<li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="http://www.statssa.gov.za/?page_id=624">Data Stories</a></li>
+<li id="menu-item-592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-592"><a title="" href="http://www.gapminder.org/communityproxy/ChartDataServlet?key=pUm4g4qIPIfwsmGMIvR9ocQ" data-original-title="This facility allows users to view data as an animated graph." target="_blank">Interactive Graphs</a></li>
+<li id="menu-item-296" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a title="" href="http://www.google.com/publicdata/directory?q=South+Africa#!dp=Statistics+South+Africa" data-original-title="Google Public Data Explorer" target="_blank">Public Data Explorer</a></li>
+<li id="menu-item-311" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-311"><a title="" href="http://www.statssa.gov.za/?page_id=1874" data-original-title="Publication Schedule" target="_blank">Publication Schedule</a></li>
+<li id="menu-item-1362" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1362"><a href="http://www.statssa.gov.za/?page_id=505#mediaContactModal" role="button" data-toggle="modal">Media Contact</a></li>
+<li id="menu-item-4215" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4215"><a title="" href="http://www.statssa.gov.za/?page_id=505#econContactModal" data-original-title="Subject area contacts" role="button" data-toggle="modal">Subject area contacts</a></li>
+<li id="menu-item-6105" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6105"><a href="http://www.statssa.gov.za/?page_id=6048">Stats Biz</a></li>
+<li id="menu-item-7746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7746"><a href="http://www.statssa.gov.za/wp-content/uploads/2016/05/Final_Draft_Language_Policy_2016_for_government_gazette.pdf">Language Policy</a></li>
+</ul></div>                        </div>
+                    </div>
+                    <div class="span2" style="border:none;">
+                        <div class="textwidget">
+                             <h4>My Municipality</h4>
+                             <div class="menu-footer-colum-2-my-municipality-container"><ul id="menu-footer-colum-2-my-municipality" class="menu"><li id="menu-item-312" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-312"><a href="http://www.statssa.gov.za/?page_id=964">Municipal Profiles</a></li>
+</ul></div>                        </div>
+                    </div>                    
+                    <div class="span2" style="border:none;">
+                        <div class="textwidget">
+                             <h4>In My Classroom</h4>
+                             <div class="menu-footer-colum-3-my-classroom-container"><ul id="menu-footer-colum-3-my-classroom" class="menu"><li id="menu-item-1478" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1478"><a href="http://www.statssa.gov.za/?page_id=6454" target="_blank">ISIbalo Capacity Building Programme</a></li>
+<li id="menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479"><a href="http://www.statssa.gov.za/?page_id=1465">Mbalo Brief</a></li>
+<li id="menu-item-5921" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5921"><a href="http://www.statssa.gov.za/?page_id=5917">Multilingual statistical terminology</a></li>
+</ul></div>                        </div>
+                    </div>
+                    <div class="span2" style="border:none;">
+                        <div class="textwidget">
+                             <h4>Tools</h4>
+                             <div class="menu-footer-colum-4-tools-container"><ul id="menu-footer-colum-4-tools" class="menu"><li id="menu-item-3524" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3524"><a href="http://geoinfo.statssa.gov.za/censusdigitalatlas/">Digital Atlas</a></li>
+<li id="menu-item-1001" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1001"><a title="" href="http://mobi.statssa.gov.za/" data-original-title="Mobile Devices" target="_blank">Mobi</a></li>
+<li id="menu-item-320" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-320"><a href="https://apps.statssa.gov.za/cpi_calc/index.aspx" target="_blank">Personal Inflation Calculator</a></li>
+<li id="menu-item-4477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4477"><a href="http://www.statssa.gov.za/?page_id=4472">Roambi</a></li>
+<li id="menu-item-4133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4133"><a title="" href="https://apps.statssa.gov.za/Web_SIC7/" data-original-title="SIC Coder V7" target="_blank">SIC Coder V7</a></li>
+<li id="menu-item-10918" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10918"><a title="" href="http://superweb.statssa.gov.za/webapi" data-original-title="User registration is required">SuperWEB2 New</a></li>
+<li id="menu-item-7352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7352"><a title="" href="http://interactive2.statssa.gov.za/webapi" data-original-title="Login using “guest” as both username and password">SuperWEB2</a></li>
+<li id="menu-item-1860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1860"><a href="http://www.statssa.gov.za/?page_id=1417#time-series-data">Time Series Data</a></li>
+<li id="menu-item-7534" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7534"><a title="" href="http://interactive.statssa.gov.za:8282/webview/" data-original-title="Login using “guests” as both username and password">Nesstar</a></li>
+</ul></div>                        </div>
+                    </div>
+                    <div class="span2" style="border:none;">
+                        <div class="textwidget">
+                             <h4>Links</h4>
+                             <div class="menu-footer-colum-5-links-container"><ul id="menu-footer-colum-5-links" class="menu"><li id="menu-item-321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-321"><a href="http://www.statssa.gov.za/?page_id=739&amp;id=4">Millennium Development Goals</a></li>
+<li id="menu-item-322" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-322"><a href="http://www.statssa.gov.za/wp-content/uploads/2013/07/NDP-2030-Our-future-make-it-work.pdf" target="_blank">National Development Plan</a></li>
+<li id="menu-item-323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-323"><a href="http://apps.statssa.gov.za/nss/index.asp" target="_blank">National Statistics System (NSS)</a></li>
+<li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="http://www.statssa.gov.za/?page_id=371">SASQAF</a></li>
+<li id="menu-item-3714" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3714"><a href="http://www.statssa.gov.za/?page_id=2085">ASSD</a></li>
+<li id="menu-item-9323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9323"><a href="http://www.statssa.gov.za/?page_id=9282">ISIbalo CRUISE Conference</a></li>
+<li id="menu-item-9349" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9349"><a href="http://www.statssa.gov.za/?page_id=8687">UNWDF</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://webmail.statssa.gov.za/" target="_blank">GroupWise</a></li></ul></div>                        </div>
+                    </div>
+                    <div class="span2" style="border:none;">
+                        <div class="textwidget">
+                             <h4>Careers</h4>
+                             <div class="menu-footer-colum-6-careers-container"><ul id="menu-footer-colum-6-careers" class="menu"><li id="menu-item-1677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1677"><a href="http://www.statssa.gov.za/?page_id=419">Vacancies</a></li>
+<li id="menu-item-1826" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1826"><a href="http://www.statssa.gov.za/?page_id=1823">Internship</a></li>
+<li id="menu-item-2058" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2058"><a href="http://www.statssa.gov.za/?page_id=2050">Bursaries</a></li>
+</ul></div>                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Menu@start -->
+            <div class="footer row-fluid">
+                <table class="table table-bordered">
+                    <tbody><tr>
+                        <td style="width:40%;">© Statistics South Africa</td>
+                        <td style="width:30%;"><a href="http://www.statssa.gov.za/wp-content/uploads/2013/07/Access_to_information.pdf">Access to information</a></td>
+                        <td style="width:30%;"><a href="http://www.statssa.gov.za/?page_id=425">Disclaimer</a></td>
+                    </tr>
+                </tbody></table>
+                <div class="clear"></div>
+
+            </div>
+            <!-- Footer Menu@end -->
+            
+            <!-- user survey@start -->
+            <!--<div style="display:block;position:fixed;z-index:999999;bottom:0px;right:5px;width:180px;background-color:#666666;background-image:linear-gradient(to bottom, #666666, #464545);padding:5px;text-align:center;border-top:1px solid #fff;border-left: 1px solid #fff;border-right: 1px solid #fff;">
+                <h5 style="margin:0;"><a href="#user_survey" role="button" data-toggle="modal" style="color:#CCCCCC;text-shadow:0 1px 0 #000000;">&RightArrow;&nbsp;Start User Survey</a></h5>
+            </div>-->
+            <div id="user_survey" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="meModalLabel">User Survey</h3>
+                </div>
+                <div class="modal-body">
+                    Stats SA is in the process of updating its database of all users. Kindly participate in this short survey and provide your details. All details will be kept confidential and is for the use of Stats SA only.
+                    <hr>
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="full_name">Name and Surname<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <input type="text" name="full_name" id="full_name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="organisation">Organisation<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <input type="text" name="organisation" id="organisation">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="field_of_work">Field of statistical work/interest<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <input type="text" name="field_of_work" id="field_of_work">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="cellphone">Cell phone number<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <input type="text" name="cellphone" id="cellphone">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="email">Email address<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <input type="text" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="information_of_interest">What information do you want to receive from Stats SA and how often?<span style="color:red">*</span></label>
+                            <div class="controls">
+                                <textarea name="information_of_interest" id="information_of_interest"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="information_of_interest">Do you prefer the information emailed to you or downloading it online?<span style="color:red">*</span></label>        
+                            <div class="controls">
+                                <input type="radio" name="information_emailed_downloaded" value="Emailed" checked=""> Emailed<br>
+                                <input type="radio" name="information_emailed_downloaded" value="Online download" checked=""> Online download
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary" id="submit_user_survey">Submit</button>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#submit_user_survey").click(function() {
+                        var full_name = $('input[name*=full_name]').val();
+                        var organisation = $('input[name*=organisation]').val();
+                        var field_of_work = $('input[name*=field_of_work]').val();
+                        var cellphone = $('input[name*=cellphone]').val();
+                        var email = $('input[name*=email]').val();
+                        var information_of_interest = $('textarea[name*=information_of_interest]').val();
+                        var information_emailed_downloaded = $('input[name*=information_emailed_downloaded]').val();
+                        if(full_name.length>0 && organisation.length>0 && field_of_work.length>0 && cellphone.length>0 && email.length>0 && information_of_interest.length>0 && information_emailed_downloaded.length>0) {
+                            
+                            alert("Thank you for your participation.");  
+                            $('#user_survey').modal('hide');
+                        } else {
+                            alert('All fields with * are compulsory.');
+                        }
+                        
+                    });                    
+                });
+            </script> 
+            <!-- user survey@end -->
+        </div>
+        <br>
+        <!--
+        <center>
+            <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </center> -->
+        <script type="text/javascript">
+            $(".social-icons").find(".linkedin").remove();
+            $(document).ready(function() { 
+                //Press Room contact
+                $('#menu-item-309').find("a").click(function(){
+                    $("#comm_contact").modal({
+                        remote:'http://www.statssa.gov.za/wp-content/themes/umkhanyakude/includes/communications_contact.php'
+                    });
+                });
+       
+                $('#menu-item-309').find("a").attr("data-toggle", "modal").attr("href", "http://www.statssa.gov.za/wp-content/themes/umkhanyakude/includes/communications_contact.php").attr("data-target", "#comm_contact");
+                
+            });
+        </script>
+        <!--
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42891139-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+        -->
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42891139-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<!-- <script type="text/javascript" src="http://www.google-analytics.com/analytics.js" ></script> -->
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        if(console.log) {
+            //console.log(_gaq.push(['_trackEvent', 'download', 'click-pdf', 'http://10.131.144.79/wp/publications/report-50-11-01/report-50-11-012012.pdf', 0, false]));
+            //console.log(_trackEvent('download','click-pdf'));
+        }        
+    });
+    
+    
+if (typeof jQuery != 'undefined') {
+  jQuery(document).ready(function($) {
+    var filetypes = /\.(zip|exe|dmg|pdf|doc.*|xls.*|ppt.*|mp3|txt|rar|wma|mov|avi|wmv|flv|wav)$/i;
+    var baseHref = '';
+    if (jQuery('base').attr('href') != undefined) baseHref = jQuery('base').attr('href');
+ 
+    jQuery('a').on('click', function(event) {
+      var el = jQuery(this);
+      var track = true;
+      var href = (typeof(el.attr('href')) != 'undefined' ) ? el.attr('href') :"";
+      var isThisDomain = href.match(document.domain.split('.').reverse()[1] + '.' + document.domain.split('.').reverse()[0]);
+      if (!href.match(/^javascript:/i)) {
+        var elEv = []; elEv.value=0, elEv.non_i=false;
+        if (href.match(/^mailto\:/i)) {
+          elEv.category = "email";
+          elEv.action = "click";
+          elEv.label = href.replace(/^mailto\:/i, '');
+          elEv.loc = href;
+        }
+        else if (href.match(filetypes)) {
+          var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
+          elEv.category = "download";
+          elEv.action = "click-" + extension[0];
+          elEv.label = href.replace(/ /g,"-");
+          elEv.loc = baseHref + href;
+        }
+        else if (href.match(/^https?\:/i) && !isThisDomain) {
+          elEv.category = "external";
+          elEv.action = "click";
+          elEv.label = href.replace(/^https?\:\/\//i, '');
+          elEv.non_i = true;
+          elEv.loc = href;
+        }
+        else if (href.match(/^tel\:/i)) {
+          elEv.category = "telephone";
+          elEv.action = "click";
+          elEv.label = href.replace(/^tel\:/i, '');
+          elEv.loc = href;
+        }
+        else track = false;
+ 
+        if (track) {
+          _gaq.push(['_trackEvent', elEv.category.toLowerCase(), elEv.action.toLowerCase(), elEv.label.toLowerCase(), elEv.value, elEv.non_i]);
+          if ( el.attr('target') == undefined || el.attr('target').toLowerCase() != '_blank') {
+            setTimeout(function() { location.href = elEv.loc; }, 400);
+            return false;
+      }
+    }
+      }
+    });
+  });
+}
+</script>
+        
+        <!--serv 1 -->
+        <script type="text/javascript" src="./Contact us _ Statistics South Africa_files/comment-reply.js.download"></script>
+<script type="text/javascript" src="./Contact us _ Statistics South Africa_files/wp-embed.js.download"></script>
+         <!-- <script type="text/javascript" src="http://www.statssa.gov.za/wp-content/themes/umkhanyakude/js/css3-mediaqueries.js"></script> -->
+    
+
+
+</body></html>

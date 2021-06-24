@@ -1,0 +1,620 @@
+object Form12: TForm12
+  Left = 0
+  Top = 0
+  Caption = 'Form12'
+  ClientHeight = 600
+  ClientWidth = 1184
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCanResize = FormCanResize
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GridPanel1: TGridPanel
+    Left = 0
+    Top = 0
+    Width = 1184
+    Height = 600
+    Align = alClient
+    ColumnCollection = <
+      item
+        Value = 2.000000000000000000
+      end
+      item
+        Value = 51.000000000000000000
+      end
+      item
+        Value = 10.000000000000000000
+      end
+      item
+        Value = 35.000000000000000000
+      end
+      item
+        Value = 2.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        ColumnSpan = 5
+        Control = Panel1
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = TabControl1
+        Row = 1
+      end
+      item
+        Column = 2
+        Control = GridPanel2
+        Row = 1
+      end
+      item
+        Column = 3
+        Control = GridPanel3
+        Row = 1
+      end
+      item
+        Column = 3
+        Control = Label4
+        Row = 2
+      end>
+    RowCollection = <
+      item
+        Value = 10.000000000000000000
+      end
+      item
+        Value = 88.000000000000000000
+      end
+      item
+        Value = 2.000000000000000000
+      end>
+    TabOrder = 0
+    ExplicitLeft = 48
+    ExplicitTop = 29
+    ExplicitWidth = 649
+    ExplicitHeight = 523
+    DesignSize = (
+      1184
+      600)
+    object Panel1: TPanel
+      Left = 1
+      Top = 1
+      Width = 1182
+      Height = 59
+      Align = alClient
+      BevelOuter = bvNone
+      Caption = 'MANAGE STOCK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -48
+      Font.Name = 'Takion'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      TabOrder = 0
+      ExplicitWidth = 647
+      ExplicitHeight = 52
+      object Image1: TImage
+        Left = 0
+        Top = 0
+        Width = 49
+        Height = 59
+        Cursor = crHandPoint
+        Align = alLeft
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000260000
+          002608030000009FE3199C0000000467414D410000B18F0BFC61050000003650
+          4C544500000077828C77828C77828C77828C77828C77828C77828C77828C7782
+          8C77828C77828C77828C77828C77828C77828C77828C000000DC443D35000000
+          1074524E53004080A0C0F03090E010D050602070B016A2AB0E00000009704859
+          7300000B1200000B1201D2DD7EFC00000001624B47440088051D480000014B49
+          44415478DA8D94D99284200C4583A2A303DAF3FF5F39DDA8206E4D141594B2E0
+          C16239DE40089780DFF24C9A2F1785F4A6893B602A617B5FD34504313E16BEB2
+          F815372C9F396A4CB42B643E540417DA69BE60BC37E144AA0FA93245F126932E
+          C6A9992A851F344919E8459E18529F19AE2DA7B9E5568C65006303F75612C375
+          16AB140B531B27FB0D7B91B57B24069C5F50A2D388911728752EA495276D36D4
+          8C88510EEFC5A5DCA15D2650A588BB94BF4F134C4C04EAC499BF530045D10E04
+          457BF9404152C39BC0DF19334861D40F315BDBF31FA6C0080982EC7C505AB9EB
+          4C58AC416C68F77BBD34BB1BCA576C4B9339F133161334F2089109C1F4FE3F5D
+          02FC9498DEC8CB8ABCFAC842427CADF79373E54CD6B7B2BC16793D078B3CF6C9
+          443EC0D8E76CCD21D13E55CB8B39C45ACD6E5C6AA11D17685C1D0B191744DAE0
+          7AE21853DD62872DFA0B4A8DCA436A73F1F90000000049454E44AE426082}
+        OnClick = Image1Click
+        ExplicitHeight = 41
+      end
+    end
+    object TabControl1: TTabControl
+      Left = 24
+      Top = 60
+      Width = 602
+      Height = 526
+      Align = alClient
+      MultiLine = True
+      TabOrder = 1
+      Tabs.Strings = (
+        'Beverages'
+        'Snack'
+        'Food'
+        'Spices'
+        'Extras'
+        'Dairy'
+        'Fruits and Vegetables'
+        'Search'
+        'All')
+      TabIndex = 0
+      TabWidth = 110
+      OnChange = TabControl1Change
+      ExplicitLeft = 13
+      ExplicitTop = 53
+      ExplicitWidth = 329
+      ExplicitHeight = 458
+      object fp1: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp2: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clMaroon
+        ParentBackground = False
+        TabOrder = 2
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp3: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clYellow
+        ParentBackground = False
+        TabOrder = 3
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp4: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clRed
+        ParentBackground = False
+        TabOrder = 4
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp6: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clLime
+        ParentBackground = False
+        TabOrder = 6
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp5: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        TabOrder = 5
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp0: TFlowPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clAqua
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+      end
+      object fp8: TPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clSilver
+        ParentBackground = False
+        TabOrder = 8
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+        object FlowPanel2: TFlowPanel
+          Left = 16
+          Top = 14
+          Width = 585
+          Height = 443
+          BevelOuter = bvNone
+          TabOrder = 0
+        end
+      end
+      object fp7: TPanel
+        Left = 4
+        Top = 42
+        Width = 577
+        Height = 480
+        Align = alClient
+        Color = clBackground
+        ParentBackground = False
+        TabOrder = 7
+        ExplicitTop = 96
+        ExplicitWidth = 304
+        ExplicitHeight = 358
+        object Button6: TButton
+          Left = 400
+          Top = 32
+          Width = 75
+          Height = 25
+          Caption = 'Search'
+          TabOrder = 0
+          OnClick = Button6Click
+        end
+        object Edit1: TEdit
+          Left = 152
+          Top = 34
+          Width = 217
+          Height = 21
+          TabOrder = 1
+          TextHint = 'Enter Search'
+          OnChange = Edit1Change
+          OnKeyDown = Edit1KeyDown
+        end
+        object FlowPanel1: TFlowPanel
+          Left = 29
+          Top = 86
+          Width = 572
+          Height = 300
+          Color = clRed
+          ParentBackground = False
+          TabOrder = 2
+        end
+      end
+      object ScrollBar1: TScrollBar
+        Left = 624
+        Top = 46
+        Width = 17
+        Height = 466
+        Kind = sbVertical
+        PageSize = 0
+        TabOrder = 9
+        Visible = False
+        OnChange = ScrollBar1Change
+      end
+      object ScrollBar2: TScrollBar
+        Left = 581
+        Top = 42
+        Width = 17
+        Height = 480
+        Align = alRight
+        Kind = sbVertical
+        PageSize = 0
+        TabOrder = 10
+        Visible = False
+        OnChange = ScrollBar2Change
+        ExplicitLeft = 308
+        ExplicitTop = 96
+        ExplicitHeight = 358
+      end
+    end
+    object GridPanel2: TGridPanel
+      Left = 626
+      Top = 60
+      Width = 118
+      Height = 526
+      Align = alClient
+      ColumnCollection = <
+        item
+          Value = 100.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 0
+          Control = Button4
+          Row = 0
+        end
+        item
+          Column = 0
+          Control = Button1
+          Row = 1
+        end
+        item
+          Column = 0
+          Control = Button3
+          Row = 2
+        end
+        item
+          Column = 0
+          Control = BitBtn1
+          Row = 3
+        end>
+      RowCollection = <
+        item
+          Value = 25.000000000000000000
+        end
+        item
+          Value = 25.000000000000000000
+        end
+        item
+          Value = 25.000000000000000000
+        end
+        item
+          Value = 25.000000000000000000
+        end>
+      TabOrder = 2
+      ExplicitLeft = 342
+      ExplicitTop = 53
+      ExplicitWidth = 64
+      ExplicitHeight = 458
+      object Button4: TButton
+        AlignWithMargins = True
+        Left = 4
+        Top = 4
+        Width = 110
+        Height = 125
+        Hint = 'Increase Quantity'
+        Align = alClient
+        Caption = '+'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -35
+        Font.Name = 'Elephant'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnClick = Button4Click
+        OnMouseDown = Button4MouseDown
+        ExplicitWidth = 56
+        ExplicitHeight = 108
+      end
+      object Button1: TButton
+        AlignWithMargins = True
+        Left = 4
+        Top = 135
+        Width = 110
+        Height = 125
+        Hint = 'Decrease Quantity'
+        Align = alClient
+        Caption = '--'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -35
+        Font.Name = 'Elephant'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        OnClick = Button1Click
+        ExplicitTop = 118
+        ExplicitWidth = 56
+        ExplicitHeight = 108
+      end
+      object Button3: TButton
+        AlignWithMargins = True
+        Left = 4
+        Top = 266
+        Width = 110
+        Height = 125
+        Hint = 'Remove Item'
+        Align = alClient
+        Caption = 'X'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -35
+        Font.Name = 'Elephant'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = Button3Click
+        ExplicitTop = 232
+        ExplicitWidth = 56
+        ExplicitHeight = 108
+      end
+      object BitBtn1: TBitBtn
+        AlignWithMargins = True
+        Left = 4
+        Top = 397
+        Width = 110
+        Height = 125
+        Align = alClient
+        Caption = 'RESET'
+        DoubleBuffered = True
+        Kind = bkRetry
+        ParentDoubleBuffered = False
+        TabOrder = 3
+        OnClick = BitBtn1Click
+        ExplicitTop = 346
+        ExplicitWidth = 56
+        ExplicitHeight = 108
+      end
+    end
+    object GridPanel3: TGridPanel
+      Left = 744
+      Top = 60
+      Width = 413
+      Height = 526
+      Align = alClient
+      ColumnCollection = <
+        item
+          Value = 50.000000000000000000
+        end
+        item
+          Value = 50.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 0
+          ColumnSpan = 2
+          Control = Panel2
+          Row = 0
+        end
+        item
+          Column = 0
+          ColumnSpan = 2
+          Control = StringGrid1
+          Row = 1
+        end
+        item
+          Column = 0
+          Control = Button2
+          Row = 2
+        end
+        item
+          Column = 1
+          Control = Button5
+          Row = 2
+        end>
+      RowCollection = <
+        item
+          Value = 10.000000000000000000
+        end
+        item
+          Value = 80.000000000000000000
+        end
+        item
+          Value = 10.000000000000000000
+        end>
+      TabOrder = 3
+      ExplicitLeft = 426
+      ExplicitTop = 193
+      ExplicitWidth = 185
+      ExplicitHeight = 177
+      object Panel2: TPanel
+        Left = 1
+        Top = 1
+        Width = 411
+        Height = 52
+        Align = alClient
+        Caption = 'RECEIPT'
+        TabOrder = 0
+        ExplicitWidth = 91
+        ExplicitHeight = 17
+      end
+      object StringGrid1: TStringGrid
+        Left = 1
+        Top = 53
+        Width = 411
+        Height = 419
+        Align = alClient
+        ColCount = 4
+        DefaultColWidth = 118
+        DrawingStyle = gdsGradient
+        FixedCols = 0
+        RowCount = 2
+        GradientEndColor = clNone
+        GradientStartColor = clNone
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+        TabOrder = 1
+        OnDragDrop = StringGrid1DragDrop
+        OnDragOver = StringGrid1DragOver
+        ExplicitTop = 28
+        ExplicitWidth = 91
+        ExplicitHeight = 120
+      end
+      object Button2: TButton
+        AlignWithMargins = True
+        Left = 4
+        Top = 475
+        Width = 199
+        Height = 47
+        Align = alClient
+        Caption = 'Accept'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -35
+        Font.Name = 'Elephant'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnClick = Button2Click
+        ExplicitLeft = 9
+        ExplicitTop = 158
+        ExplicitWidth = 75
+        ExplicitHeight = 18
+      end
+      object Button5: TButton
+        AlignWithMargins = True
+        Left = 209
+        Top = 475
+        Width = 200
+        Height = 47
+        Align = alClient
+        Caption = 'Cancel'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -35
+        Font.Name = 'Elephant'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        OnClick = Button5Click
+        ExplicitLeft = 100
+        ExplicitTop = 158
+        ExplicitWidth = 75
+        ExplicitHeight = 18
+      end
+    end
+    object Label4: TLabel
+      Left = 939
+      Top = 586
+      Width = 134
+      Height = 13
+      Anchors = []
+      Caption = 'Developed by GinTEC -2018'
+      ExplicitLeft = 1
+      ExplicitTop = 316
+    end
+  end
+  object ADOQuery1: TADOQuery
+    Connection = DataModule1.dbProvider
+    Parameters = <>
+    Left = 704
+    Top = 72
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery1
+    Left = 584
+    Top = 304
+  end
+end

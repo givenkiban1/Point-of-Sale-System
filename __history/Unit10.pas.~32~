@@ -1,0 +1,83 @@
+unit Unit10;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, Grids, DBGrids, pngimage,dbConn_u, DB,
+  ADODB, UserAcc;
+
+type
+  TForm10 = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Button5: TButton;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn2: TBitBtn;
+    BitBtn1: TBitBtn;
+    ComboBox2: TComboBox;
+    ComboBox1: TComboBox;
+    ComboBox3: TComboBox;
+    Image2: TImage;
+    Label4: TLabel;
+    DataSource1: TDataSource;
+    ADOTable1: TADOTable;
+    procedure Image2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Account : TAccount;
+  end;
+
+var
+  Form10: TForm10;
+
+implementation
+uses unit17;
+
+{$R *.dfm}
+
+procedure TForm10.Button5Click(Sender: TObject);
+begin
+//
+end;
+
+procedure TForm10.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+form15.show;
+form10.hide;
+end;
+
+procedure TForm10.FormCreate(Sender: TObject);
+begin
+(Sender as TForm).Position:=poScreenCenter;
+(Sender as TForm).DefaultMonitor := dmMainForm;
+
+ADOTable1.TableName := 'tblStock';
+
+DBGrid1.Columns[0].Width:=60;
+DBGrid1.Columns[1].Width:=200;
+DBGrid1.Columns[2].Width:=60;
+DBGrid1.Columns[3].Width:=50;
+DBGrid1.Columns[4].Width:=50;
+DBGrid1.Columns[5].Width:=200;
+DBGrid1.Columns[6].Width:=200;
+
+end;
+
+procedure TForm10.Image2Click(Sender: TObject);
+begin
+//         dbConn_u,
+form15.show;
+form10.hide;
+end;
+
+end.

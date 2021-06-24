@@ -1,0 +1,220 @@
+object Form13: TForm13
+  Left = 0
+  Top = 0
+  Caption = 'VIEW STORE'
+  ClientHeight = 551
+  ClientWidth = 844
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCanResize = FormCanResize
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GridPanel1: TGridPanel
+    Left = 0
+    Top = 0
+    Width = 844
+    Height = 551
+    Align = alClient
+    Caption = 'GridPanel1'
+    ColumnCollection = <
+      item
+        Value = 2.000000000000000000
+      end
+      item
+        Value = 96.000000000000000000
+      end
+      item
+        Value = 2.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        ColumnSpan = 3
+        Control = Panel1
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = TabControl1
+        Row = 1
+      end
+      item
+        Column = 1
+        Control = Label4
+        Row = 2
+      end>
+    RowCollection = <
+      item
+        Value = 15.000000000000000000
+      end
+      item
+        Value = 80.000000000000000000
+      end
+      item
+        Value = 5.000000000000000000
+      end>
+    TabOrder = 0
+    DesignSize = (
+      844
+      551)
+    object Panel1: TPanel
+      Left = 1
+      Top = 1
+      Width = 842
+      Height = 82
+      Align = alClient
+      BevelOuter = bvNone
+      Caption = 'YOU'#39'RE VIEWING THE STORE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -48
+      Font.Name = 'Takion'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      TabOrder = 0
+      object Image1: TImage
+        Left = 0
+        Top = 0
+        Width = 78
+        Height = 82
+        Cursor = crHandPoint
+        Align = alLeft
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000260000
+          002608030000009FE3199C0000000467414D410000B18F0BFC61050000003650
+          4C544500000077828C77828C77828C77828C77828C77828C77828C77828C7782
+          8C77828C77828C77828C77828C77828C77828C77828C000000DC443D35000000
+          1074524E53004080A0C0F03090E010D050602070B016A2AB0E00000009704859
+          7300000B1200000B1201D2DD7EFC00000001624B47440088051D480000014B49
+          44415478DA8D94D99284200C4583A2A303DAF3FF5F39DDA8206E4D141594B2E0
+          C16239DE40089780DFF24C9A2F1785F4A6893B602A617B5FD34504313E16BEB2
+          F815372C9F396A4CB42B643E540417DA69BE60BC37E144AA0FA93245F126932E
+          C6A9992A851F344919E8459E18529F19AE2DA7B9E5568C65006303F75612C375
+          16AB140B531B27FB0D7B91B57B24069C5F50A2D388911728752EA495276D36D4
+          8C88510EEFC5A5DCA15D2650A588BB94BF4F134C4C04EAC499BF530045D10E04
+          457BF9404152C39BC0DF19334861D40F315BDBF31FA6C0080982EC7C505AB9EB
+          4C58AC416C68F77BBD34BB1BCA576C4B9339F133161334F2089109C1F4FE3F5D
+          02FC9498DEC8CB8ABCFAC842427CADF79373E54CD6B7B2BC16793D078B3CF6C9
+          443EC0D8E76CCD21D13E55CB8B39C45ACD6E5C6AA11D17685C1D0B191744DAE0
+          7AE21853DD62872DFA0B4A8DCA436A73F1F90000000049454E44AE426082}
+        OnClick = Image1Click
+      end
+    end
+    object TabControl1: TTabControl
+      Left = 17
+      Top = 83
+      Width = 808
+      Height = 439
+      Align = alClient
+      TabOrder = 1
+      Tabs.Strings = (
+        'Beverages'
+        'Snack'
+        'Food'
+        'Spices'
+        'Extras'
+        'Dairy'
+        'Fruits and Vegetables')
+      TabIndex = 0
+      TabWidth = 110
+      OnChange = TabControl1Change
+      object fp1: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 1
+      end
+      object fp2: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clMaroon
+        ParentBackground = False
+        TabOrder = 2
+      end
+      object fp3: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clYellow
+        ParentBackground = False
+        TabOrder = 3
+      end
+      object fp4: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clRed
+        ParentBackground = False
+        TabOrder = 4
+      end
+      object fp5: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        TabOrder = 5
+      end
+      object fp6: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clLime
+        ParentBackground = False
+        TabOrder = 6
+      end
+      object fp0: TFlowPanel
+        Left = 4
+        Top = 24
+        Width = 800
+        Height = 411
+        Align = alClient
+        Color = clAqua
+        ParentBackground = False
+        TabOrder = 0
+      end
+    end
+    object Label4: TLabel
+      Left = 354
+      Top = 529
+      Width = 134
+      Height = 13
+      Anchors = []
+      Caption = 'Developed by GinTEC -2018'
+      ExplicitLeft = 338
+      ExplicitTop = 528
+    end
+  end
+  object ADOTable1: TADOTable
+    Connection = DataModule1.dbProvider
+    Left = 8
+    Top = 72
+  end
+  object ADOQuery1: TADOQuery
+    Connection = DataModule1.dbProvider
+    Parameters = <>
+    Left = 160
+    Top = 48
+  end
+end
